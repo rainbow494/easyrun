@@ -1,1 +1,4 @@
 web_site_demo/*
+grunt/node_modules/*
+grunt/test.min.js
+grunt/test.css
