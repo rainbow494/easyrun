@@ -3,12 +3,12 @@
     window.createNamespace = function (namespace) {
         var namespaces = namespace.split(".");
         var name = namespaces[0];
-        window[name] = window[name] ? window[name] : {};
+        window[name] = window[name] || {};
 
         var parent = window[name];
         for (i = 1; i < namespaces.length; i++) {
-            name = namespace[i];
-            parent[name] = parent[name] ? parent[name] : {};
+            name = namespaces[i];
+            parent[name] = parent[name] || {};
 
             parent = parent[name];
         }
