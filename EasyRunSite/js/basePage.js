@@ -1,5 +1,5 @@
 (function () {
-    createNamespace("EZ.BasePage");
+    createNamespace("EZ").BasePage = BasePage;
 
     function BasePage() {
         this.headerTemplate = ko.observable("html/ezheader");
@@ -8,5 +8,4 @@
         this.id = "";
     };
 
-    EZ.BasePage = BasePage;
 })();
