@@ -1,8 +1,9 @@
 <hr>
+
 <div class="container">
+
     <!-- Example row of columns -->
     <div class="row">
-        
 
         <div class="col-md-6">
             <div class="jumbotron">
@@ -14,58 +15,36 @@
         <div class="col-md-6">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3 class="panel-title">LEAVE A MESSAGE</h3>
+                    <h3 class="panel-title">Leave Message</h3>
                 </div>
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p>
-                                <span>Default</span>
-                                <input type="text" class="form-control" placeholder="First Name">
-                                <span>Default</span>
-                            </p>
+                    <form>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" required class="form-control" id="firstName" placeholder="First Name">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" required class="form-control" id="lastName" placeholder="Last Name">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="emailAddress">Email Address *</label>
+                                <input type="email" required class="form-control" id="emailAddress" placeholder="Your mail address">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="subject">Subject *</label>
+                                <input type="email" required class="form-control" id="subject" placeholder="Inquery for Product No.XXX">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="subject">Subject</label>
+                                <textarea class="form-control" rows="5" placeholder="Dear customer, I am very glad your give our a chance to introduce our product."></textarea>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <p>
-                            <span>Default</span>
-                            <input type="text" class="form-control" placeholder="Last Name">
-                                </p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p>
-                            <span>Default</span>
-                            <input type="text" class="form-control" placeholder="Please input your mail address">
-                                </p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p>
-                            <span>Default</span>
-                            <input type="text" class="form-control" placeholder="Inquery for Product No.XXX">
-                                </p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p>
-                            <span>Default</span>
-                            <input type="text" class="form-control" placeholder="Leave your message">
-                                </p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <a class="btn btn-info btn-md" href="#" role="button">Learn more</a>
-                        </div>
-                    </div>
-
-
+                        <button type="submit" class="btn btn-info">Submit</button>
+                    </form>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
