@@ -22,11 +22,11 @@
         <!--<script src="../../assets/js/ie-emulation-modes-warning.js"></script>--><!--不知道作用所以注释了这段代码-->
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
                     <!--[if lt IE 9]>
-                                    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-                                    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-                                <![endif]-->
+                                                                                                                        <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+                                                                                                                        <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+                                                                                                                    <![endif]-->
                     <!-- Bootstrap core JavaScript
-                                ================================================== -->
+                                                                                                                    ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="./thirdpart/jquery/1.11.3/jquery.min.js"></script>
         <script src="./thirdpart/bootstrap/js/bootstrap.min.js"></script>
@@ -37,29 +37,34 @@
         <script src="./thirdpart/knockoutjs/knockout-3.3.0.js"></script>
         <script src="./thirdpart/knockoutjs/koExternalTemplateEngine_all.js"></script>
         <script src="./thirdpart/sammy/sammy.js"></script>
+        <script src="./thirdpart/holderjs/holder.js"></script>
         <script src="./js/basepage.js"></script>
         <script src="./js/homepage.js"></script>
     </head>
     <body>
         <script type="text/javascript">
             $(document).ready(function () {
-
+            
                 var app = $.sammy(function () {
-
-                    this.get('#/', function () {
-                        console.log("black page name");
+            
+                    this.get('/', function () {
+                        BasePage.contentTemplate('home_continer');
                     });
-                    
-                    this.get('#/:page_name', function () {
+            
+                    this.get('/#', function () {
+                        BasePage.contentTemplate('home_continer');
+                    });
+            
+                    this.get('/#/:page_name', function () {
                         BasePage.contentTemplate(this.params['page_name']);
                     });
-
+            
                 });
-
+            
                 $(function () {
-                    app.run()
+                    app.run('/#')
                 });
-
+            
                 infuser.defaults.templateUrl = "./html";
                 BasePage = new EZ.BasePage("home_continer")
                 ko.applyBindings(BasePage);
