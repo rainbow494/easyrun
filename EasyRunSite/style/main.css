@@ -1,7 +1,14 @@
 body {
   padding-top: 50px;
 }
-.starter-template {
-  padding: 40px 15px;
-  text-align: center;
+.ez-slider {
+  max-height: 100vh;
+  overflow: hidden;
 }
+.ez-slider > .item > img {
+  width: 100vw;
+}
+/*sample for media query*/
+/*@media screen and (max-width: 600px) {
+    .ez-slider-template(600px, auto);
+}*/

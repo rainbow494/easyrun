@@ -1,0 +1,23 @@
+body {
+  padding-top: 50px;
+}
+
+.ez-slider-template(@max-height, @overflow) {
+    @slider-width : 100vw;
+    max-height: @max-height;
+    overflow: @overflow;
+    > .item {
+        > img {
+            width: @slider-width;
+        }
+    }
+}
+
+.ez-slider {
+    .ez-slider-template(100vh, hidden);
+}
+
+/*sample for media query*/
+/*@media screen and (max-width: 600px) {
+    .ez-slider-template(600px, auto);
+}*/
