@@ -1,23 +1,26 @@
-#¼òÊö
-- ±¾ÎÄ½öÎª¸ÅÊö£¬¾ßÌå²½ÖèºÍ½âÊÍÇë²ÎÕÕ[Grunt¿ìËÙÈëÃÅ][1]
-- Nodejs:  GruntÔËĞĞ»·¾³
-- Grunt: ×Ô¶¯»¯½Å±¾ÔËĞĞ¹¤¾ß
-- ËùÓĞÃüÁî¾ùÔÚ```Node.js command prompt```¿ØÖÆÌ¨ÏÂÖ´ĞĞ
+ï»¿#ç®€è¿°
+- æœ¬æ–‡ä»…ä¸ºæ¦‚è¿°ï¼Œå…·ä½“æ­¥éª¤å’Œè§£é‡Šè¯·å‚ç…§[Gruntå¿«é€Ÿå…¥é—¨][1]
+- Nodejs:  Gruntè¿è¡Œç¯å¢ƒ
+- Grunt: è‡ªåŠ¨åŒ–è„šæœ¬è¿è¡Œå·¥å…·
+- æ‰€æœ‰å‘½ä»¤å‡åœ¨```Node.js command prompt```æ§åˆ¶å°ä¸‹æ‰§è¡Œ
 
-#¿ìËÙÈëÃÅ
-- °²×°Nodejs [ÏÂÔØ][2]
-- ÏÂÔØÎÄ¼ş¼ĞÏÂËùÓĞÎÄ¼ş
-- Ö´ĞĞ ```npm install``` Éú³ÉÎÄ¼ş¼Ğ *Node_modules*
-- Ö´ĞĞ ```grunt``` Éú³ÉÎÄ¼ş *test.min.js*
-- Ö´ĞĞ ```grunt less:test --force```Éú³ÉÎÄ¼ş *test.css*
-
-#°²×°²½Öè
+#å¿«é€Ÿå…¥é—¨(æœ€æ–°)
+- å®‰è£…Nodejs [ä¸‹è½½][2]
+- ä¸‹è½½æ–‡ä»¶å¤¹ä¸‹æ‰€æœ‰æ–‡ä»¶
+- æ‰§è¡Œ ```npm install``` ç”Ÿæˆæ–‡ä»¶å¤¹ *Node_modules*
+- æ‰§è¡Œ ```grunt``` ç”Ÿæˆæ–‡ä»¶ *test.min.js*
+- ```chromeä¸­, æ‰“å¼€localhost:8000, ç‚¹å‡»livereload``` ä¿®æ”¹æ–‡ä»¶åæ–‡ä»¶è‡ªåŠ¨æ›´æ–°
 
 
-20. °²×°grunt
-- ´´½¨ÎÄ¼ş¼Ğ ```c:\easyrun\grunt```
-- Ö´ĞĞ```npm install -g grunt-cli``` *(±íÊ¾°²×°È«¾Ögrunt½Ó¿Ú£¬¿Éµ÷ÓÃµ±Ç°Ä¿Â¼ÏÂµÄgrunt model)*
-- ÔÚµ±Ç°Ä¿Â¼Ìí¼Ó```package.json```ÎÄ¼ş
+#å…¥é—¨æ•™ç¨‹
+
+#å®‰è£…æ­¥éª¤
+
+
+20. å®‰è£…grunt
+- åˆ›å»ºæ–‡ä»¶å¤¹ ```c:\easyrun\grunt```
+- æ‰§è¡Œ```npm install -g grunt-cli``` *(è¡¨ç¤ºå®‰è£…å…¨å±€gruntæ¥å£ï¼Œå¯è°ƒç”¨å½“å‰ç›®å½•ä¸‹çš„grunt model)*
+- åœ¨å½“å‰ç›®å½•æ·»åŠ ```package.json```æ–‡ä»¶
     ```
     {
     "name": "testGrunt",
@@ -31,37 +34,37 @@
     }
     ```
 
-- Ö´ĞĞ```$ npm install``` °²×°grunt model
+- æ‰§è¡Œ```$ npm install``` å®‰è£…grunt model
 
-30. Ìí¼ÓGrunt²å¼ş
+30. æ·»åŠ Gruntæ’ä»¶
 
-- Í¨¹ıÃüÁî°²×°²å¼ş£¬²¢Ğ´Èëpackage.jsonÎÄ¼şÖĞ *(²å¼şÃûÇë×ÔĞĞgoogle)*
+- é€šè¿‡å‘½ä»¤å®‰è£…æ’ä»¶ï¼Œå¹¶å†™å…¥package.jsonæ–‡ä»¶ä¸­ *(æ’ä»¶åè¯·è‡ªè¡Œgoogle)*
     ```
-$ npm install [grunt²å¼şÃû] --save-dev
-ÀıÈç£º
+$ npm install [gruntæ’ä»¶å] --save-dev
+ä¾‹å¦‚ï¼š
 $ npm install grunt-less --save-dev
     ``` 
 
-40. Ìí¼ÓGruntÄ£°å
-- ÔÚµ±Ç°Ä¿Â¼Ìí¼Ó```Gruntfile.js```
+40. æ·»åŠ Gruntæ¨¡æ¿
+- åœ¨å½“å‰ç›®å½•æ·»åŠ ```Gruntfile.js```
     ```
     module.exports = function(grunt){
-        // ¹¹½¨ÈÎÎñÅäÖÃ
+        // æ„å»ºä»»åŠ¡é…ç½®
         grunt.initConfig({
-            //¶ÁÈ¡package.jsonµÄÄÚÈİ£¬ĞÎ³É¸öjsonÊı¾İ
+            //è¯»å–package.jsonçš„å†…å®¹ï¼Œå½¢æˆä¸ªjsonæ•°æ®
             pkg: grunt.file.readJSON('package.json'),
     
-            //Grunt ÈÎÎñÅäÖÃ
+            //Grunt ä»»åŠ¡é…ç½®
         });
     
-        //¼ÓÔØGrunt²å¼ş
-        grunt.loadNpmTasks('Grunt²å¼şÃû');
+        //åŠ è½½Gruntæ’ä»¶
+        grunt.loadNpmTasks('Gruntæ’ä»¶å');
     
-        //Ä¬ÈÏµÄGruntÈÎÎñ
-        grunt.registerTask('default',['GruntÈÎÎñ'])£»
+        //é»˜è®¤çš„Gruntä»»åŠ¡
+        grunt.registerTask('default',['Gruntä»»åŠ¡'])ï¼›
     };
     
-    ÀıÈç£º
+    ä¾‹å¦‚ï¼š
     module.exports = function(grunt) {
 
       // Project configuration.
@@ -78,16 +81,16 @@ $ npm install grunt-less --save-dev
         }
       });
     
-      // ¼ÓÔØ°üº¬ "uglify" ÈÎÎñµÄ²å¼ş¡£
+      // åŠ è½½åŒ…å« "uglify" ä»»åŠ¡çš„æ’ä»¶ã€‚
       grunt.loadNpmTasks('grunt-contrib-uglify');
     
-      // Ä¬ÈÏ±»Ö´ĞĞµÄÈÎÎñÁĞ±í¡£
+      // é»˜è®¤è¢«æ‰§è¡Œçš„ä»»åŠ¡åˆ—è¡¨ã€‚
       grunt.registerTask('default', ['uglify']);
     
     };
     ```
     
-40. ÔÚ¿ØÖÆÌ¨ÖĞÖ´ĞĞgrunt Éú³ÉÏàÓ¦ÎÄ¼ş
+40. åœ¨æ§åˆ¶å°ä¸­æ‰§è¡Œgrunt ç”Ÿæˆç›¸åº”æ–‡ä»¶
 
 
   [1]: http://www.gruntjs.net/getting-started
