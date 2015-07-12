@@ -12,6 +12,7 @@
 - 安装Nodejs [ - 点击下载][2]
 - 打开Nodejs控制台 ```Nodejs Command Prompt```，并切换到当前目录
 - 执行 ```npm install```
+- 执行 ```npm install -g grunt-cli```
 - 执行 ```grunt```
 - chrome中打开```localhost:8000```, 点击```livereload插件按钮```， 修改文件后，网页自动更新
 
