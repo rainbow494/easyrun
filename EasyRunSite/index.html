@@ -44,29 +44,31 @@
     <body>
         <script type="text/javascript">
             $(document).ready(function () {
-            
+
                 var app = $.sammy(function () {
-            
+
                     this.get('/', function () {
                         BasePage.contentTemplate('home_continer');
                     });
-            
+
                     this.get('/#', function () {
                         BasePage.contentTemplate('home_continer');
                     });
-            
+
                     this.get('/#/:page_name', function () {
                         BasePage.contentTemplate(this.params['page_name']);
                     });
-            
+
                 });
-            
+
                 $(function () {
                     app.run('/#')
                 });
-            
+
                 infuser.defaults.templateUrl = "./html";
-                BasePage = new EZ.BasePage("home_continer")
+                
+                option = { headerTemplate: "home_continer" };
+                BasePage = new EZ.BasePage(option)
                 ko.applyBindings(BasePage);
             })
         </script>

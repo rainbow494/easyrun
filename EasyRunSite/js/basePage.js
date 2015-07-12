@@ -1,11 +1,20 @@
 (function () {
     createNamespace("EZ").BasePage = BasePage;
 
-    function BasePage(startPageName) {
-        this.headerTemplate = ko.observable("header");
-        this.contentTemplate = ko.observable(startPageName);  //Replace by default value.
-        this.hotCommodityTemplate = ko.observable("hot_commodity");
-        this.footerTemplate = ko.observable("footer");
+    var defalutOption = {
+        headerTemplate: 'header',
+        contentTemplate: 'home_continer',
+        hotCommodityTemplate: 'hot_commodity',
+        footerTemplate: 'footer'
+    }
+
+    function BasePage(option) {
+        option = $.merge(defalutOption, option);
+
+        this.headerTemplate = ko.observable(option.headerTemplate);
+        this.contentTemplate = ko.observable(option.contentTemplate);
+        this.hotCommodityTemplate = ko.observable(option.hotCommodityTemplate);
+        this.footerTemplate = ko.observable(option.footerTemplate);
         this.headerData = "";
         this.id = "";
     };

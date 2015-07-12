@@ -1,23 +1,26 @@
 ﻿#简述
+
 - 本文仅为概述，具体步骤和解释请参照[Grunt快速入门][1]
 - Nodejs:  Grunt运行环境
 - Grunt: 自动化脚本运行工具
 - 所有命令均在```Node.js command prompt```控制台下执行
 
-#快速入门(最新)
-- 安装Nodejs [下载][2]
-- 下载文件夹下所有文件
-- 执行 ```npm install``` 生成文件夹 *Node_modules*
-- 执行 ```grunt``` 生成文件 *test.min.js*
-- ```chrome中, 打开localhost:8000, 点击livereload``` 修改文件后文件自动更新
+----
 
+#快速入门
 
-#入门教程
+- 安装Nodejs [ - 点击下载][2]
+- 打开Nodejs控制台 ```Nodejs Command Prompt```，并切换到当前目录
+- 执行 ```npm install```
+- 执行 ```grunt```
+- chrome中打开```localhost:8000```, 点击```livereload插件按钮```， 修改文件后，网页自动更新
 
-#安装步骤
+----
 
+#Grunt入门教程
 
-20. 安装grunt
+10. 安装grunt模块
+
 - 创建文件夹 ```c:\easyrun\grunt```
 - 执行```npm install -g grunt-cli``` *(表示安装全局grunt接口，可调用当前目录下的grunt model)*
 - 在当前目录添加```package.json```文件
@@ -33,10 +36,9 @@
         }
     }
     ```
-
 - 执行```$ npm install``` 安装grunt model
 
-30. 添加Grunt插件
+20. 添加Grunt插件
 
 - 通过命令安装插件，并写入package.json文件中 *(插件名请自行google)*
     ```
@@ -45,7 +47,7 @@ $ npm install [grunt插件名] --save-dev
 $ npm install grunt-less --save-dev
     ``` 
 
-40. 添加Grunt模板
+30. 配置Grunt插件
 - 在当前目录添加```Gruntfile.js```
     ```
     module.exports = function(grunt){
@@ -90,7 +92,7 @@ $ npm install grunt-less --save-dev
     };
     ```
     
-40. 在控制台中执行grunt 生成相应文件
+40. 在控制台中执行grunt，生成相应文件
 
 
   [1]: http://www.gruntjs.net/getting-started
