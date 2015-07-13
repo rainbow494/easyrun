@@ -99,11 +99,6 @@ module.exports = function (grunt)
 
     // 默认被执行的任务列表。
     grunt.registerTask('default', ['less', 'connect', 'watch']);
-    // 自定义任务
-    //grunt.registerTask('less', ['less']);
 
-    // grunt.registerTask('less-build', ['less:compile']);
-
-    // //grunt.registerTask('watch', ['watch']);
-
+    grunt.registerTask('less-compile', ['less:compile']);
 };
