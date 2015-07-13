@@ -88,6 +88,16 @@ module.exports = function (grunt)
                     livereload : true,
                 },
             },
+        },
+        uglify :
+        {
+            my_target :
+            {
+                files :
+                {
+                    '../easyrunsite/js/main.min.js' : ['../easyrunsite/js/nameSpacing.js', '../easyrunsite/js/basepage.js']
+                }
+            }
         }
     }
     ); // grunt.initConfig配置完毕
@@ -96,6 +106,8 @@ module.exports = function (grunt)
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-watch');
+
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // 默认被执行的任务列表。
     grunt.registerTask('default', ['less', 'connect', 'watch']);
