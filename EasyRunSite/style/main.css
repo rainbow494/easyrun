@@ -18,7 +18,7 @@ body {
   max-height: calc(100vh - 49px);
   overflow: hidden;
 }
-.ez-carousel > .item > img {
+.ez-carousel > .item > a > img {
   width: 100vw;
 }
 /*sample for media query*/
@@ -32,11 +32,13 @@ a.thumbnail:hover {
   /*transform: translate(-10px);
         box-shadow: 5px 5px 5px;*/
   transform: scale(1.1);
-  z-index: 999;
   /*transition:all 0.5s;*/
 }
 .ez-slideshow > .col-md-3 {
   padding: 0;
+}
+.ez-slideshow > .col-md-3:hover {
+  z-index: 999;
 }
 /*
     .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, 
