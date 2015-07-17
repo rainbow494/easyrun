@@ -1,16 +1,39 @@
 @import "color.less";
+@import "font.less";
 @header-margin-bottom: 30px;
-@fixed-nav-button-height: 49px;
+@fixed-nav-button-height: 60px;
 
 body {
     padding-top: @fixed-nav-button-height + @header-margin-bottom;
 }
+
+@ez-font-color: #337ab7;
 
 .ez-navbar {
     background-color: @gray-lighter;
     /*background: -moz-linear-gradient(left,#fff,@gray-lighter,#fff);
     background: -webkit-linear-gradient(left,#fff,@gray-lighter,#fff);*/
     margin-bottom: @header-margin-bottom;
+    height:@fixed-nav-button-height;
+    line-height:@fixed-nav-button-height;
+
+    .navbar-brand {
+        color: @ez-font-color;
+        font-family: 'Lucida Handwriting';
+        font-size: 36px;
+
+        img {
+            width: 36px;
+        }
+    }
+
+    .navbar-nav {
+        > li {
+            > a {
+                color: @ez-font-color;
+            }
+        }
+    }
 }
 
 .clear-header-margin-bottom {
@@ -24,7 +47,7 @@ body {
 .ez-carousel-template(@max-height, @overflow) {
     @slider-width: 100vw;
     /*max-height: ~calc(@max-height - @padding-top-for-fixed-nav-button);*/
-    max-height: calc(~'100vh - 49px');
+    max-height: calc(~'100vh - 60px');
     overflow: @overflow;
 
     & > .item {
@@ -47,10 +70,10 @@ body {
 
 a.thumbnail {
     z-index: 0;
+
     &:hover {
         /*transform: translate(-10px);
         box-shadow: 5px 5px 5px;*/
-        
         transform: scale(1.1);
         /*transition:all 0.5s;*/
     }
@@ -59,6 +82,7 @@ a.thumbnail {
 .ez-slideshow {
     > .col-md-3 {
         padding: 0;
+
         &:hover {
             z-index: 999;
         }

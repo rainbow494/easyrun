@@ -1,11 +1,28 @@
+/*@font-face {  
+    font-family: 'lucida';  
+    src: url('lucida_hand_writing_italic.ttf');
+}*/
 body {
-  padding-top: 79px;
+  padding-top: 90px;
 }
 .ez-navbar {
   background-color: #eeeeee;
   /*background: -moz-linear-gradient(left,#fff,@gray-lighter,#fff);
     background: -webkit-linear-gradient(left,#fff,@gray-lighter,#fff);*/
   margin-bottom: 30px;
+  height: 60px;
+  line-height: 60px;
+}
+.ez-navbar .navbar-brand {
+  color: #337ab7;
+  font-family: 'Lucida Handwriting';
+  font-size: 36px;
+}
+.ez-navbar .navbar-brand img {
+  width: 36px;
+}
+.ez-navbar .navbar-nav > li > a {
+  color: #337ab7;
 }
 .clear-header-margin-bottom {
   margin-top: -30px;
@@ -15,7 +32,7 @@ body {
 }
 .ez-carousel {
   /*max-height: ~calc(@max-height - @padding-top-for-fixed-nav-button);*/
-  max-height: calc(100vh - 49px);
+  max-height: calc(100vh - 60px);
   overflow: hidden;
 }
 .ez-carousel > .item > a > img {
