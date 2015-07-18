@@ -5,6 +5,9 @@
 body {
   padding-top: 90px;
 }
+.ez-content {
+  min-height: calc(100vh - 315px);
+}
 .ez-navbar {
   background-color: #eeeeee;
   /*background: -moz-linear-gradient(left,#fff,@gray-lighter,#fff);

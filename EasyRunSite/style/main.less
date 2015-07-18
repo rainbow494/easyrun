@@ -2,20 +2,27 @@
 @import "font.less";
 @header-margin-bottom: 30px;
 @fixed-nav-button-height: 60px;
+@footer-height: 255px;
+@ez-font-color: #337ab7;
 
 body {
     padding-top: @fixed-nav-button-height + @header-margin-bottom;
 }
 
-@ez-font-color: #337ab7;
+@wapper-height: @fixed-nav-button-height + @footer-height;
+@ez-content-min-height: calc(~'100vh' - @wapper-height);
+
+.ez-content {
+    min-height: @ez-content-min-height;
+}
 
 .ez-navbar {
     background-color: @gray-lighter;
     /*background: -moz-linear-gradient(left,#fff,@gray-lighter,#fff);
     background: -webkit-linear-gradient(left,#fff,@gray-lighter,#fff);*/
     margin-bottom: @header-margin-bottom;
-    height:@fixed-nav-button-height;
-    line-height:@fixed-nav-button-height;
+    height: @fixed-nav-button-height;
+    line-height: @fixed-nav-button-height;
 
     .navbar-brand {
         color: @ez-font-color;
@@ -47,7 +54,7 @@ body {
 .ez-carousel-template(@max-height, @overflow) {
     @slider-width: 100vw;
     /*max-height: ~calc(@max-height - @padding-top-for-fixed-nav-button);*/
-    max-height: calc(~'100vh - 60px');
+    max-height: calc(~'100vh' - @fixed-nav-button-height);
     overflow: @overflow;
 
     & > .item {
