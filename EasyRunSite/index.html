@@ -48,21 +48,16 @@
     <body>
         <script type="text/javascript">
             $(document).ready(function () {
-
                 var app = $.sammy(function () {
-
                     this.get('/', function () {
-                        BasePage.contentTemplate('home_continer');
+                        basePage.resetContentTemplate('home');
                     });
-
                     this.get('/#', function () {
-                        BasePage.contentTemplate('home_continer');
+                        basePage.resetContentTemplate('home');
                     });
-
                     this.get('/#/:page_name', function () {
-                        BasePage.contentTemplate(this.params['page_name']);
+                        basePage.resetContentTemplate(this.params['page_name']);
                     });
-
                 });
 
                 $(function () {
@@ -71,9 +66,12 @@
 
                 infuser.defaults.templateUrl = "./html";
                 
-                option = { headerTemplate: "home_continer" };
-                BasePage = new EZ.BasePage(option)
-                ko.applyBindings(BasePage);
+                option = { 
+                    headerTemplate: 'header',
+                    contentTemplate: 'home'
+                }
+                basePage = new EZ.BasePage(option)
+                ko.applyBindings(basePage);
             })
         </script>
 

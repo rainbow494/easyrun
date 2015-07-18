@@ -3,12 +3,16 @@
 
     var defalutOption = {
         headerTemplate: 'header',
-        contentTemplate: 'home_continer',
-        hotCommodityTemplate: 'hot_commodity',
+        contentTemplate: 'content/home',
+        hotCommodityTemplate: 'control/hot_categroy',
         footerTemplate: 'footer'
     }
 
     function BasePage(option) {
+        this.conent_template_path = 'content/';
+
+        option.contentTemplate = this.getContentTemplateFullPath(option.contentTemplate);
+
         option = $.merge(defalutOption, option);
 
         this.headerTemplate = ko.observable(option.headerTemplate);
@@ -18,4 +22,13 @@
         this.headerData = "";
         this.id = "";
     };
+
+    BasePage.prototype.resetContentTemplate = function (contentTemplateName) {
+        this.contentTemplate(this.getContentTemplateFullPath(contentTemplateName))
+    }
+
+    BasePage.prototype.getContentTemplateFullPath = function(contentTemplateName)
+    { 
+        return this.conent_template_path + contentTemplateName;
+    }
 })();
