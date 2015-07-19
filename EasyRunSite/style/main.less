@@ -34,8 +34,19 @@ body {
         font-family: 'Lucida Handwriting';
         font-size: 36px;
 
-        img {
-            width: 36px;
+        .logo {
+            width: 43px;
+            height: 43px;
+            background-size: contain;
+            background-image: url("../resource/image/favicon.png");
+        }
+
+        &:hover {
+            color: @ez-font-color;
+        }
+
+        &:focus {
+            color: @ez-font-color;
         }
     }
 
@@ -43,6 +54,14 @@ body {
         > li {
             > a {
                 color: @ez-font-color;
+
+                &:hover {
+                    color: @ez-font-color;
+                }
+
+                &:focus {
+                    color: @ez-font-color;
+                }
             }
         }
     }

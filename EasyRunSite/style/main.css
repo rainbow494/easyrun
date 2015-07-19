@@ -25,10 +25,25 @@ body {
   font-family: 'Lucida Handwriting';
   font-size: 36px;
 }
-.ez-navbar .navbar-brand img {
-  width: 36px;
+.ez-navbar .navbar-brand .logo {
+  width: 43px;
+  height: 43px;
+  background-size: contain;
+  background-image: url("../resource/image/favicon.png");
+}
+.ez-navbar .navbar-brand:hover {
+  color: #337ab7;
+}
+.ez-navbar .navbar-brand:focus {
+  color: #337ab7;
 }
 .ez-navbar .navbar-nav > li > a {
+  color: #337ab7;
+}
+.ez-navbar .navbar-nav > li > a:hover {
+  color: #337ab7;
+}
+.ez-navbar .navbar-nav > li > a:focus {
   color: #337ab7;
 }
 .ez-hot-categroy {
