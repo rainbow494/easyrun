@@ -12,7 +12,8 @@ body {
   min-height: calc(100vh - 270px);
 }
 .ez-navbar {
-  background-color: #eeeeee;
+  /*background-color: @gray-lighter;*/
+  background-color: rgba(245, 245, 245, 0.88);
   /*background: -moz-linear-gradient(left,#fff,@gray-lighter,#fff);
     background: -webkit-linear-gradient(left,#fff,@gray-lighter,#fff);*/
   /*margin-bottom: @header-margin-bottom;*/
