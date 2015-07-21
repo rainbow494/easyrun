@@ -1,52 +1,16 @@
 <!-- Carousel ================================================== -->
 <div class="clear-header-margin-bottom"></div>
 
-
-    <!--<div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-            <div ng-repeat="carousel in carousels" class="carousel-inner ez-carousel" role="listbox">
-                <div class="item active">
-                    <a href="#/product">
-                        <img class="first-slide" src="./resource/image/categroy/wall_murals/sku_7/1.jpg" alt="First slide">
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="{{carousel.url}}>
-                        <img class="first-slide" src="{{carousel.imageUrl}}" alt=" slide">
-                    </a>
-                </div>
-            </div>
-            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>-->
-<!--<p>1+2={{1+2}}</p>
-<p>{{carousels[1].url}}</p>
-<div ng-repeat="carousel in carousels">
-    <p></p>
-    <a href="{{carousel.url}}">
-        <img class="first-slide" src="{{carousel.imageUrl}}" alt="First slide">
-    </a>
-</div>-->
-
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
-    <div class="carousel-inner ez-carousel" ng-repeat="carousel in carousels" role="listbox">
-        <!--{{$index === 0 ? 'active' : ''}}-->
-        <div class="item active">
+
+
+    <div class="carousel-inner ez-carousel" role="listbox">
+        <div class="item {{carousel.active}}" ng-repeat="carousel in carousels">
             <a href="{{carousel.url}}">
                 <img class="first-slide" src="{{carousel.imageUrl}}" alt="Slide {{$index}}">
             </a>
@@ -60,6 +24,6 @@
         <span class="glyphicon glyphicon-chevron-right"></span>
         <span class="sr-only">Next</span>
     </a>
-</div><!-- /.carousel -->
-<div ng-include src="'html/control/hot_categroy.html'"></div>
 </div>
+
+<div ng-include src="'html/control/hot_categroy.html'"></div>
