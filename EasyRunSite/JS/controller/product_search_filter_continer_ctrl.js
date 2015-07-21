@@ -7,7 +7,7 @@ var searchFilterController = angular.module('searchFilterController', []);
 searchFilterController.controller('product_search_filter_control', ['$scope',
   function ($scope) {
 
-      $scope.Decals1 = [
+      $scope.Decals = [
     {'hot': true,
      'SKU': 1,
      'name':'8pcs Big Combo Lunar Eclipse Glowing Moon',
@@ -43,11 +43,8 @@ searchFilterController.controller('product_search_filter_control', ['$scope',
      'width':60,
      'effectId':'Light in glow',
      'meteraiaId':'plastic',
-     'applicationId':'Nursery room'}
-  ];
-
-      $scope.Decals2 = [
-    {'hot': true,
+     'applicationId':'Nursery room'},
+     {'hot': true,
      'SKU': 5,
      'name':'Black Flower 3D Wall Sticker',
      'category':'decals',
@@ -85,7 +82,7 @@ searchFilterController.controller('product_search_filter_control', ['$scope',
      'applicationId':'Nursery room'}
   ];
 
-      $scope.wallHangings1 = [
+      $scope.wallHangings = [
     {'hot': true,
      'SKU': 1,
      'name':'8pcs Big Combo Lunar Eclipse Glowing Moon',
@@ -121,11 +118,8 @@ searchFilterController.controller('product_search_filter_control', ['$scope',
      'width':60,
      'effectId':'Light in glow',
      'meteraiaId':'plastic',
-     'applicationId':'Nursery room'}
-  ];
-
-      $scope.wallHangings2 = [
-    {'hot': true,
+     'applicationId':'Nursery room'},
+     {'hot': true,
      'SKU': 5,
      'name':'Black Flower 3D Wall Sticker',
      'category':'wall hangings',
@@ -163,7 +157,8 @@ searchFilterController.controller('product_search_filter_control', ['$scope',
      'applicationId':'Nursery room'}
   ];
 
-      $scope.wallMurals1 = [
+
+      $scope.wallMurals = [
     {'hot': true,
      'SKU': 1,
      'name':'8pcs Big Combo Lunar Eclipse Glowing Moon',
@@ -199,11 +194,8 @@ searchFilterController.controller('product_search_filter_control', ['$scope',
      'width':60,
      'effectId':'Light in glow',
      'meteraiaId':'plastic',
-     'applicationId':'Nursery room'}
-  ];
-
-      $scope.wallMurals2 = [
-    {'hot': true,
+     'applicationId':'Nursery room'},
+     {'hot': true,
      'SKU': 5,
      'name':'Black Flower 3D Wall Sticker',
      'category':'wall murals',
@@ -241,7 +233,7 @@ searchFilterController.controller('product_search_filter_control', ['$scope',
      'applicationId':'Nursery room'}
   ];
 
-      $scope.glassFilms1 = [
+      $scope.glassFilms = [
     {'hot': true,
      'SKU': 1,
      'name':'8pcs Big Combo Lunar Eclipse Glowing Moon',
@@ -277,11 +269,8 @@ searchFilterController.controller('product_search_filter_control', ['$scope',
      'width':60,
      'effectId':'Light in glow',
      'meteraiaId':'plastic',
-     'applicationId':'Nursery room'}
-  ];
-
-      $scope.glassFilms2 = [
-    {'hot': true,
+     'applicationId':'Nursery room'},
+     {'hot': true,
      'SKU': 5,
      'name':'Black Flower 3D Wall Sticker',
      'category':'glass films',
@@ -317,6 +306,8 @@ searchFilterController.controller('product_search_filter_control', ['$scope',
      'effectId':'Light in glow',
      'meteraiaId':'plastic',
      'applicationId':'Nursery room'}
+
+
   ];
 
   } ]);

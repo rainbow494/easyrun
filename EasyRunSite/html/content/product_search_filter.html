@@ -22,7 +22,7 @@
         </div>
         <div class="col-md-9">
             <div class="row">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" class="form-control" placeholder="Search"  ng-model="query">
             </div>
             
             <div class="row">
@@ -36,8 +36,8 @@
             </div>
 
             <div class="row text-center">
-                <div ng-repeat="decal in Decals1">
-                    <div class="col-md-3 col-xs-6">
+                <div ng-repeat="decal in Decals | filter:query">
+                    <div class="col-md-3">
                         <a href="#/product" class="thumbnail">
                             <img src="./resource/image/categroy/{{decal.category}}/sku_{{decal.SKU}}/1.jpg" alt="...">
                             <div class="container">
@@ -51,21 +51,6 @@
                 </div>
             </div>
 
-            <div class="row text-center">
-                <div ng-repeat="decal in Decals2">
-                    <div class="col-md-3 col-xs-6">
-                        <a href="#/product" class="thumbnail">
-                            <img src="./resource/image/categroy/{{decal.category}}/sku_{{decal.SKU}}/1.jpg" alt="...">
-                            <div class="container">
-                                <div class="carousel-caption">
-                                    <h4>{{decal.name}}</h4>
-                                    <p>{{decal.category}}</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
 
             <div class="row">
                 <hr>
@@ -78,7 +63,7 @@
             </div>
 
             <div class="row text-center">
-                <div ng-repeat="wallHanging in wallHangings1">
+                <div ng-repeat="wallHanging in wallHangings | filter:query">
                     <div class="col-md-3 col-xs-6">
                         <a href="#/product" class="thumbnail">
                             <img src="./resource/image/categroy/{{wallHanging.category}}/sku_{{wallHanging.SKU}}/1.jpg" alt="...">
@@ -93,21 +78,6 @@
                 </div>
             </div>
 
-            <div class="row text-center">
-                <div ng-repeat="wallHanging in wallHangings2">
-                    <div class="col-md-3 col-xs-6">
-                        <a href="#/product" class="thumbnail">
-                            <img src="./resource/image/categroy/{{wallHanging.category}}/sku_{{wallHanging.SKU}}/1.jpg" alt="...">
-                            <div class="container">
-                                <div class="carousel-caption">
-                                    <h4>{{wallHanging.name}}</h4>
-                                    <p>{{wallHanging.category}}</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
 
             <div class="row">
                 <hr>
@@ -120,23 +90,7 @@
             </div>
 
             <div class="row text-center">
-                <div ng-repeat="wallMural in wallMurals1">
-                    <div class="col-md-3 col-xs-6">
-                        <a href="#/product" class="thumbnail">
-                            <img src="./resource/image/categroy/{{wallMural.category}}/sku_{{wallMural.SKU}}/1.jpg" alt="...">
-                            <div class="container">
-                                <div class="carousel-caption">
-                                    <h4>{{wallMural.name}}</h4>
-                                    <p>{{wallMural.category}}</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row text-center">
-                <div ng-repeat="wallMural in wallMurals2">
+                <div ng-repeat="wallMural in wallMurals | filter:query">
                     <div class="col-md-3 col-xs-6">
                         <a href="#/product" class="thumbnail">
                             <img src="./resource/image/categroy/{{wallMural.category}}/sku_{{wallMural.SKU}}/1.jpg" alt="...">
@@ -162,23 +116,7 @@
             </div>
 
             <div class="row text-center">
-                <div ng-repeat="glassFilm in glassFilms1">
-                    <div class="col-md-3 col-xs-6">
-                        <a href="#/product" class="thumbnail">
-                            <img src="./resource/image/categroy/{{glassFilm.category}}/sku_{{glassFilm.SKU}}/1.jpg" alt="...">
-                            <div class="container">
-                                <div class="carousel-caption">
-                                    <h4>{{glassFilm.name}}</h4>
-                                    <p>{{glassFilm.category}}</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row text-center">
-                <div ng-repeat="glassFilm in glassFilms2">
+                <div ng-repeat="glassFilm in glassFilms | filter:query">
                     <div class="col-md-3 col-xs-6">
                         <a href="#/product" class="thumbnail">
                             <img src="./resource/image/categroy/{{glassFilm.category}}/sku_{{glassFilm.SKU}}/1.jpg" alt="...">
