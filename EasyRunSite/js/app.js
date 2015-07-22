@@ -1,10 +1,10 @@
 'use strict';
 
 /* App Module */
-
 var ezApp = angular.module('ezApp', [
   'ngRoute',
-  'ezControllers',
+  'ezServices',
+  'homeControllers',
   'searchFilterController'
 ]);
 
@@ -13,7 +13,7 @@ ezApp.config(['$routeProvider',
       $routeProvider.
       when('/home', {
           templateUrl:'./html/content/home.html',
-          controller: 'homeControl'
+          controller: 'homeHotGoodsControler'
       }).
       when('/product', {
           templateUrl:'./html/content/product.html',
