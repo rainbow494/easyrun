@@ -2,11 +2,31 @@
 
 /* Controllers */
 
+
 var ezServices = angular.module('ezServices', []);
 
 ezServices.factory('getHotGoods', [
   function () {
-      return [
+      return EZ.Data.HotGoods;
+  } ]);
+
+/*example for getData from web api*/
+//ezControllers.controller('homeControl', ['$scope', '$http',
+//  function ($scope, $http) {
+//      // $http({ method: 'GET', url: 'dataSource/hot_commodiate.json' }).success(function (data) {
+//      $http.get('dataSource/hot_commodiate.json').success(function (data) {
+//          $scope.carousels = data;
+//      }).error(function (data) {
+//          console.log('error from ezControllers http get' + data);
+//      });
+//  } ]);
+
+
+/* Test Data Start */
+
+EZ = window.createNamespace("EZ");
+EZ.Data =  window.createNamespace("EZ.Data");
+EZ.Data.HotGoods = [
         {
             "id": 0,
             "url": "#/product",
@@ -29,15 +49,5 @@ ezServices.factory('getHotGoods', [
             "active":""
         }
      ]
-} ]);
 
-/*example for getData from web api*/
-//ezControllers.controller('homeControl', ['$scope', '$http',
-//  function ($scope, $http) {
-//      // $http({ method: 'GET', url: 'dataSource/hot_commodiate.json' }).success(function (data) {
-//      $http.get('dataSource/hot_commodiate.json').success(function (data) {
-//          $scope.carousels = data;
-//      }).error(function (data) {
-//          console.log('error from ezControllers http get' + data);
-//      });
-//  } ]);
+/* Test Data End */
