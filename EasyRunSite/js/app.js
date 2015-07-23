@@ -5,7 +5,8 @@ var ezApp = angular.module('ezApp', [
   'ngRoute',
   'ezServices',
   'homeControllers',
-  'searchFilterController'
+  'searchFilterController',
+  'productControllers'
 ]);
 
 ezApp.config(['$routeProvider',

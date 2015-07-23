@@ -1,45 +1,42 @@
-<div class="container ez-hot-categroy">
+<div class="container ez-hot-category">
     <div class="row text-center">
         <div class="col-md-8 col-md-offset-2">
             <div class="row text-center">
                 <h1>Heading</h1>
-                <div class="col-md-4">
-                    <a href="#/product_search_filter" class="thumbnail">
-                        <img src="./resource/image/categroy/decals/sku_1/1.jpg" alt="...">
+                <div ng-repeat="thumbnail in hotSuggestGallery" class="col-md-4 col-xs-6">
+                    <a href="{{hotSuggestGallery.getUrl(thumbnail)}}" class="thumbnail">
+                        <img src="{{hotSuggestGallery.getImageUrl(thumbnail)}}" alt="...">
                         <div class="container">
                             <div class="carousel-caption">
                                 <h4>Another example headline.</h4>
                                 <p>Cras justo odio</p>
                                 <!--<p><a class="btn btn-lg btn-primary" href="#/product_continer" role="button">Learn more</a></p>-->
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!--<div class="col-md-4 col-xs-6">
+                    <a href="#/product_search_filter" class="thumbnail">
+                        <img src="./resource/image/category/decals/sku_2/1.jpg" alt="Generic placeholder thumbnail">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h4>Another example headline.</h4>
+                                <p>Cras justo odio</p>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-4 col-xs-6">
                     <a href="#/product_search_filter" class="thumbnail">
-                        <!--<img data-src="localhost:30461/100px278" alt="Generic placeholder thumbnail">-->
-                        <img src="./resource/image/categroy/decals/sku_2/1.jpg" alt="Generic placeholder thumbnail">
+                        <img src="./resource/image/category/glass_films/sku_3/1.jpg" alt="Generic placeholder thumbnail">
                         <div class="container">
                             <div class="carousel-caption">
                                 <h4>Another example headline.</h4>
                                 <p>Cras justo odio</p>
-                                <!--<p><a class="btn btn-lg btn-primary" href="#/product_continer" role="button">Learn more</a></p>-->
                             </div>
                         </div>
                     </a>
-                </div>
-                <div class="col-md-4 col-xs-6">
-                    <a href="#/product_search_filter" class="thumbnail">
-                        <img src="./resource/image/categroy/glass_films/sku_3/1.jpg" alt="Generic placeholder thumbnail">
-                        <div class="container">
-                            <div class="carousel-caption">
-                                <h4>Another example headline.</h4>
-                                <p>Cras justo odio</p>
-                                <!--<p><a class="btn btn-lg btn-primary" href="#/product_continer" role="button">Learn more</a></p>-->
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                </div>-->
             </div>
             <div class="row text-center">
                 <div class="col-md-12">

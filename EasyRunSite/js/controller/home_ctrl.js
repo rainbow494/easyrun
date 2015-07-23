@@ -4,25 +4,16 @@
 
 var homeControllers = angular.module('homeControllers', []);
 
-homeControllers.controller('homeHotGoodsController',
-    [
-        '$scope',
-        'getHotGoods',
+homeControllers.controller('homeHotGoodsController', ['$scope', 'getHotGoods',
         function ($scope, getHotGoods) {
-            $scope.carousels = getHotGoods;
+            $scope.hotGoods = getHotGoods;
         }
     ]
 );
 
-homeControllers.controller('homeHotCategorysController',
-    [
-        '$scope', 
-        //'getHotCategorys',
-        function ($scope 
-        //,getHotCategorys
-        ) {
-          //alert(1);
-          //$scope.carousels = getHotGoods;
+homeControllers.controller('homeHotCategoriesController', ['$scope', 'getHotCategories',
+        function ($scope, getHotCategories) {
+            $scope.hotSuggestGallery = getHotCategories;
         }
     ]
- );
+);

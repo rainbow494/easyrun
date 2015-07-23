@@ -8,9 +8,9 @@
 
 
     <div class="carousel-inner ez-carousel" role="listbox">
-        <div class="item" ng-class="{'active' : $index == 0}" ng-repeat="carousel in carousels">
-            <a href="{{carousels.defaultOption.urlbase}}{{carousel.productId}}">
-                <img class="first-slide" src="{{carousels.defaultOption.imageurlbase}}{{carousel.imageUrl}}" alt="Slide {{$index}}">
+        <div class="item" ng-class="{'active' : $index == 0}" ng-repeat="hotGood in hotGoods">
+            <a href="{{hotGoods.getUrl(hotGood)}}">
+                <img class="first-slide" src="{{hotGoods.getImageUrl(hotGood)}}" alt="Slide {{$index}}">
             </a>
         </div>
     </div>
@@ -24,4 +24,4 @@
     </a>
 </div>
 
-<div ng-include src="'html/control/hot_categroy.html'" ng-controller="homeHotCategorysController"></div>
+<div ng-include src="'html/control/hot_suggest_gallery.html'" ng-controller="homeHotCategoriesController"></div>

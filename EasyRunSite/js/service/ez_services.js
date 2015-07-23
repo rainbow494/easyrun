@@ -6,13 +6,13 @@ var ezServices = angular.module('ezServices', []);
 
 ezServices.factory('getHotGoods', [
 		function () {
-			return ez.data.hotgoods;
+			return ez.data.hotGoods;
 		}
 	]);
 
-ezServices.factory('getHotCategorys', [
+ezServices.factory('getHotCategories', [
 		function () {
-			return ez.data.hotgoods;
+			return ez.data.hotCategories;
 		}
 	]);
 
@@ -30,34 +30,97 @@ ezServices.factory('getHotCategorys', [
 
 /* Test Data Start */
 
+/* commonData*/
 ez = window.createNamespace("ez");
 ez.data = window.createNamespace("ez.data");
 ez.data.defaultOption = {
-	"urlbase" : "#/home",
-	"imageurlbase" : "./resource/image/"
+	"urlBase" : "#/home",
+	"imageUrlBase" : "./resource/image/"
 }
 
+/* hotGoods */
 var hotGoodsData = [{
-		"productId" : 1,
-		"url" : "#/product",
-		"imageUrl" : "categroy/wall_murals/sku_7/1.jpg",
+		"productId" : 71,
+		"categoryId" : 7,
+		"imageUrl" : "category/wall_murals/sku_7/1.jpg",
 		"name" : "name displayed when hover",
 	}, {
-		"productId" : 2,
-		"url" : "#/product",
-		"imageUrl" : "categroy/wall_murals/sku_7/2.jpg",
+		"productId" : 72,
+		"categoryId" : 7,
+		"imageUrl" : "category/wall_murals/sku_7/2.jpg",
 		"name" : "name displayed when hover",
 	}, {
-		"productId" : 3,
-		"url" : "#/product",
-		"imageUrl" : "categroy/wall_murals/sku_8/1.jpg",
+		"productId" : 81,
+		"categoryId" : 8,
+		"imageUrl" : "category/wall_murals/sku_8/1.jpg",
 		"name" : "name displayed when hover",
 	}
 ]
-ez.data.hotgoods = hotGoodsData;
-ez.data.hotgoods.defaultOption = {
-	"urlbase" : "#/product/"
+ez.data.hotGoods = hotGoodsData;
+ez.data.hotGoods.defaultOption = {
+	"urlBase" : "#/product"
 }
 
-ez.data.hotgoods.defaultOption = $.extend(ez.data.defaultOption, ez.data.hotgoods.defaultOption);
+ez.data.hotGoods.option = {};
+$.extend(true, ez.data.hotGoods.option, ez.data.defaultOption, ez.data.hotGoods.defaultOption);
+
+ez.data.hotGoods.getUrl = function(data)
+{
+	return ez.data.hotGoods.option.urlBase + "/" + data.productId;
+}
+
+ez.data.hotGoods.getImageUrl = function(data)
+{
+	return ez.data.hotGoods.option.imageUrlBase + "/" + data.imageUrl;
+}
+
+/* hotCategories */
+var hotCategoriesData = [{
+		"productid" : 11,
+		"categoryId" : 1,
+		"imageurl" : "category/decals/sku_1/1.jpg",
+		"name" : "name displayed when hover",
+	}, {
+		"productid" : 21,
+		"categoryId" : 2,
+		"imageurl" : "category/decals/sku_2/1.jpg",
+		"name" : "name displayed when hover",
+	}, {
+		"productid" : 31,
+		"categoryId" : 3,
+		"imageurl" : "category/decals/sku_3/1.jpg",
+		"name" : "name displayed when hover",
+	}
+]
+ez.data.hotCategories = hotCategoriesData;
+
+ez.data.hotCategories.defaultOption = {
+	"urlBase" : "#/product_search_filter"
+}
+
+ez.data.hotCategories.option = {};
+$.extend(true, ez.data.hotCategories.option, ez.data.defaultOption, ez.data.hotCategories.defaultOption);
+
+ez.data.hotCategories.getUrl = function(data)
+{
+	//return ez.data.hotCategories.option.urlBase + "/" + data.categoryId;
+	return ez.data.hotCategories.option.urlBase;
+}
+
+ez.data.hotCategories.getImageUrl = function(data)
+{
+	return ez.data.hotCategories.option.imageUrlBase + "/" + data.imageurl;
+}
+
 /* Test Data End */
+
+
+
+
+
+
+
+
+
+
+
