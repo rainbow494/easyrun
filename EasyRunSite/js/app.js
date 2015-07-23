@@ -18,7 +18,7 @@ ezApp.config(['$routeProvider',
       }).
       when('/product/:productId', {
           templateUrl:'./html/content/product.html',
-          controller: ''
+          controller: 'productCurrentGoodController'
       }).
        when('/product_search_filter', {
           templateUrl:'./html/content/product_search_filter.html',
