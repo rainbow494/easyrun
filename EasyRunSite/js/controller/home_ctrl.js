@@ -4,7 +4,7 @@
 
 var homeControllers = angular.module('homeControllers', []);
 
-homeControllers.controller('homeHotGoodsControler',
+homeControllers.controller('homeHotGoodsController',
     [
         '$scope',
         'getHotGoods',
@@ -14,7 +14,7 @@ homeControllers.controller('homeHotGoodsControler',
     ]
 );
 
-homeControllers.controller('homeHotCategorysControler',
+homeControllers.controller('homeHotCategorysController',
     [
         '$scope', 
         //'getHotCategorys',

@@ -1,6 +1,4 @@
-<!-- Carousel ================================================== -->
 <div class="clear-header-margin-bottom"></div>
-
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -10,9 +8,9 @@
 
 
     <div class="carousel-inner ez-carousel" role="listbox">
-        <div class="item {{carousel.active}}" ng-repeat="carousel in carousels">
-            <a href="{{carousel.url}}">
-                <img class="first-slide" src="{{carousel.imageUrl}}" alt="Slide {{$index}}">
+        <div class="item" ng-class="{'active' : $index == 0}" ng-repeat="carousel in carousels">
+            <a href="{{carousels.defaultOption.urlbase}}{{carousel.productId}}">
+                <img class="first-slide" src="{{carousels.defaultOption.imageurlbase}}{{carousel.imageUrl}}" alt="Slide {{$index}}">
             </a>
         </div>
     </div>
@@ -26,4 +24,4 @@
     </a>
 </div>
 
-<div ng-include src="'html/control/hot_categroy.html'" ng-controller="homeHotCategorysControler"></div>
+<div ng-include src="'html/control/hot_categroy.html'" ng-controller="homeHotCategorysController"></div>
