@@ -1,10 +1,8 @@
 <div class="container">
-    <div ng-include src="'html/control/site_map.html'" ng-controller="productSiteMapController"></div>    
+    <div ng-include src="'html/control/site_map.html'" ng-controller="productSiteMapController"></div>
     <div class="row">
         <div class="col-md-8">
-            <div class="thumbnail">
-                <img src="./resource/image/category/{{currentGood.imageUrl}}/1.jpg" alt="Generic placeholder thumbnail">
-            </div>
+            <div ng-include src="'html/control/slider_bar.html'" ng-controller="productSiderBarController"></div>
         </div>
         <div class="col-md-4">
             <div class="well">
@@ -14,42 +12,26 @@
                 <div>&nbsp;</div>
 
                 <div class="row">
-                    <div class="col-xs-4">Size (L * W)</div>
-                    <!--<div class="col-md-4"></div>-->
-                    <a class="col-xs-8">: {{currentGood.length}}{{currentGood.unit}} * {{currentGood.width}}{{currentGood.unit}}</a>
+                    <span class="col-xs-12">Size (L / W) : <a>{{currentGood.length}} {{currentGood.unit}}</a> / <a>{{currentGood.width}} {{currentGood.unit}}</a></span>
                 </div>
                 <div class="row">
-                    <div class="col-xs-4">Effect</div>
-                    <!--<div class="col-md-4"></div>-->
-                    <a class="col-xs-8">: {{currentGood.effectName}}</a>
+                    <span class="col-xs-12">Effect : <a>{{currentGood.effectName}}</a></span>
                 </div>
                 <div class="row">
-                    <div class="col-xs-4">Meteraia</div>
-                    <!--<div class="col-md-4"></div>-->
-                    <a class="col-xs-8">:  {{currentGood.meteraiaName}}</a>
+                    <div class="col-xs-12">Meteraia : <a>{{currentGood.meteraiaName}}</a></div>
                 </div>
 
                 <div>&nbsp;</div>
 
                 <div class="row">
-                    <div class="col-xs-4">Recommand</div>
-                    <!--<div class="col-md-4"></div>-->
-                    <div class="col-xs-8">:
-                        <a>{{currentGood.applicationList[0]}}</a>
-                        <span>/</span>
-                        <a>{{currentGood.applicationList[1]}}</a>
-                    </div>
+                    <span class="col-xs-12">Recommand : <a>{{currentGood.applicationList[0]}}</a> / <a>{{currentGood.applicationList[1]}}</a></span>
                 </div>
-
                 <div>&nbsp;</div>
-
                 <p><button type="submit" class="btn btn-info">Product Inquire</button></p>
             </div>
         </div>
     </div>
-    <div ng-include src="'html/control/slider_bar.html'"></div>    
 </div>
-
 <hr>
 <div ng-include src="'html/control/hot_suggest_gallery.html'" ng-controller="productHotGoodsController"></div>
 <hr>
