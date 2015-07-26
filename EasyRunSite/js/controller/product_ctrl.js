@@ -4,9 +4,9 @@
 
 var productControllers = angular.module('productControllers', []);
 
-productControllers.controller('productSiteMapController', ['$scope', '$routeParams', 'getGoodById',
-        function ($scope, $routeParams, getGoodById) {
-            $scope.currentGood = getGoodById($routeParams.productId);
+productControllers.controller('productSiteMapController', ['$scope', '$routeParams', 'ezSiteMapPluginFactory',
+        function ($scope, $routeParams, ezSiteMapPluginFactory) {
+            $scope.siteMapData = ezSiteMapPluginFactory.getSiteMap($routeParams.productId);
         }
     ]
 );

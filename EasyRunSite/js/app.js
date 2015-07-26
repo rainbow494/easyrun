@@ -6,7 +6,8 @@ var ezApp = angular.module('ezApp', [
   'ezServices',
   'homeControllers',
   'searchFilterController',
-  'productControllers'
+  'productControllers',
+  'ezSiteMapPlugin'
 ]);
 
 ezApp.config(['$routeProvider',
@@ -20,7 +21,11 @@ ezApp.config(['$routeProvider',
           templateUrl:'./html/content/product.html',
           controller: 'productCurrentGoodController'
       }).
-       when('/product_search_filter', {
+      when('/categroy/:category', {
+          templateUrl:'./html/content/product_search_filter.html',
+          controller: 'product_search_filter_control'
+      }).
+      when('/categroy', {
           templateUrl:'./html/content/product_search_filter.html',
           controller: 'product_search_filter_control'
       }).
