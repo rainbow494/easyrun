@@ -1,13 +1,5 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <ol class="breadcrumb">
-                <li><a href="#">All Category</a></li>
-                <li><a href="#">Wall Paper</a></li>
-                <li class="active">Word Map Wapp Paper</li>
-            </ol>
-        </div>
-    </div>
+    <div ng-include src="'html/control/site_map.html'" ng-controller="productSiteMapController"></div>    
     <div class="row">
         <div class="col-md-8">
             <div class="thumbnail">
@@ -42,46 +34,22 @@
                 <div class="row">
                     <div class="col-xs-4">Recommand</div>
                     <!--<div class="col-md-4"></div>-->
-                    <div class="col-xs-8">: 
-						<a>{{currentGood.applicationList[0]}}</a>
-						<span>/</span>
-						<a>{{currentGood.applicationList[1]}}</a>
-					</div>
+                    <div class="col-xs-8">:
+                        <a>{{currentGood.applicationList[0]}}</a>
+                        <span>/</span>
+                        <a>{{currentGood.applicationList[1]}}</a>
+                    </div>
                 </div>
 
                 <div>&nbsp;</div>
 
                 <p><button type="submit" class="btn btn-info">Product Inquire</button></p>
-            </div>                                                      
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8">
-            <div class="ez-slideshow row">
-                <div class="col-md-3">
-                    <a href="#/product_continer" class="thumbnail">
-                        <img src="./resource/image/category/{{currentGood.imageUrl}}/1.jpg" alt="Generic placeholder thumbnail">
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="#/product_continer" class="thumbnail">
-                        <img src="./resource/image/category/{{currentGood.imageUrl}}/2.jpg" alt="Generic placeholder thumbnail">
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="#/product_continer" class="thumbnail">
-                        <img src="./resource/image/category/{{currentGood.imageUrl}}/3.jpg" alt="Generic placeholder thumbnail">
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="#/product_continer" class="thumbnail">
-                        <img src="./resource/image/category/{{currentGood.imageUrl}}/4.jpg" alt="Generic placeholder thumbnail">
-                    </a>
-                </div>
             </div>
         </div>
     </div>
+    <div ng-include src="'html/control/slider_bar.html'"></div>    
 </div>
+
 <hr>
 <div ng-include src="'html/control/hot_suggest_gallery.html'" ng-controller="productHotGoodsController"></div>
 <hr>
