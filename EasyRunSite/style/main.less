@@ -6,7 +6,7 @@
 @footer-padding-top: 30px;
 @footer-height: 180px;
 @ez-font-color: #337ab7;
-@sperator:1px ridge silver;
+@sperator: 1px ridge silver;
 @background-color: rgba(245,245,245,0.88);
 
 body {
@@ -31,7 +31,7 @@ body {
     height: @fixed-nav-button-height;
     line-height: @fixed-nav-button-height;
     border-bottom: @sperator;
-    
+
     .navbar-brand {
         color: @ez-font-color;
         font-family: 'Lucida Handwriting';
@@ -126,6 +126,20 @@ a.thumbnail {
         &:hover {
             z-index: 999;
         }
+    }
+}
+
+.hotSuggestGallery-title {
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    /*top: 30%;*/
+    bottom: 30%;
+    color: #fff;
+    background-color:red;/*rgba(0,0,0,0.88);*/
+    
+    &:hover {
+        display: none;
     }
 }
 

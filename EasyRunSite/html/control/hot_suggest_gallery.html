@@ -2,17 +2,30 @@
     <div class="row text-center">
         <div class="col-md-8 col-md-offset-2">
             <div class="row text-center">
-                <h1>{{hotSuggestGallery.title}}</h1>
-                <div ng-repeat="thumbnail in hotSuggestGallery" class="col-md-4 col-xs-6">
-                    <a href="{{hotSuggestGallery.getUrl(thumbnail)}}" class="thumbnail">
-                        <img src="{{hotSuggestGallery.getImageUrl(thumbnail)}}" alt="...">
-                        <div class="container">
-                            <div class="carousel-caption">
-                                <h4>Another example headline.</h4>
-                                <p>Cras justo odio</p>
-                                <!--<p><a class="btn btn-lg btn-primary" href="#/product_continer" role="button">Learn more</a></p>-->
+                <!--<h1>{{hotSuggestGallery.title}}</h1>
+                <div ng-repeat="good in hotSuggestGallery" class="col-md-4 col-xs-6">
+                    <a href="{{hotSuggestGallery.getUrl(good)}}" class="thumbnail">
+                        <img src="{{hotSuggestGallery.getImageUrl(good)}}" alt="...">
+                        <div class="carousel-caption">
+                            <div class="box">
+                                {{good.productId}}
                             </div>
                         </div>
+
+                    </a>
+                </div>-->
+               <div ng-repeat="good in hotSuggestGallery" class="col-md-4 col-xs-6">
+                   <!--<div class="thumbnail box">aaaaaa;</div>-->
+                   <a href="{{hotSuggestGallery.getUrl(good)}}" class="thumbnail">
+                        <img src="{{hotSuggestGallery.getImageUrl(good)}}" alt="...">
+                        <!--<div class="carousel-caption">
+                            <div class="box">
+                                {{good.productId}}
+                            </div>
+                        </div>-->
+                       <div class="hotSuggestGallery-title">
+                                <h3>{{good.productId}}</h3>
+                       </div>
                     </a>
                 </div>
             </div>
