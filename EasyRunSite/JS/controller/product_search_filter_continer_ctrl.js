@@ -4,6 +4,14 @@
 
 var searchFilterController = angular.module('searchFilterController', []);
 
+searchFilterController.controller('product_search_filter_control', ['$scope', 'get',
+        function ($scope, getDecalsGoods) {
+            $scope.Decals = getDecalsGoods;
+        }
+    ]
+);
+
+/*
 searchFilterController.controller('product_search_filter_control', ['$scope',
   function ($scope) {
 
@@ -311,3 +319,5 @@ searchFilterController.controller('product_search_filter_control', ['$scope',
   ];
 
   } ]);
+
+   */

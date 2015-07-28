@@ -8,7 +8,8 @@ var ezApp = angular.module('ezApp', [
   'searchFilterController',
   'productControllers',
   'ezSiteMapPlugin',
-  'ezSliderBarPlugin'
+  'ezSliderBarPlugin',
+  'ezDataServices'
 ]);
 
 ezApp.config(['$routeProvider',
