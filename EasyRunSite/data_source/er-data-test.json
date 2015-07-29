@@ -1,19 +1,4 @@
-"use strict";
-
-var ezDataServices = angular.module("ezDataServices", ['ngResource']);
-/*
-ezDataServices.factory('getDecalsGoods', ['$resource',
-  function($resource){
-    return $resource('data_source/:dataId.json', {}, {
-      query: {method:'GET', params:{dataId:'er-data-test'}, isArray:true}
-    });
-  }]);
-
-  */
-
-ezDataServices.factory("getDecalsGoods", [
-		function () {
-		    return [
+[
     {'hot': true,
      'SKU': 1,
      'name':'8pcs Big Combo Lunar Eclipse Glowing Moon',
@@ -86,9 +71,4 @@ ezDataServices.factory("getDecalsGoods", [
      'effectId':'Light in glow',
      'meteraiaId':'plastic',
      'applicationId':'Nursery room'}
-  ];
-		}
-	]);
-
-
-    
+  ]
