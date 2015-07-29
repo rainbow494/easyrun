@@ -1,0 +1,33 @@
+@cell-both-sides-padding: 15px;
+@thumbnail-padding-plus-boder: 5px;
+@thumbnail-cover-minus-padding: @cell-both-sides-padding + @thumbnail-padding-plus-boder;
+
+/* color-setting */
+.hotSuggestGallery-title {
+    color: @ez-inner-font-color;
+    background-color: #808080;
+    opacity: .1;
+
+    &:hover {
+        opacity: .5;
+    }
+}
+
+/* layout-setting*/
+.hotSuggestGallery-title {
+    position: absolute;
+    left: @thumbnail-cover-minus-padding;
+    right: @thumbnail-cover-minus-padding;
+    top: @thumbnail-padding-plus-boder;
+    bottom: 25px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.ez-hot-category {
+    padding: 30px 0;
+}
+

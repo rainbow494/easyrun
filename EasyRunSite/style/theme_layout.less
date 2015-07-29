@@ -1,0 +1,24 @@
+/*@header-margin-bottom: 30px;*/
+@content-padding-top: 70px;
+@fixed-nav-button-height: @content-padding-top;
+@footer-padding-top: 30px;
+@footer-height: 180px;
+
+@sperator: 1px ridge silver;
+
+@wapper-height: @fixed-nav-button-height + (@footer-height - @footer-padding-top) + @content-padding-top;
+@ez-content-min-height: calc(~'100vh' - @wapper-height);
+
+body {
+    padding-top: @fixed-nav-button-height;
+}
+
+.ez-content {
+    padding-top: @content-padding-top;
+    min-height: @ez-content-min-height;
+}
+
+.footer {
+    padding-top: @footer-padding-top;
+    border-top: @sperator;
+}

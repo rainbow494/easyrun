@@ -1,0 +1,65 @@
+@ez-font-color: black;
+@ez-inner-font-color: white;
+@ez-link-color: skyblue;
+@ez-link-hover-color: @ez-font-color;
+@background-color: rgba(245,245,245,0.88);
+
+.ez-link-theme {
+    color: @ez-link-color;
+
+    &:hover {
+        color: @ez-font-color;
+    }
+
+    &:focus {
+        color: @ez-font-color;
+    }
+}
+
+/*.ez-font-link-theme {
+    color: @ez-font-color;
+
+    &:hover {
+        color: @ez-font-color;
+    }
+
+    &:focus {
+        color: @ez-font-color;
+    }
+}*/
+
+body {
+    background-color: ghostwhite;
+    color: @ez-font-color;
+
+    a {
+        .ez-link-theme;
+    }
+}
+
+.ez-navbar {
+    /*background-color: @gray-lighter;*/
+    background-color: @background-color;
+    /*background: -moz-linear-gradient(left,#fff,@gray-lighter,#fff);
+    background: -webkit-linear-gradient(left,#fff,@gray-lighter,#fff);*/
+    .navbar-brand {
+        .ez-link-theme;
+    }
+
+    .navbar-nav {
+        > li {
+            > a {
+                .ez-link-theme;
+            }
+        }
+    }
+}
+
+.footer {
+    background-color: @background-color;
+}
+
+.scrollBtn {
+    color: @ez-inner-font-color;
+    opacity: .9;
+}
