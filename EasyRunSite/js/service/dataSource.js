@@ -112,7 +112,7 @@
     ez.data.hotCategories = hotCategoriesData;
 
     ez.data.hotCategories.defaultOption = {
-        "urlBase": "#/categroy"
+        "urlBase": "#/category"
     }
     ez.data.hotCategories.option = {};
     $.extend(true, ez.data.hotCategories.option, ez.data.defaultOption, ez.data.hotCategories.defaultOption);

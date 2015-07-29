@@ -23,11 +23,11 @@ ezApp.config(['$routeProvider',
           templateUrl:'./html/content/product.html',
           controller: 'productCurrentGoodController'
       }).
-      when('/categroy/:category', {
+      when('/category/:category', {
           templateUrl:'./html/content/product_search_filter.html',
           controller: 'product_search_filter_control'
       }).
-      when('/categroy', {
+      when('/category', {
           templateUrl:'./html/content/product_search_filter.html',
           controller: 'product_search_filter_control'
       }).
