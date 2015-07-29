@@ -1,11 +1,12 @@
 <div class="clear-header-margin-bottom"></div>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    
+    <a href="#skipHeader" class="scrollBtn hidden-xs">Scroll</a>
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
-
 
     <div class="carousel-inner ez-carousel" role="listbox">
         <div class="item" ng-class="{'active' : $index == 0}" ng-repeat="hotGood in hotGoods">
@@ -23,5 +24,4 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-
 <div ng-include src="'html/control/hot_suggest_gallery.html'" ng-controller="homeHotCategoriesController"></div>
