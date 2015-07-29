@@ -13,7 +13,7 @@ searchFilterController.controller('product_search_filter_control', ['$scope', 'g
 );
 */
 
-searchFilterController.controller('product_search_filter_control', ['$scope', 'get',
+searchFilterController.controller('product_search_filter_control', ['$scope', 'getDecalsGoods',
         function ($scope, getDecalsGoods) {
             $scope.Decals = getDecalsGoods;
         }
