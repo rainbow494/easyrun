@@ -29,19 +29,3 @@ productControllers.controller('productCurrentGoodController', ['$scope', '$route
         }
     ]
 );
-
-productControllers.controller('productHotGoodsController', ['$scope', 'getHotGoods',
-        function ($scope, getHotGoods) {
-            $scope.hotSuggestGallery = getHotGoods;
-            $scope.hotSuggestGallery.title = "Try These";
-        }
-    ]
-);
-
-productControllers.controller('productHotCategoriesController', ['$scope', 'getHotCategories',
-        function ($scope, getHotCategories) {
-            $scope.hotSuggestGallery = getHotCategories;
-            $scope.hotSuggestGallery.title = "Category";
-        }
-    ]
-);

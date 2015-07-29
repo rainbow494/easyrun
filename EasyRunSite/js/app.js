@@ -10,7 +10,8 @@ var ezApp = angular.module('ezApp', [
   'contactControllers',
   'ezSiteMapPlugin',
   'ezSliderBarPlugin',
-  'ezDataServices'
+  'ezDataServices',
+  'popularLinkPluginControllers'
 ]);
 
 ezApp.config([

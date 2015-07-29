@@ -24,7 +24,7 @@
     }, {
         "productId": "002002",
         "categoryId": 2,
-        "categoryName": "glass_films",
+        "categoryName": "glass films",
         "imageUrl": "glass_films/sku_2",
         "name": "name displayed when hover",
         "length": 300,
@@ -37,7 +37,7 @@
     }, {
         "productId": "003003",
         "categoryId": 3,
-        "categoryName": "wall_hangings",
+        "categoryName": "wall hangings",
         "imageUrl": "wall_hangings/sku_3",
         "name": "3D Wall Sticker - Black Dinosaur",
         "length": 300,
@@ -50,7 +50,7 @@
     }, {
         "productId": "004007",
         "categoryId": 4,
-        "categoryName": "wall_murals",
+        "categoryName": "wall murals",
         "imageUrl": "wall_murals/sku_7",
         "name": "8pcs Big Combo Lunar Eclipse Glowing Moon",
         "length": 300,
@@ -63,7 +63,7 @@
     }, {
         "productId": "004006",
         "categoryId": 4,
-        "categoryName": "wall_murals",
+        "categoryName": "wall murals",
         "imageUrl": "wall_murals/sku_6",
         "name": "Combo Glowing Moons with 10 Stars as Bonus",
         "length": 300,
@@ -76,7 +76,7 @@
     }, {
         "productId": "004008",
         "categoryId": 4,
-        "categoryName": "wall_murals",
+        "categoryName": "wall murals",
         "imageUrl": "wall_murals/sku_8",
         "name": "name displayed when hover",
         "length": 300,
@@ -91,7 +91,7 @@
     ez.data.goods = goodData;
 
     /* hotGoods */
-    var hotGoodsData = [goodData[0], goodData[1], goodData[2]]
+    var hotGoodsData = [goodData[3], goodData[4], goodData[5]]
     ez.data.hotGoods = hotGoodsData;
 
     ez.data.hotGoods.defaultOption = {
@@ -108,7 +108,7 @@
     }
 
     /* hotCategories */
-    var hotCategoriesData = [goodData[3], goodData[4], goodData[5]]
+    var hotCategoriesData = [goodData[0], goodData[1], goodData[2]]
     ez.data.hotCategories = hotCategoriesData;
 
     ez.data.hotCategories.defaultOption = {

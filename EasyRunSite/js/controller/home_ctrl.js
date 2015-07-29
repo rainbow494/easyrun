@@ -10,11 +10,3 @@ homeControllers.controller('homeHotGoodsController', ['$scope', 'getHotGoods',
         }
     ]
 );
-
-        homeControllers.controller('homeHotCategoriesController', ['$scope', 'getHotCategories',
-        function ($scope, getHotCategories) {
-            $scope.hotSuggestGallery = getHotCategories;
-            $scope.hotSuggestGallery.title = "Category";
-        }
-    ]
-);
