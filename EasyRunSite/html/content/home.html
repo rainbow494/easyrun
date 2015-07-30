@@ -10,8 +10,8 @@
 
     <div class="carousel-inner ez-carousel" role="listbox">
         <div class="item" ng-class="{'active' : $index == 0}" ng-repeat="hotGood in hotGoods">
-            <a href="{{hotGoods.getUrl(hotGood)}}">
-                <img class="first-slide" src="{{hotGoods.getImageUrl(hotGood)}}" alt="Slide {{$index}}">
+            <a ng-href="{{hotGoods.getUrl(hotGood)}}">
+                <img class="first-slide" ng-src="{{hotGoods.getImageUrl(hotGood)}}" alt="Slide {{$index}}">
             </a>
         </div>
     </div>
