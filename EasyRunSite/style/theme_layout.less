@@ -1,24 +1,40 @@
-/*@header-margin-bottom: 30px;*/
-@content-padding-top: 70px;
-@fixed-nav-button-height: @content-padding-top;
+@import "plugin/carousel.less";
+
+@fixed-nav-bar-height: 70px;
+
 @footer-padding-top: 30px;
 @footer-height: 180px;
 
-@sperator: 1px ridge silver;
+@sperator-width:1px;
+@sperator: @sperator-width ridge silver;
 
-@wapper-height: @fixed-nav-button-height + (@footer-height - @footer-padding-top) + @content-padding-top;
-@ez-content-min-height: calc(~'100vh' - @wapper-height);
+@content-padding-top: 70px;
+@content-wapper-height: @fixed-nav-bar-height + @sperator-width + @content-padding-top + @sperator-width + @footer-height - @footer-padding-top;
+@content-min-height: calc(~'100vh' - @content-wapper-height);
 
 body {
-    padding-top: @fixed-nav-button-height;
+    padding-top: @fixed-nav-bar-height;
+}
+
+.ez-navbar {
+    /*margin-bottom: @header-margin-bottom;*/
+    height: @fixed-nav-bar-height;
+    line-height: @fixed-nav-bar-height;
+    border-bottom: @sperator;
 }
 
 .ez-content {
     padding-top: @content-padding-top;
-    min-height: @ez-content-min-height;
+    min-height: @content-min-height;
 }
 
 .footer {
     padding-top: @footer-padding-top;
     border-top: @sperator;
+}
+
+/* plugin-setting */
+.ez-carousel {
+    @max-height:calc(~'100vh' - @fixed-nav-bar-height);
+    .ez-carousel-template(@max-height, hidden);
 }

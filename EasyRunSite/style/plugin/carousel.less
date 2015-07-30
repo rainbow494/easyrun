@@ -1,0 +1,59 @@
+/* color-setting*/
+.scrollBtn {
+    color: @ez-inner-font-color;
+    opacity: .9;
+}
+
+/* layout-setting */
+.ez-carousel-template(@max-height, @overflow) {
+    @slider-width: 100vw;
+    /*max-height: ~calc(@max-height - @padding-top-for-fixed-nav-button);*/
+    max-height: @max-height;
+    overflow: @overflow;
+
+    & > .item {
+        & > a {
+            & > img {
+                width: @slider-width;
+            }
+        }
+    }
+}
+
+.carousel-indicators {
+    .active {
+        width: 40px;
+    }
+
+    li {
+        width: 10px;
+    }
+}
+
+/*sample for media query*/
+/*@media screen and (max-width: 600px) {
+    .ez-carousel-template(600px, auto);
+}*/
+
+@resource-base-path: '../resource/';
+/*@mouse-png:@resource-base-path + 'image/mouse.png';*/
+@mouse-png: '../resource/image/mouse.png';
+.scrollBtn {
+    z-index: 9999;
+    background: url(@mouse-png) no-repeat top center;
+    height: 40px;
+    width: 80px;
+    left: 50%;
+    margin-left: -40px;
+    font-size: 12px;
+    padding-top: 59px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    bottom: 70px;
+    display: block;
+    position: absolute;
+}
+
+
+
