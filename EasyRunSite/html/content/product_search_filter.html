@@ -6,18 +6,18 @@
         <div class="col-md-3">
             <div class="jumbotron">
                 <h3 style="">Category</h3>
-                <a href="#/product_search_filter"><p style="font-size:14px;">Decals</p></a>
-                <a href="#/product_search_filter"><p style="font-size:14px;">wall_hangings</p></a>
-                <a href="#/product_search_filter"><p style="font-size:14px;">wall_murals</p></a>
-                <a href="#/product_search_filter"><p style="font-size:14px;">glass_films</p></a>
+                <a ng-href="#/product_search_filter"><p style="font-size:14px;">Decals</p></a>
+                <a ng-href="#/product_search_filter"><p style="font-size:14px;">wall_hangings</p></a>
+                <a ng-href="#/product_search_filter"><p style="font-size:14px;">wall_murals</p></a>
+                <a ng-href="#/product_search_filter"><p style="font-size:14px;">glass_films</p></a>
 
                 <h3>Application Senario</h3>
-                <a href="#/product_search_filter"><p style="font-size:14px;">Bedroom</p></a>
-                <a href="#/product_search_filter"><p style="font-size:14px;">Living room</p></a>
-                <a href="#/product_search_filter"><p style="font-size:14px;">Dining room</p></a>
-                <a href="#/product_search_filter"><p style="font-size:14px;">Nursery room</p></a>
-                <a href="#/product_search_filter"><p style="font-size:14px;">Study room</p></a>
-                <a href="#/product_search_filter"><p style="font-size:14px;">Bathroom</p></a>
+                <a ng-href="#/product_search_filter"><p style="font-size:14px;">Bedroom</p></a>
+                <a ng-href="#/product_search_filter"><p style="font-size:14px;">Living room</p></a>
+                <a ng-href="#/product_search_filter"><p style="font-size:14px;">Dining room</p></a>
+                <a ng-href="#/product_search_filter"><p style="font-size:14px;">Nursery room</p></a>
+                <a ng-href="#/product_search_filter"><p style="font-size:14px;">Study room</p></a>
+                <a ng-href="#/product_search_filter"><p style="font-size:14px;">Bathroom</p></a>
             </div>
         </div>
         <div class="col-md-9">
@@ -31,14 +31,14 @@
                 <h4>Decals</h4>
                     </div>
                 <div class="col-md-1 col-md-offset-5">
-                <button type="submit" class="btn btn-info" onclick="window.location.href='#/product_search_result'">More</button>
+                <button type="submit" class="btn btn-info" onclick="window.location.ng-href='#/product_search_result'">More</button>
                     </div>
             </div>
 
             <div class="row text-center">
                 <div ng-repeat="decal in Decals | filter:query">
                     <div class="col-md-3">
-                        <a href="#/product" class="thumbnail">
+                        <a ng-href="#/product" class="thumbnail">
                             <img src="./resource/image/category/{{decal.category}}/sku_{{decal.SKU}}/1.jpg" alt="...">
                             <div class="container">
                                 <div class="carousel-caption">
@@ -58,14 +58,14 @@
                 <h4>wall_hangings</h4>
                     </div>
                 <div class="col-md-1 col-md-offset-5">
-                <button type="submit" class="btn btn-info" onclick="window.location.href='#/product_search_result'">More</button>
+                <button type="submit" class="btn btn-info" onclick="window.location.ng-href='#/product_search_result'">More</button>
                     </div>
             </div>
 
             <div class="row text-center">
                 <div ng-repeat="wallHanging in wallHangings | filter:query">
                     <div class="col-md-3 col-xs-6">
-                        <a href="#/product" class="thumbnail">
+                        <a ng-href="#/product" class="thumbnail">
                             <img src="./resource/image/category/{{wallHanging.category}}/sku_{{wallHanging.SKU}}/1.jpg" alt="...">
                             <div class="container">
                                 <div class="carousel-caption">
@@ -85,14 +85,14 @@
                 <h4>wall_murals</h4>
                     </div>
                 <div class="col-md-1 col-md-offset-5">
-                <button type="submit" class="btn btn-info" onclick="window.location.href='#/product_search_result'">More</button>
+                <button type="submit" class="btn btn-info" onclick="window.location.ng-href='#/product_search_result'">More</button>
                     </div>
             </div>
 
             <div class="row text-center">
                 <div ng-repeat="wallMural in wallMurals | filter:query">
                     <div class="col-md-3 col-xs-6">
-                        <a href="#/product" class="thumbnail">
+                        <a ng-href="#/product" class="thumbnail">
                             <img src="./resource/image/category/{{wallMural.category}}/sku_{{wallMural.SKU}}/1.jpg" alt="...">
                             <div class="container">
                                 <div class="carousel-caption">
@@ -111,14 +111,14 @@
                 <h4>glass_films</h4>
                     </div>
                 <div class="col-md-1 col-md-offset-5">
-                <button type="submit" class="btn btn-info" onclick="window.location.href='#/product_search_result'">More</button>
+                <button type="submit" class="btn btn-info" onclick="window.location.ng-href='#/product_search_result'">More</button>
                     </div>
             </div>
 
             <div class="row text-center">
                 <div ng-repeat="glassFilm in glassFilms | filter:query">
                     <div class="col-md-3 col-xs-6">
-                        <a href="#/product" class="thumbnail">
+                        <a ng-href="#/product" class="thumbnail">
                             <img src="./resource/image/category/{{glassFilm.category}}/sku_{{glassFilm.SKU}}/1.jpg" alt="...">
                             <div class="container">
                                 <div class="carousel-caption">
