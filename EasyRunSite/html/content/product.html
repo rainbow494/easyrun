@@ -6,7 +6,7 @@
         </div>
         <div class="col-md-4">
             <div class="well">
-                <div><strong>{{currentProduct.name}}</strong></div>
+                <div><strong ng-bind="currentProduct.productName"></strong></div>
                 <i>(SKU:{{currentProduct.productId}})</i>
 
                 <div>&nbsp;</div>
@@ -15,16 +15,18 @@
                     <span class="col-xs-12">Size (L / W) : <a>{{currentProduct.length}} {{currentProduct.unit}}</a> / <a>{{currentProduct.width}} {{currentProduct.unit}}</a></span>
                 </div>
                 <div class="row">
-                    <span class="col-xs-12">Effect : <a>{{currentProduct.effectName}}</a></span>
+                    <span class="col-xs-12">Effect : <a ng-bind="currentProduct.effectName"></a></span>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12">Meteraia : <a>{{currentProduct.meteraiaName}}</a></div>
+                    <div class="col-xs-12">Material : <a ng-bind="currentProduct.materialName"></a></div>
                 </div>
 
                 <div>&nbsp;</div>
 
                 <div class="row">
-                    <span class="col-xs-12">Recommand : <a>{{currentProduct.applicationList[0]}}</a> / <a>{{currentProduct.applicationList[1]}}</a></span>
+                    <span class="col-xs-12">Recommand : 
+						<a ng-repeat="application in currentProduct.applicationList">{{application}}</a> <span ng-visibility="$index>0"> / </span>
+						<a>{{currentProduct.applicationList[1]}}</a></span>
                 </div>
                 <div>&nbsp;</div>
                 <a ng-href="#/contact/{{currentProduct.productId}}" target="_blank"><p><button type="submit" class="btn btn-info">Product Inquire</button></p></a>

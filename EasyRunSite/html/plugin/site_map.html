@@ -2,8 +2,8 @@
     <div class="col-md-12">
         <ol class="breadcrumb">
             <li><a ng-href="#/category">All Category</a></li>
-            <li><a ng-href="#/category/{{siteMapData.categoryId}}">{{siteMapData.categoryName}}</a></li>
-            <li class="active">{{siteMapData.name}}</li>
+            <li><a ng-href="'#/category/{{siteMapData.categoryId}}" ng-bind="siteMapData.categoryName"></a></li>
+            <li class="active" ng-bind="siteMapData.productName"></li>
         </ol>
     </div>
 </div>

@@ -3,34 +3,34 @@
 var ezServices = angular.module("ezServices", []);
 
 ezServices.factory("getProductById", [
-		function (productId) {
+        function (productId) {
 
             var _allProducts = ez.data.products;
 
-		    var getProductById = function (productId) {// Get product logic need move to services
-		        var product = {};
-		        if (!productId) {
-		            return currentProduct;
-		        }
+            var getProductById = function (productId) { // Get product logic need move to services
+                var product = {};
+                if (!productId) {
+                    return currentProduct;
+                }
 
-		        for (i = 0; i < _allProducts.length; i++) {
-		            if (_allProducts[i].productId === productId) {
-		                product = _allProducts[i];
-		                break;
-		            }
-		        }
-		        return product;
-		    }
+                for (i = 0; i < _allProducts.length; i++) {
+                    if (_allProducts[i].productId === productId) {
+                        product = _allProducts[i];
+                        break;
+                    }
+                }
+                return product;
+            }
 
-		    return getProductById;
-		}
-	]);
+            return getProductById;
+        }
+    ]);
 
 ezServices.factory("getAllProducts", [
-		function () {
-		    return ez.data.products;
-		}
-	]);
+        function () {
+            return ez.data.products;
+        }
+    ]);
 
 ezServices.factory("getPopularProducts", [
         function () {
@@ -53,11 +53,11 @@ ezServices.factory("getPopularProducts", [
                 return popularProducts.option.urlBase + "/" + data.productId;
             }
             var getImageUrl = function (data) {
-                return popularProducts.option.imageUrlBase + "/" + data.imageUrl + "/" + "1.jpg";
+                return popularProducts.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1.jpg";
             }
 
             popularProducts.getUrl = getUrl;
-            popularProducts.getImageUrl =getImageUrl;
+            popularProducts.getImageUrl = getImageUrl;
 
             return (function () {
                 return popularProducts;
@@ -66,10 +66,57 @@ ezServices.factory("getPopularProducts", [
     ]);
 
 ezServices.factory("getPopularCategories", [
-		function () {
-		    return ez.data.popularCategories;
-		}
-	]);
+        function () {
+			
+			var allProducts = ez.data.products;
+            var popularCategories = [];
+            for (var i = 0; i < allProducts.length; i++) {
+                if (allProducts[i].popular) {
+                    popularCategories.push(allProducts[i]);
+                }
+            }
+
+            popularCategories.defaultOption = {
+                "urlBase" : "#/category"
+            }
+
+            popularCategories.option = {};
+            $.extend(true, popularCategories.option, ez.data.defaultOption, popularCategories.defaultOption);
+
+            var getUrl = function (data) {
+                return popularCategories.option.urlBase + "/" + data.productId;
+            }
+            var getImageUrl = function (data) {
+                return popularCategories.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1.jpg";
+            }
+
+            popularCategories.getUrl = getUrl;
+            popularCategories.getImageUrl = getImageUrl;
+
+            return (function () {
+                return popularCategories;
+            })();
+			
+
+            // /* popularCategories */
+            // var popularCategoriesData = [productData[0], productData[1], productData[2]]
+            // ez.data.popularCategories = popularCategoriesData;
+
+            // ez.data.popularCategories.defaultOption = {
+                // "urlBase" : "#/category"
+            // }
+            // ez.data.popularCategories.option = {};
+            // $.extend(true, ez.data.popularCategories.option, ez.data.defaultOption, ez.data.popularCategories.defaultOption);
+
+            // ez.data.popularCategories.getUrl = function (data) {
+                // //return ez.data.popularCategories.option.urlBase + "/" + data.categoryId;
+                // return ez.data.popularCategories.option.urlBase;
+            // }
+            // ez.data.popularCategories.getImageUrl = function (data) {
+                // return ez.data.popularCategories.option.imageUrlBase + "/" + data.imageUrl + "/" + "1.jpg";
+            // }
+        }
+    ]);
 
 /* Test Data Start */
 
