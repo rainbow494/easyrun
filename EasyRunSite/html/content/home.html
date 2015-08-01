@@ -9,9 +9,9 @@
     </ol>
 
     <div class="carousel-inner ez-carousel" role="listbox">
-        <div class="item" ng-class="{'active' : $index == 0}" ng-repeat="hotGood in hotGoods">
-            <a ng-href="{{hotGoods.getUrl(hotGood)}}">
-                <img class="first-slide" ng-src="{{hotGoods.getImageUrl(hotGood)}}" alt="Slide {{$index}}">
+        <div class="item" ng-class="{'active' : $index == 0}" ng-repeat="popularProduct in popularProducts">
+            <a ng-href="{{popularProducts.getUrl(popularProduct)}}">
+                <img class="first-slide" ng-src="{{popularProducts.getImageUrl(popularProduct)}}" alt="Slide {{$index}}">
             </a>
         </div>
     </div>

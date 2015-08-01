@@ -23,9 +23,9 @@ productControllers.controller('productSiderBarController', ['$scope', '$routePar
     ]
 );
 
-productControllers.controller('productCurrentGoodController', ['$scope', '$routeParams', 'getGoodById',
-        function ($scope, $routeParams, getGoodById) {
-            $scope.currentGood = getGoodById($routeParams.productId);
+productControllers.controller('productCurrentProductController', ['$scope', '$routeParams', 'getProductById',
+        function ($scope, $routeParams, getProductById) {
+            $scope.currentProduct = getProductById($routeParams.productId);
         }
     ]
 );

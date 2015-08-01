@@ -20,11 +20,11 @@ ezApp.config([
         $routeProvider.
     when('/home', {
         templateUrl: './html/content/home.html',
-        controller: 'homeHotGoodsController'
+        controller: 'homePopularProductsController'
     }).
     when('/product/:productId', {
         templateUrl: './html/content/product.html',
-        controller: 'productCurrentGoodController'
+        controller: 'productCurrentProductController'
     }).
     when('/category/:category', {
         templateUrl: './html/content/product_search_filter.html',

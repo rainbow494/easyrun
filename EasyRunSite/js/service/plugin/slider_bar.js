@@ -6,19 +6,19 @@ ezSliderBarPlugin.factory("ezSliderBarPluginFactory", [
 		function (productId) {
 		    var self = this;
 
-		    var _allGoods = ez.data.goods;
+		    var _allProducts = ez.data.products;
 
 		    self.initSiderBarData = function (productId) {
 		        var siderBarData = {};
 		        siderBarData.currentImgNo = 1;
-		        siderBarData.good = {};
+		        siderBarData.product = {};
 		        if (!productId) {
-		            return currentGood;
+		            return currentProduct;
 		        }
 
-		        for (i = 0; i < _allGoods.length; i++) {
-		            if (_allGoods[i].productId === productId) {
-		                siderBarData.good = _allGoods[i];
+		        for (i = 0; i < _allProducts.length; i++) {
+		            if (_allProducts[i].productId === productId) {
+		                siderBarData.product = _allProducts[i];
 		                break;
 		            }
 		        }

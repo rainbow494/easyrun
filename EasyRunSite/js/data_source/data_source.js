@@ -7,8 +7,8 @@
         "imageUrlBase": "./resource/image/category"
     }
 
-    /* goods */
-    var goodData = [{
+    /* products */
+    var productData = [{
         "productId": "001001",
         "categoryId": 1,
         "categoryName": "decals",
@@ -20,7 +20,7 @@
         "effectName": "3D",
         "meteraiaName": "paper",
         "applicationList": ["Bedroom", "Toliet"],
-        "hot": true
+        "popular": true
     }, {
         "productId": "002002",
         "categoryId": 2,
@@ -33,7 +33,7 @@
         "effectName": "3D",
         "meteraiaName": "paper",
         "applicationList": ["Bedroom", "Toliet"],
-        "hot": true
+        "popular": true
     }, {
         "productId": "003003",
         "categoryId": 3,
@@ -46,7 +46,7 @@
         "effectName": "3D",
         "meteraiaName": "paper",
         "applicationList": ["Bedroom", "Toliet"],
-        "hot": true
+        "popular": true
     }, {
         "productId": "004007",
         "categoryId": 4,
@@ -59,7 +59,7 @@
         "effectName": "3D",
         "meteraiaName": "paper",
         "applicationList": ["Bedroom", "Toliet"],
-        "hot": false
+        "popular": false
     }, {
         "productId": "004006",
         "categoryId": 4,
@@ -72,7 +72,7 @@
         "effectName": "3D",
         "meteraiaName": "paper",
         "applicationList": ["Bedroom", "Toliet"],
-        "hot": false
+        "popular": false
     }, {
         "productId": "004008",
         "categoryId": 4,
@@ -85,44 +85,27 @@
         "effectName": "3D",
         "meteraiaName": "paper",
         "applicationList": ["Bedroom", "Toliet"],
-        "hot": false
+        "popular": false
     }
 	]
-    ez.data.goods = goodData;
+    ez.data.products = productData;
 
-    /* hotGoods */
-    var hotGoodsData = [goodData[3], goodData[4], goodData[5]]
-    ez.data.hotGoods = hotGoodsData;
+    /* popularCategories */
+    var popularCategoriesData = [productData[0], productData[1], productData[2]]
+    ez.data.popularCategories = popularCategoriesData;
 
-    ez.data.hotGoods.defaultOption = {
-        "urlBase": "#/product"
-    }
-    ez.data.hotGoods.option = {};
-    $.extend(true, ez.data.hotGoods.option, ez.data.defaultOption, ez.data.hotGoods.defaultOption);
-
-    ez.data.hotGoods.getUrl = function (data) {
-        return ez.data.hotGoods.option.urlBase + "/" + data.productId;
-    }
-    ez.data.hotGoods.getImageUrl = function (data) {
-        return ez.data.hotGoods.option.imageUrlBase + "/" + data.imageUrl + "/" + "1.jpg";
-    }
-
-    /* hotCategories */
-    var hotCategoriesData = [goodData[0], goodData[1], goodData[2]]
-    ez.data.hotCategories = hotCategoriesData;
-
-    ez.data.hotCategories.defaultOption = {
+    ez.data.popularCategories.defaultOption = {
         "urlBase": "#/category"
     }
-    ez.data.hotCategories.option = {};
-    $.extend(true, ez.data.hotCategories.option, ez.data.defaultOption, ez.data.hotCategories.defaultOption);
+    ez.data.popularCategories.option = {};
+    $.extend(true, ez.data.popularCategories.option, ez.data.defaultOption, ez.data.popularCategories.defaultOption);
 
-    ez.data.hotCategories.getUrl = function (data) {
-        //return ez.data.hotCategories.option.urlBase + "/" + data.categoryId;
-        return ez.data.hotCategories.option.urlBase;
+    ez.data.popularCategories.getUrl = function (data) {
+        //return ez.data.popularCategories.option.urlBase + "/" + data.categoryId;
+        return ez.data.popularCategories.option.urlBase;
     }
-    ez.data.hotCategories.getImageUrl = function (data) {
-        return ez.data.hotCategories.option.imageUrlBase + "/" + data.imageUrl + "/" + "1.jpg";
+    ez.data.popularCategories.getImageUrl = function (data) {
+        return ez.data.popularCategories.option.imageUrlBase + "/" + data.imageUrl + "/" + "1.jpg";
     }
 })()
 /* Test Data End */

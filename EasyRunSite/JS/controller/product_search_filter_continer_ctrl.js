@@ -5,17 +5,17 @@
 var searchFilterController = angular.module('searchFilterController', []);
 
 /*
-searchFilterController.controller('product_search_filter_control', ['$scope', 'getDecalsGoods',
-        function ($scope, getDecalsGoods) {
-            $scope.Decals = getDecalsGoods.query();
+searchFilterController.controller('product_search_filter_control', ['$scope', 'getDecalsProducts',
+        function ($scope, getDecalsProducts) {
+            $scope.Decals = getDecalsProducts.query();
         }
     ]
 );
 */
 
-searchFilterController.controller('product_search_filter_control', ['$scope', 'getDecalsGoods',
-        function ($scope, getDecalsGoods) {
-            $scope.Decals = getDecalsGoods;
+searchFilterController.controller('product_search_filter_control', ['$scope', 'getDecalsProducts',
+        function ($scope, getDecalsProducts) {
+            $scope.Decals = getDecalsProducts;
         }
     ]
 );

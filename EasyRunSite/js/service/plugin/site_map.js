@@ -6,21 +6,21 @@ ezSiteMapPlugin.factory("ezSiteMapPluginFactory", [
 		function (productId) {
             var self = this;
 
-		    var _allGoods = ez.data.goods;
+		    var _allProducts = ez.data.products;
 
-		    self.getSiteMap = function (productId) {// Get good logic need move to services
-		        var good = {};
+		    self.getSiteMap = function (productId) {// Get product logic need move to services
+		        var product = {};
 		        if (!productId) {
-		            return currentGood;
+		            return currentProduct;
 		        }
 
-		        for (i = 0; i < _allGoods.length; i++) {
-		            if (_allGoods[i].productId === productId) {
-		                good = _allGoods[i];
+		        for (i = 0; i < _allProducts.length; i++) {
+		            if (_allProducts[i].productId === productId) {
+		                product = _allProducts[i];
 		                break;
 		            }
 		        }
-		        return good;
+		        return product;
 		    }
 
 		    return self;

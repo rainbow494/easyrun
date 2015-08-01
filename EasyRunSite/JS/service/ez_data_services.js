@@ -2,7 +2,7 @@
 
 var ezDataServices = angular.module("ezDataServices", ['ngResource']);
 /*
-ezDataServices.factory('getDecalsGoods', ['$resource',
+ezDataServices.factory('getDecalsProducts', ['$resource',
   function($resource){
     return $resource('data_source/:dataId.json', {}, {
       query: {method:'GET', params:{dataId:'er-data-test'}, isArray:true}
@@ -11,10 +11,10 @@ ezDataServices.factory('getDecalsGoods', ['$resource',
 
   */
 
-ezDataServices.factory("getDecalsGoods", [
+ezDataServices.factory("getDecalsProducts", [
 		function () {
 		    return [
-    {'hot': true,
+    {'popular': true,
      'SKU': 1,
      'name':'8pcs Big Combo Lunar Eclipse Glowing Moon',
      'category':'decals',
@@ -23,7 +23,7 @@ ezDataServices.factory("getDecalsGoods", [
      'effectId':'3D',
      'meteraiaId':'paper',
      'applicationId':'Bedroom'},
-    {'hot': true,
+    {'popular': true,
      'SKU': 2,
      'name':'Combo Glowing Moons with 10 Stars as Bonus',
      'category':'decals',
@@ -32,7 +32,7 @@ ezDataServices.factory("getDecalsGoods", [
      'effectId':'Light in glow',
      'meteraiaId':'plastic',
      'applicationId':'Living room'},
-     {'hot': true,
+     {'popular': true,
      'SKU': 3,
      'name':'Luminous Moonlight Sticker 4 Sizes Available',
      'category':'decals',
@@ -41,7 +41,7 @@ ezDataServices.factory("getDecalsGoods", [
      'effectId':'3D',
      'meteraiaId':'paper',
      'applicationId':'Dining room'},
-     {'hot': true,
+     {'popular': true,
      'SKU': 4,
      'name':'3D Wall Sticker - Black Dinosaur',
      'category':'decals',
@@ -50,7 +50,7 @@ ezDataServices.factory("getDecalsGoods", [
      'effectId':'Light in glow',
      'meteraiaId':'plastic',
      'applicationId':'Nursery room'},
-     {'hot': true,
+     {'popular': true,
      'SKU': 5,
      'name':'Black Flower 3D Wall Sticker',
      'category':'decals',
@@ -59,7 +59,7 @@ ezDataServices.factory("getDecalsGoods", [
      'effectId':'3D',
      'meteraiaId':'paper',
      'applicationId':'Bedroom'},
-    {'hot': true,
+    {'popular': true,
      'SKU': 6,
      'name':'Feather mirror sticker',
      'category':'decals',
@@ -68,7 +68,7 @@ ezDataServices.factory("getDecalsGoods", [
      'effectId':'Light in glow',
      'meteraiaId':'plastic',
      'applicationId':'Living room'},
-     {'hot': true,
+     {'popular': true,
      'SKU': 7,
      'name':'Mosaic Mirror Sticker',
      'category':'decals',
@@ -77,7 +77,7 @@ ezDataServices.factory("getDecalsGoods", [
      'effectId':'3D',
      'meteraiaId':'paper',
      'applicationId':'Dining room'},
-     {'hot': true,
+     {'popular': true,
      'SKU': 8,
      'name':'Flower Design Golden Mirror Sticker',
      'category':'decals',

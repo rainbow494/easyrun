@@ -2,18 +2,18 @@
 
 var popularLinkPluginControllers = angular.module('popularLinkPluginControllers', []);
 
-popularLinkPluginControllers.controller('popularGoodsController', ['$scope', 'getHotGoods',
-        function ($scope, getHotGoods) {
-            $scope.hotSuggestGallery = getHotGoods;
-            $scope.hotSuggestGallery.type = "good";
+popularLinkPluginControllers.controller('popularProductsController', ['$scope', 'getPopularProducts',
+        function ($scope, getPopularProducts) {
+            $scope.popularSuggestGallery = getPopularProducts;
+            $scope.popularSuggestGallery.type = "product";
         }
     ]
 );
 
-popularLinkPluginControllers.controller('popularCategoriesController', ['$scope', 'getHotCategories',
-        function ($scope, getHotCategories) {
-            $scope.hotSuggestGallery = getHotCategories;
-            $scope.hotSuggestGallery.type = "category";
+popularLinkPluginControllers.controller('popularCategoriesController', ['$scope', 'getPopularCategories',
+        function ($scope, getPopularCategories) {
+            $scope.popularSuggestGallery = getPopularCategories;
+            $scope.popularSuggestGallery.type = "category";
         }
     ]
 );

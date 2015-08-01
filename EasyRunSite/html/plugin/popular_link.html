@@ -1,18 +1,18 @@
-<div class="container ez-hot-category">
+<div class="container ez-popular-category">
     <div class="row text-center">
         <div class="col-md-8 col-md-offset-2">
             <div class="row text-center">
-                <h1 ng-switch="hotSuggestGallery.type">
+                <h1 ng-switch="popularSuggestGallery.type">
                     <span ng-switch-when="category">Category</span>
-                    <span ng-switch-when="good">Popular</span>
+                    <span ng-switch-when="product">Popular</span>
                     <h1>
-                        <div ng-repeat="good in hotSuggestGallery" class="col-md-4 col-xs-6">
-                            <a ng-href="{{hotSuggestGallery.getUrl(good)}}" class="thumbnail">
-                                <img ng-src="{{hotSuggestGallery.getImageUrl(good)}}" alt="...">
-                                <div class="hotSuggestGallery-title">
-                                    <h4 ng-switch="hotSuggestGallery.type" class="text-uppercase">
-                                        <span ng-switch-when="category" ng-bind="good.categoryName"></span>
-                                        <span ng-switch-when="good" ng-bind="good.name"></span>
+                        <div ng-repeat="product in popularSuggestGallery" class="col-md-4 col-xs-6">
+                            <a ng-href="{{popularSuggestGallery.getUrl(product)}}" class="thumbnail">
+                                <img ng-src="{{popularSuggestGallery.getImageUrl(product)}}" alt="...">
+                                <div class="popularSuggestGallery-title">
+                                    <h4 ng-switch="popularSuggestGallery.type" class="text-uppercase">
+                                        <span ng-switch-when="category" ng-bind="product.categoryName"></span>
+                                        <span ng-switch-when="product" ng-bind="product.name"></span>
                                     <h4>
                                 </div>
                             </a>

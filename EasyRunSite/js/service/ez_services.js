@@ -2,45 +2,72 @@
 
 var ezServices = angular.module("ezServices", []);
 
-ezServices.factory("getGoodById", [
+ezServices.factory("getProductById", [
 		function (productId) {
 
-            var _allGoods = ez.data.goods;
+            var _allProducts = ez.data.products;
 
-		    var getGoodById = function (productId) {// Get good logic need move to services
-		        var good = {};
+		    var getProductById = function (productId) {// Get product logic need move to services
+		        var product = {};
 		        if (!productId) {
-		            return currentGood;
+		            return currentProduct;
 		        }
 
-		        for (i = 0; i < _allGoods.length; i++) {
-		            if (_allGoods[i].productId === productId) {
-		                good = _allGoods[i];
+		        for (i = 0; i < _allProducts.length; i++) {
+		            if (_allProducts[i].productId === productId) {
+		                product = _allProducts[i];
 		                break;
 		            }
 		        }
-		        return good;
+		        return product;
 		    }
 
-		    return getGoodById;
+		    return getProductById;
 		}
 	]);
 
-ezServices.factory("getAllGoods", [
+ezServices.factory("getAllProducts", [
 		function () {
-		    return ez.data.goods;
+		    return ez.data.products;
 		}
 	]);
 
-ezServices.factory("getHotGoods", [
-		function () {
-		    return ez.data.hotGoods;
-		}
-	]);
+ezServices.factory("getPopularProducts", [
+        function () {
+            var allProducts = ez.data.products;
+            var popularProducts = [];
+            for (var i = 0; i < allProducts.length; i++) {
+                if (allProducts[i].popular) {
+                    popularProducts.push(allProducts[i]);
+                }
+            }
 
-ezServices.factory("getHotCategories", [
+            popularProducts.defaultOption = {
+                "urlBase" : "#/product"
+            }
+
+            popularProducts.option = {};
+            $.extend(true, popularProducts.option, ez.data.defaultOption, popularProducts.defaultOption);
+
+            var getUrl = function (data) {
+                return popularProducts.option.urlBase + "/" + data.productId;
+            }
+            var getImageUrl = function (data) {
+                return popularProducts.option.imageUrlBase + "/" + data.imageUrl + "/" + "1.jpg";
+            }
+
+            popularProducts.getUrl = getUrl;
+            popularProducts.getImageUrl =getImageUrl;
+
+            return (function () {
+                return popularProducts;
+            })();
+        }
+    ]);
+
+ezServices.factory("getPopularCategories", [
 		function () {
-		    return ez.data.hotCategories;
+		    return ez.data.popularCategories;
 		}
 	]);
 
@@ -49,8 +76,8 @@ ezServices.factory("getHotCategories", [
 /*example for getData from web api*/
 //ezControllers.controller("homeControl", ["$scope", "$http",
 //  function ($scope, $http) {
-//      // $http({ method: "GET", url: "dataSource/hot_commodiate.json" }).success(function (data) {
-//      $http.get("dataSource/hot_commodiate.json").success(function (data) {
+//      // $http({ method: "GET", url: "dataSource/popular_commodiate.json" }).success(function (data) {
+//      $http.get("dataSource/popular_commodiate.json").success(function (data) {
 //          $scope.carousels = data;
 //      }).error(function (data) {
 //          console.log("error from ezControllers http get" + data);

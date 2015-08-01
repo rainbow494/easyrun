@@ -1,5 +1,5 @@
 [
-     {'hot': true,
+     {'popular': true,
      'SKU': 1,
      'name':'8pcs Big Combo Lunar Eclipse Glowing Moon',
      'category':'decals',
@@ -9,7 +9,7 @@
      'meteraiaId':'paper',
      'applicationId':'Bedroom'},
 
-     {'hot': true,
+     {'popular': true,
      'SKU': 2,
      'name':'Combo Glowing Moons with 10 Stars as Bonus',
      'category':'decals',
@@ -19,7 +19,7 @@
      'meteraiaId':'plastic',
      'applicationId':'Living room'},
 
-      {'hot': true,
+      {'popular': true,
      'SKU': 3,
      'name':'Luminous Moonlight Sticker 4 Sizes Available',
      'category':'decals',
@@ -29,7 +29,7 @@
      'meteraiaId':'paper',
      'applicationId':'Dining room'},
 
-     {'hot': true,
+     {'popular': true,
      'SKU': 4,
      'name':'3D Wall Sticker - Black Dinosaur',
      'category':'decals',
@@ -39,7 +39,7 @@
      'meteraiaId':'plastic',
      'applicationId':'Nursery room'},
 
-     {'hot': true,
+     {'popular': true,
      'SKU': 5,
      'name':'Black Flower 3D Wall Sticker',
      'category':'decals',
@@ -49,7 +49,7 @@
      'meteraiaId':'paper',
      'applicationId':'Bedroom'},
 
-     {'hot': true,
+     {'popular': true,
      'SKU': 6,
      'name':'Feather mirror sticker',
      'category':'decals',
@@ -59,7 +59,7 @@
      'meteraiaId':'plastic',
      'applicationId':'Living room'},
 
-     {'hot': true,
+     {'popular': true,
      'SKU': 7,
      'name':'Mosaic Mirror Sticker',
      'category':'decals',
@@ -69,7 +69,7 @@
      'meteraiaId':'paper',
      'applicationId':'Dining room'},
 
-     {'hot': true,
+     {'popular': true,
      'SKU': 8,
      'name':'Flower Design Golden Mirror Sticker',
      'category':'decals',
@@ -79,7 +79,7 @@
      'meteraiaId':'plastic',
      'applicationId':'Nursery room'},
 
-     {'hot': true,
+     {'popular': true,
      'SKU': 9,
      'name':'8pcs Big Combo Lunar Eclipse Glowing Moon',
      'category':'wall_hangings',
@@ -89,7 +89,7 @@
      'meteraiaId':'paper',
      'applicationId':'Bedroom'},
     
-     {'hot': true,
+     {'popular': true,
      'SKU': 10,
      'name':'Combo Glowing Moons with 10 Stars as Bonus',
      'category':'wall_hangings',
@@ -99,7 +99,7 @@
      'meteraiaId':'plastic',
      'applicationId':'Living room'},
      
-     {'hot': true,
+     {'popular': true,
      'SKU': 11,
      'name':'Luminous Moonlight Sticker 4 Sizes Available',
      'category':'wall_hangings',
@@ -109,7 +109,7 @@
      'meteraiaId':'paper',
      'applicationId':'Dining room'},
      
-     {'hot': true,
+     {'popular': true,
      'SKU': 12,
      'name':'3D Wall Sticker - Black Dinosaur',
      'category':'wall_hangings',
@@ -119,7 +119,7 @@
      'meteraiaId':'plastic',
      'applicationId':'Nursery room'},
      
-     {'hot': true,
+     {'popular': true,
      'SKU': 13,
      'name':'Black Flower 3D Wall Sticker',
      'category':'wall_hangings',
@@ -129,7 +129,7 @@
      'meteraiaId':'paper',
      'applicationId':'Bedroom'},
      
-     {'hot': true,
+     {'popular': true,
      'SKU': 14,
      'name':'Feather mirror sticker',
      'category':'wall_hangings',
@@ -139,7 +139,7 @@
      'meteraiaId':'plastic',
      'applicationId':'Living room'},
      
-     {'hot': true,
+     {'popular': true,
      'SKU': 15,
      'name':'Mosaic Mirror Sticker',
      'category':'wall_hangings',
@@ -149,7 +149,7 @@
      'meteraiaId':'paper',
      'applicationId':'Dining room'},
      
-     {'hot': true,
+     {'popular': true,
      'SKU': 16,
      'name':'Flower Design Golden Mirror Sticker',
      'category':'wall_hangings',
@@ -159,7 +159,7 @@
      'meteraiaId':'plastic',
      'applicationId':'Nursery room'},
 
-     {'hot': true,
+     {'popular': true,
      'SKU': 17,
      'name':'8pcs Big Combo Lunar Eclipse Glowing Moon',
      'category':'wall_murals',
@@ -169,7 +169,7 @@
      'meteraiaId':'paper',
      'applicationId':'Bedroom'},
 
-     {'hot': true,
+     {'popular': true,
      'SKU': 18,
      'name':'Combo Glowing Moons with 10 Stars as Bonus',
      'category':'wall_murals',
@@ -179,7 +179,7 @@
      'meteraiaId':'plastic',
      'applicationId':'Living room'},
 
-     {'hot': true,
+     {'popular': true,
      'SKU': 19,
      'name':'Luminous Moonlight Sticker 4 Sizes Available',
      'category':'wall_murals',
@@ -189,7 +189,7 @@
      'meteraiaId':'paper',
      'applicationId':'Dining room'},
 
-     {'hot': true,
+     {'popular': true,
      'SKU': 20,
      'name':'3D Wall Sticker - Black Dinosaur',
      'category':'wall_murals',
@@ -199,7 +199,7 @@
      'meteraiaId':'plastic',
      'applicationId':'Nursery room'},
 
-     {'hot': true,
+     {'popular': true,
      'SKU': 21,
      'name':'Black Flower 3D Wall Sticker',
      'category':'wall_murals',
@@ -209,7 +209,7 @@
      'meteraiaId':'paper',
      'applicationId':'Bedroom'},
 
-     {'hot': true,
+     {'popular': true,
      'SKU': 22,
      'name':'Feather mirror sticker',
      'category':'wall_murals',
@@ -219,7 +219,7 @@
      'meteraiaId':'plastic',
      'applicationId':'Living room'},
 
-     {'hot': true,
+     {'popular': true,
      'SKU': 23,
      'name':'Mosaic Mirror Sticker',
      'category':'wall_murals',
@@ -229,7 +229,7 @@
      'meteraiaId':'paper',
      'applicationId':'Dining room'},
 
-     {'hot': true,
+     {'popular': true,
      'SKU': 24,
      'name':'Flower Design Golden Mirror Sticker',
      'category':'wall_murals',
@@ -239,7 +239,7 @@
      'meteraiaId':'plastic',
      'applicationId':'Nursery room'},
 
-     {'hot': true,
+     {'popular': true,
      'SKU': 25,
      'name':'8pcs Big Combo Lunar Eclipse Glowing Moon',
      'category':'glass_films',
@@ -249,7 +249,7 @@
      'meteraiaId':'paper',
      'applicationId':'Bedroom'},
 
-     {'hot': true,
+     {'popular': true,
      'SKU': 26,
      'name':'Combo Glowing Moons with 10 Stars as Bonus',
      'category':'glass_films',
@@ -259,7 +259,7 @@
      'meteraiaId':'plastic',
      'applicationId':'Living room'},
 
-     {'hot': true,
+     {'popular': true,
      'SKU': 27,
      'name':'Luminous Moonlight Sticker 4 Sizes Available',
      'category':'glass_films',
@@ -269,7 +269,7 @@
      'meteraiaId':'paper',
      'applicationId':'Dining room'},
 
-     {'hot': true,
+     {'popular': true,
      'SKU': 28,
      'name':'3D Wall Sticker - Black Dinosaur',
      'category':'glass_films',
@@ -279,7 +279,7 @@
      'meteraiaId':'plastic',
      'applicationId':'Nursery room'},
 
-     {'hot': true,
+     {'popular': true,
      'SKU': 29,
      'name':'Black Flower 3D Wall Sticker',
      'category':'glass_films',
@@ -289,7 +289,7 @@
      'meteraiaId':'paper',
      'applicationId':'Bedroom'},
 
-     {'hot': true,
+     {'popular': true,
      'SKU': 30,
      'name':'Feather mirror sticker',
      'category':'glass_films',
@@ -299,7 +299,7 @@
      'meteraiaId':'plastic',
      'applicationId':'Living room'},
 
-     {'hot': true,
+     {'popular': true,
      'SKU': 31,
      'name':'Mosaic Mirror Sticker',
      'category':'glass_films',
@@ -309,7 +309,7 @@
      'meteraiaId':'paper',
      'applicationId':'Dining room'},
 
-     {'hot': true,
+     {'popular': true,
      'SKU': 32,
      'name':'Flower Design Golden Mirror Sticker',
      'category':'glass_films',

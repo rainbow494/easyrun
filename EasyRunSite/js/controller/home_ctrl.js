@@ -4,9 +4,9 @@
 
 var homeControllers = angular.module('homeControllers', []);
 
-homeControllers.controller('homeHotGoodsController', ['$scope', 'getHotGoods',
-        function ($scope, getHotGoods) {
-            $scope.hotGoods = getHotGoods;
+homeControllers.controller('homePopularProductsController', ['$scope', 'getPopularProducts',
+        function ($scope, getPopularProducts) {
+            $scope.popularProducts = getPopularProducts;
         }
     ]
 );
