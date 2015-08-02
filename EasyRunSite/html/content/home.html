@@ -3,13 +3,11 @@
     
     <a ng-href="#skipHeader" class="scrollBtn hidden-xs">Scroll</a>
     <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="{{$index}}" ng-class="{'active' : $index == 0}" ng-repeat="popularProduct in popularProducts"></li>
     </ol>
 
     <div class="carousel-inner ez-carousel" role="listbox">
-        <div class="item" ng-class="{'active' : $index == 0}" ng-repeat="popularProduct in popularProducts">
+        <div class="item thumbnail-frame" ng-class="{'active' : $index == 0}" ng-repeat="popularProduct in popularProducts">
             <a ng-href="{{popularProducts.getUrl(popularProduct)}}">
                 <img class="first-slide" ng-src="{{popularProducts.getImageUrl(popularProduct)}}" alt="Slide {{$index}}">
             </a>

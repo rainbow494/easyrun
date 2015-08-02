@@ -1,23 +1,60 @@
 <div class="container ez-popular-category">
     <div class="row text-center">
         <div class="col-md-8 col-md-offset-2">
-            <div class="row text-center">
-                <h1 ng-switch="popularSuggestGallery.type">
+		
+		
+			
+			 <div class="row text-center">
+					<h1 ng-switch="popularLink.type">
+						<span ng-switch-when="category">Category</span>
+						<span ng-switch-when="product">Popular</span>
+					<h1>
+					<div ng-repeat="product in popularLink" class="thumbnail-frame col-md-4 col-xs-6">
+						<a ng-href="{{popularLink.getUrl(product)}}" class="thumbnail">
+							<img ng-src="{{popularLink.getImageUrl(product)}}" alt="...">
+							
+							
+							<div class="popular-link-title">
+								<h4 ng-switch="popularLink.type" class="text-uppercase">
+									<span ng-switch-when="category" ng-bind="product.categoryName"></span>
+									<span ng-switch-when="product" ng-bind="product.productName"></span>
+								<h4>
+							</div>
+							
+							
+							
+						</a>
+					</div>
+            </div>
+		
+		
+		
+            <!-- <div class="row text-center">
+                <h1 ng-switch="popularLink.type">
                     <span ng-switch-when="category">Category</span>
                     <span ng-switch-when="product">Popular</span>
                     <h1>
-                        <div ng-repeat="product in popularSuggestGallery" class="col-md-4 col-xs-6">
-                            <a ng-href="{{popularSuggestGallery.getUrl(product)}}" class="thumbnail">
-                                <img ng-src="{{popularSuggestGallery.getImageUrl(product)}}" alt="...">
-                                <div class="popularSuggestGallery-title">
-                                    <h4 ng-switch="popularSuggestGallery.type" class="text-uppercase">
+                        <div ng-repeat="product in popularLink" class="col-md-4 col-xs-6">
+                            <a ng-href="{{popularLink.getUrl(product)}}" class="thumbnail">
+                                <img ng-src="{{popularLink.getImageUrl(product)}}" alt="...">
+                                <div class="popular-link-title">
+                                    <h4 ng-switch="popularLink.type" class="text-uppercase">
                                         <span ng-switch-when="category" ng-bind="product.categoryName"></span>
                                         <span ng-switch-when="product" ng-bind="product.productName"></span>
                                     <h4>
                                 </div>
                             </a>
                         </div>
-            </div>
+            </div> -->
+			
+			
+			<!-- <ul id="aspect">
+			   <li><a href="#"><img src="http://www.16code.com/wp-content/uploads/2013/12/320-180.jpeg">" /></a></li>
+			   <li><a href="#"><img src="http://www.16code.com/wp-content/uploads/2013/12/320-320.jpeg" /></a></li>
+			   <li><a href="#"><img src="http://www.16code.com/wp-content/uploads/2013/12/200-150.jpeg" /></a></li>
+			</ul> -->
+			
+			
             <div class="row text-center">
                 <div class="col-md-12">
                     <p>
