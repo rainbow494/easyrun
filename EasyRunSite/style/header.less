@@ -1,0 +1,39 @@
+.ez-navbar-template(@ez-navbar-height, @ez-navbar-bottom) {
+	
+	border-bottom: @ez-navbar-bottom;
+	
+	.ez-navbar-height-config {
+		height: @ez-navbar-height;
+		line-height: @ez-navbar-height;
+	}
+	
+    .navbar-brand {
+        font-family: 'Lucida Handwriting';
+        font-size: 36px;
+
+        .logo {
+            width: 43px;
+            height: 43px;
+            background-size: contain;
+            background-image: url("../resource/image/favicon.png");
+        }
+    }
+	
+	> .container-fluid {
+        .ez-navbar-height-config;
+
+        > .navbar-header {
+            .ez-navbar-height-config;
+        }
+
+        > #navbar {
+            > .nav.navbar-nav {
+                > li {
+                    .ez-navbar-height-config;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}

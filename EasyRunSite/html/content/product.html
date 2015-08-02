@@ -6,30 +6,34 @@
         </div>
         <div class="col-md-4">
             <div class="well">
-                <div><strong ng-bind="currentProduct.productName"></strong></div>
-                <i>(SKU:{{currentProduct.productId}})</i>
+                <div><strong ng-bind="product.productName"></strong></div>
+                <i>(SKU:{{product.productId}})</i>
 
                 <div>&nbsp;</div>
 
                 <div class="row">
-                    <span class="col-xs-12">Size (L / W) : <a>{{currentProduct.length}} {{currentProduct.unit}}</a> / <a>{{currentProduct.width}} {{currentProduct.unit}}</a></span>
+                    <span class="col-xs-12">Size (L / W) : <a ng-bind="product.length+' '+unit" ng-href="{{categoryPageBaseUrl}}"></a> /  <a ng-bind="product.width+' '+unit" ng-href="{{categoryPageBaseUrl}}"></a></span>
                 </div>
                 <div class="row">
-                    <span class="col-xs-12">Effect : <a ng-bind="currentProduct.effectName"></a></span>
+                    <span ng-show="product.effectName" class="col-xs-12">Effect : <a ng-bind="product.effectName" ng-href="{{categoryPageBaseUrl}}"></a>
+					</span>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12">Material : <a ng-bind="currentProduct.materialName"></a></div>
+                    <div class="col-xs-12">Material : <a ng-href="{{categoryPageBaseUrl}}" ng-bind="product.materialName"></a></div>
                 </div>
 
                 <div>&nbsp;</div>
 
                 <div class="row">
                     <span class="col-xs-12">Recommand : 
-						<a ng-repeat="application in currentProduct.applicationList">{{application}}</a> <span ng-visibility="$index>0"> / </span>
-						<a>{{currentProduct.applicationList[1]}}</a></span>
+						<span ng-repeat="application in product.applicationList">
+                            <span ng-hide="$index==0"> | </span>
+                            <a ng-href="{{categoryPageBaseUrl}}" ng-bind="application"></a>
+                        </span>
+                    </span>
                 </div>
                 <div>&nbsp;</div>
-                <a ng-href="#/contact/{{currentProduct.productId}}" target="_blank"><p><button type="submit" class="btn btn-info">Product Inquire</button></p></a>
+                <a ng-href="#/contact/{{product.productId}}" target="_blank"><p><button type="submit" class="btn btn-info">Product Inquire</button></p></a>
             </div>
         </div>
     </div>

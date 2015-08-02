@@ -1,13 +1,11 @@
 @import "plugin/carousel.less";
+@import "header.less";
 
 @fixed-nav-bar-height: 70px;
-
 @footer-padding-top: 30px;
 @footer-height: 180px;
-
-@sperator-width:1px;
+@sperator-width: 1px;
 @sperator: @sperator-width ridge silver;
-
 @content-padding-top: 70px;
 @content-wapper-height: @fixed-nav-bar-height + @sperator-width + @content-padding-top + @sperator-width + @footer-height - @footer-padding-top;
 @content-min-height: calc(~'100vh' - @content-wapper-height);
@@ -17,10 +15,7 @@ body {
 }
 
 .ez-navbar {
-    /*margin-bottom: @header-margin-bottom;*/
-    height: @fixed-nav-bar-height;
-    line-height: @fixed-nav-bar-height;
-    border-bottom: @sperator;
+	.ez-navbar-template (@fixed-nav-bar-height, @sperator);
 }
 
 .ez-content {
@@ -35,6 +30,6 @@ body {
 
 /* plugin-setting */
 .ez-carousel {
-    @max-height:calc(~'100vh' - @fixed-nav-bar-height);
+    @max-height: calc(~'100vh' - @fixed-nav-bar-height);
     .ez-carousel-template(@max-height, hidden);
 }

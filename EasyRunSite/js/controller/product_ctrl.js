@@ -25,7 +25,9 @@ productControllers.controller('productSiderBarController', ['$scope', '$routePar
 
 productControllers.controller('productCurrentProductController', ['$scope', '$routeParams', 'getProductById',
         function ($scope, $routeParams, getProductById) {
-            $scope.currentProduct = getProductById($routeParams.productId);
+            $scope.product = getProductById($routeParams.productId);
+			$scope.categoryPageBaseUrl = "#/category";
+			$scope.unit = $scope.product.length == 'customize' ? '' : 'mm';
         }
     ]
 );
