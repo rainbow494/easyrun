@@ -6,10 +6,10 @@
         <div class="col-md-3">
             <div class="jumbotron">
                 <h3 style="">Category</h3>
-                <a ng-href="#/product_search_filter"><p style="font-size:14px;">Decals</p></a>
-                <a ng-href="#/product_search_filter"><p style="font-size:14px;">wall_hangings</p></a>
-                <a ng-href="#/product_search_filter"><p style="font-size:14px;">wall_murals</p></a>
-                <a ng-href="#/product_search_filter"><p style="font-size:14px;">glass_films</p></a>
+                <!--<a ng-href="#/product_search_filter"><p style="font-size:14px;">Decals</p></a>-->
+                <a ng-href="#/product_search_filter"><p style="font-size:14px;">Wall Hangings</p></a>
+                <a ng-href="#/product_search_filter"><p style="font-size:14px;">Wall Decals</p></a>
+                <a ng-href="#/product_search_filter"><p style="font-size:14px;">Wall Papers</p></a>
 
                 <h3>Application Senario</h3>
                 <a ng-href="#/product_search_filter"><p style="font-size:14px;">Bedroom</p></a>
@@ -25,6 +25,7 @@
                 <input type="text" class="form-control" placeholder="Search"  ng-model="query">
             </div>
             
+            <!--
             <div class="row">
                 <hr>
                 <div class="col-md-6">
@@ -50,12 +51,12 @@
                     </div>
                 </div>
             </div>
-
+            -->
 
             <div class="row">
                 <hr>
                 <div class="col-md-6">
-                <h4>wall_hangings</h4>
+                <h4>Wall Hangings</h4>
                     </div>
                 <div class="col-md-1 col-md-offset-5">
                 <button type="submit" class="btn btn-info" onclick="window.location.ng-href='#/product_search_result'">More</button>
@@ -63,26 +64,24 @@
             </div>
 
             <div class="row text-center">
-                <div ng-repeat="wallHanging in wallHangings | filter:query">
-                    <div class="col-md-3 col-xs-6">
-                        <a ng-href="{{wallHangings.getUrl(wallHanging)}}">
-                            <img ng-src="{{wallHangings.getImageUrl(wallHanging)}}" alt="...">
-                            <div class="container">
-                                <div class="carousel-caption">
-                                    <h4>{{wallHanging.productName}}</h4>
-                                    <p>{{wallHanging.categoryName}}</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                <div ng-repeat="wallHanging in wallHangings | filter:query" class="thumbnail-frame col-md-3 col-xs-6">
+						<a ng-href="{{wallHangings.getUrl(wallHanging)}}" class="thumbnail">
+							<img ng-src="{{wallHangings.getImageUrl(wallHanging)}}" alt="...">
+							<div class="popular-link-title">
+								<h4 ng-switch="wallHangings.type" class="text-uppercase">
+									<span ng-switch-when="category" ng-bind="wallHanging.categoryName"></span>
+									<span ng-switch-when="product" ng-bind="wallHanging.productName"></span>
+								<h4>
+							</div>
+						</a>
+					</div>
             </div>
-
+            
 
             <div class="row">
                 <hr>
                 <div class="col-md-6">
-                <h4>wall_murals</h4>
+                <h4>Wall Decals</h4>
                     </div>
                 <div class="col-md-1 col-md-offset-5">
                 <button type="submit" class="btn btn-info" onclick="window.location.ng-href='#/product_search_result'">More</button>
@@ -90,25 +89,23 @@
             </div>
 
             <div class="row text-center">
-                <div ng-repeat="wallMural in wallMurals | filter:query">
-                    <div class="col-md-3 col-xs-6">
-                        <a ng-href="#/product" class="thumbnail">
-                            <img src="./resource/image/category/{{wallMural.category}}/sku_{{wallMural.SKU}}/1.jpg" alt="...">
-                            <div class="container">
-                                <div class="carousel-caption">
-                                    <h4>{{wallMural.name}}</h4>
-                                    <p>{{wallMural.category}}</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                <div ng-repeat="wallDecal in wallDecals | filter:query" class="thumbnail-frame col-md-3 col-xs-6">
+						<a ng-href="{{wallDecals.getUrl(wallDecal)}}" class="thumbnail">
+							<img ng-src="{{wallDecals.getImageUrl(wallDecal)}}" alt="...">
+							<div class="popular-link-title">
+								<h4 ng-switch="wallDecals.type" class="text-uppercase">
+									<span ng-switch-when="category" ng-bind="wallDecal.categoryName"></span>
+									<span ng-switch-when="product" ng-bind="wallDecal.productName"></span>
+								<h4>
+							</div>
+						</a>
+					</div>
             </div>
 
             <div class="row">
                 <hr>
                 <div class="col-md-6">
-                <h4>glass_films</h4>
+                <h4>Wall Papers</h4>
                     </div>
                 <div class="col-md-1 col-md-offset-5">
                 <button type="submit" class="btn btn-info" onclick="window.location.ng-href='#/product_search_result'">More</button>
@@ -116,19 +113,17 @@
             </div>
 
             <div class="row text-center">
-                <div ng-repeat="glassFilm in glassFilms | filter:query">
-                    <div class="col-md-3 col-xs-6">
-                        <a ng-href="#/product" class="thumbnail">
-                            <img src="./resource/image/category/{{glassFilm.category}}/sku_{{glassFilm.SKU}}/1.jpg" alt="...">
-                            <div class="container">
-                                <div class="carousel-caption">
-                                    <h4>{{glassFilm.name}}</h4>
-                                    <p>{{glassFilm.category}}</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                <div ng-repeat="wallPaper in wallPapers | filter:query" class="thumbnail-frame col-md-3 col-xs-6">
+						<a ng-href="{{wallPapers.getUrl(wallPaper)}}" class="thumbnail">
+							<img ng-src="{{wallPapers.getImageUrl(wallPaper)}}" alt="...">
+							<div class="popular-link-title">
+								<h4 ng-switch="wallPapers.type" class="text-uppercase">
+									<span ng-switch-when="category" ng-bind="wallPaper.categoryName"></span>
+									<span ng-switch-when="product" ng-bind="wallPaper.productName"></span>
+								<h4>
+							</div>
+						</a>
+					</div>
             </div>
         </div>
     </div>

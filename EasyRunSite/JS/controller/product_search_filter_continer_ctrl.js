@@ -13,9 +13,16 @@ searchFilterController.controller('product_search_filter_control', ['$scope', 'g
 );
 */
 
-searchFilterController.controller('product_search_filter_control', ['$scope', 'getWallHangingsProducts',
-        function ($scope, getWallHangingsProducts) {
+searchFilterController.controller('product_search_filter_control', ['$scope', 'getWallHangingsProducts','getWallDecalsProducts','getWallPaperProducts',
+        function ($scope, getWallHangingsProducts, getWallDecalsProducts, getWallPaperProducts) {
             $scope.wallHangings = getWallHangingsProducts;
+            $scope.wallHangings.type = "product";
+
+            $scope.wallDecals = getWallDecalsProducts;
+            $scope.wallDecals.type = "product";
+
+            $scope.wallPapers = getWallPaperProducts;
+            $scope.wallPapers.type = "product";
         }
     ]
 );
