@@ -65,12 +65,12 @@
             <div class="row text-center">
                 <div ng-repeat="wallHanging in wallHangings | filter:query">
                     <div class="col-md-3 col-xs-6">
-                        <a ng-href="#/product" class="thumbnail">
-                            <img src="./resource/image/category/{{wallHanging.category}}/sku_{{wallHanging.SKU}}/1.jpg" alt="...">
+                        <a ng-href="{{wallHangings.getUrl(wallHanging)}}">
+                            <img ng-src="{{wallHangings.getImageUrl(wallHanging)}}" alt="...">
                             <div class="container">
                                 <div class="carousel-caption">
-                                    <h4>{{wallHanging.name}}</h4>
-                                    <p>{{wallHanging.category}}</p>
+                                    <h4>{{wallHanging.productName}}</h4>
+                                    <p>{{wallHanging.categoryName}}</p>
                                 </div>
                             </div>
                         </a>

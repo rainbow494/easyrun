@@ -13,9 +13,9 @@ searchFilterController.controller('product_search_filter_control', ['$scope', 'g
 );
 */
 
-searchFilterController.controller('product_search_filter_control', ['$scope', 'getDecalsProducts',
-        function ($scope, getDecalsProducts) {
-            $scope.Decals = getDecalsProducts;
+searchFilterController.controller('product_search_filter_control', ['$scope', 'getWallHangingsProducts',
+        function ($scope, getWallHangingsProducts) {
+            $scope.wallHangings = getWallHangingsProducts;
         }
     ]
 );
