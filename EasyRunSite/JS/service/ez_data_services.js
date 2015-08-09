@@ -1,94 +1,105 @@
 "use strict";
 
 var ezDataServices = angular.module("ezDataServices", ['ngResource']);
-/*
-ezDataServices.factory('getDecalsProducts', ['$resource',
-  function($resource){
-    return $resource('data_source/:dataId.json', {}, {
-      query: {method:'GET', params:{dataId:'er-data-test'}, isArray:true}
-    });
-  }]);
-
-  */
-
-ezDataServices.factory("getDecalsProducts", [
-		function () {
-		    return [
-    {'popular': true,
-     'SKU': 1,
-     'name':'8pcs Big Combo Lunar Eclipse Glowing Moon',
-     'category':'decals',
-     'length':30,
-     'width':20,
-     'effectId':'3D',
-     'meteraiaId':'paper',
-     'applicationId':'Bedroom'},
-    {'popular': true,
-     'SKU': 2,
-     'name':'Combo Glowing Moons with 10 Stars as Bonus',
-     'category':'decals',
-     'length':10,
-     'width':50,
-     'effectId':'Light in glow',
-     'meteraiaId':'plastic',
-     'applicationId':'Living room'},
-     {'popular': true,
-     'SKU': 3,
-     'name':'Luminous Moonlight Sticker 4 Sizes Available',
-     'category':'decals',
-     'length':90,
-     'width':80,
-     'effectId':'3D',
-     'meteraiaId':'paper',
-     'applicationId':'Dining room'},
-     {'popular': true,
-     'SKU': 4,
-     'name':'3D Wall Sticker - Black Dinosaur',
-     'category':'decals',
-     'length':50,
-     'width':60,
-     'effectId':'Light in glow',
-     'meteraiaId':'plastic',
-     'applicationId':'Nursery room'},
-     {'popular': true,
-     'SKU': 5,
-     'name':'Black Flower 3D Wall Sticker',
-     'category':'decals',
-     'length':70,
-     'width':80,
-     'effectId':'3D',
-     'meteraiaId':'paper',
-     'applicationId':'Bedroom'},
-    {'popular': true,
-     'SKU': 6,
-     'name':'Feather mirror sticker',
-     'category':'decals',
-     'length':30,
-     'width':50,
-     'effectId':'Light in glow',
-     'meteraiaId':'plastic',
-     'applicationId':'Living room'},
-     {'popular': true,
-     'SKU': 7,
-     'name':'Mosaic Mirror Sticker',
-     'category':'decals',
-     'length':20,
-     'width':20,
-     'effectId':'3D',
-     'meteraiaId':'paper',
-     'applicationId':'Dining room'},
-     {'popular': true,
-     'SKU': 8,
-     'name':'Flower Design Golden Mirror Sticker',
-     'category':'decals',
-     'length':90,
-     'width':100,
-     'effectId':'Light in glow',
-     'meteraiaId':'plastic',
-     'applicationId':'Nursery room'}
-  ];
-		}
-	]);
 
 
+
+ezDataServices.factory("getWallHangingsProducts", [
+        function () {
+            var allProducts = ez.data.products;
+            var wallHangingsProducts = [];
+            for (var i = 0; i < allProducts.length; i++) {
+                if (allProducts[i].categoryId == '1') {
+                    wallHangingsProducts.push(allProducts[i]);
+                }
+            }
+
+            wallHangingsProducts.defaultOption = {
+                "urlBase" : "#/product"
+            }
+
+            wallHangingsProducts.option = {};
+            $.extend(true, wallHangingsProducts.option, ez.data.defaultOption, wallHangingsProducts.defaultOption);
+
+            var getUrl = function (data) {
+                return wallHangingsProducts.option.urlBase + "/" + data.productId;
+            }
+            var getImageUrl = function (data) {
+                return wallHangingsProducts.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1.jpg";
+            }
+
+            wallHangingsProducts.getUrl = getUrl;
+            wallHangingsProducts.getImageUrl = getImageUrl;
+
+            return (function () {
+                return wallHangingsProducts;
+            })();
+        }
+    ]);
     
+
+ezDataServices.factory("getWallDecalsProducts", [
+        function () {
+            var allProducts = ez.data.products;
+            var wallDecalsProducts = [];
+            for (var i = 0; i < allProducts.length; i++) {
+                if (allProducts[i].categoryId == '2') {
+                    wallDecalsProducts.push(allProducts[i]);
+                }
+            }
+
+            wallDecalsProducts.defaultOption = {
+                "urlBase" : "#/product"
+            }
+
+            wallDecalsProducts.option = {};
+            $.extend(true, wallDecalsProducts.option, ez.data.defaultOption, wallDecalsProducts.defaultOption);
+
+            var getUrl = function (data) {
+                return wallDecalsProducts.option.urlBase + "/" + data.productId;
+            }
+            var getImageUrl = function (data) {
+                return wallDecalsProducts.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1.jpg";
+            }
+
+            wallDecalsProducts.getUrl = getUrl;
+            wallDecalsProducts.getImageUrl = getImageUrl;
+
+            return (function () {
+                return wallDecalsProducts;
+            })();
+        }
+    ]);
+
+ezDataServices.factory("getWallPaperProducts", [
+        function () {
+            var allProducts = ez.data.products;
+            var wallPaperProducts = [];
+            for (var i = 0; i < allProducts.length; i++) {
+                if (allProducts[i].categoryId == '3') {
+                    wallPaperProducts.push(allProducts[i]);
+                }
+            }
+
+            wallPaperProducts.defaultOption = {
+                "urlBase" : "#/product"
+            }
+
+            wallPaperProducts.option = {};
+            $.extend(true, wallPaperProducts.option, ez.data.defaultOption, wallPaperProducts.defaultOption);
+
+            var getUrl = function (data) {
+                return wallPaperProducts.option.urlBase + "/" + data.productId;
+            }
+            var getImageUrl = function (data) {
+                return wallPaperProducts.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1.jpg";
+            }
+
+            wallPaperProducts.getUrl = getUrl;
+            wallPaperProducts.getImageUrl = getImageUrl;
+
+            return (function () {
+                return wallPaperProducts;
+            })();
+        }
+    ]);
