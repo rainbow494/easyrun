@@ -7,9 +7,9 @@
             <div class="jumbotron">
                 <h3 style="">Category</h3>
                 <!--<a ng-href="#/product_search_filter"><p style="font-size:14px;">Decals</p></a>-->
-                <a ng-href="#/product_search_filter"><p style="font-size:14px;">Wall Hangings</p></a>
-                <a ng-href="#/product_search_filter"><p style="font-size:14px;">Wall Decals</p></a>
-                <a ng-href="#/product_search_filter"><p style="font-size:14px;">Wall Papers</p></a>
+                <a ng-click="goto('hangings');"><p style="font-size:14px;">Wall Hangings</p></a>
+                <a ng-click="goto('decals');><p style="font-size:14px;">Wall Decals</p></a>
+                <a ng-click="goto('papers');><p style="font-size:14px;">Wall Papers</p></a>
 
                 <h3>Application Senario</h3>
                 <a ng-href="#/product_search_filter"><p style="font-size:14px;">Bedroom</p></a>
@@ -56,7 +56,7 @@
             <div class="row">
                 <hr>
                 <div class="col-md-6">
-                <h4>Wall Hangings</h4>
+                <h4 id="hangings">Wall Hangings</h4>
                     </div>
                 <div class="col-md-1 col-md-offset-5">
                 <button type="submit" class="btn btn-info" onclick="window.location.ng-href='#/product_search_result'">More</button>
@@ -81,7 +81,7 @@
             <div class="row">
                 <hr>
                 <div class="col-md-6">
-                <h4>Wall Decals</h4>
+                <h4 id="decals">Wall Decals</h4>
                     </div>
                 <div class="col-md-1 col-md-offset-5">
                 <button type="submit" class="btn btn-info" onclick="window.location.ng-href='#/product_search_result'">More</button>
@@ -105,7 +105,7 @@
             <div class="row">
                 <hr>
                 <div class="col-md-6">
-                <h4>Wall Papers</h4>
+                <h4 id="papers">Wall Papers</h4>
                     </div>
                 <div class="col-md-1 col-md-offset-5">
                 <button type="submit" class="btn btn-info" onclick="window.location.ng-href='#/product_search_result'">More</button>

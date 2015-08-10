@@ -13,8 +13,8 @@ searchFilterController.controller('product_search_filter_control', ['$scope', 'g
 );
 */
 
-searchFilterController.controller('product_search_filter_control', ['$scope', 'getWallHangingsProducts','getWallDecalsProducts','getWallPaperProducts',
-        function ($scope, getWallHangingsProducts, getWallDecalsProducts, getWallPaperProducts) {
+searchFilterController.controller('product_search_filter_control', ['$scope', 'getWallHangingsProducts','getWallDecalsProducts','getWallPaperProducts','$location','$anchorScroll',
+        function ($scope, getWallHangingsProducts, getWallDecalsProducts, getWallPaperProducts,$location,$anchorScroll) {
             $scope.wallHangings = getWallHangingsProducts;
             $scope.wallHangings.type = "product";
 
@@ -23,6 +23,16 @@ searchFilterController.controller('product_search_filter_control', ['$scope', 'g
 
             $scope.wallPapers = getWallPaperProducts;
             $scope.wallPapers.type = "product";
+
+            $scope.goto = function (id) {
+                    $location.hash(id);
+                    $anchorScroll();
+                }
+
+             $scope.gotoDecals = function () {
+                    $location.hash('decals');
+                    $anchorScroll();
+                }
         }
     ]
 );
