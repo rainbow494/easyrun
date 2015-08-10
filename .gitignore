@@ -3,5 +3,5 @@ grunt/node_modules/*
 grunt/test.min.js
 grunt/test.css
 EasyRunSite/style/main.css
-
-/EasyRunSite/resource/image/category
+EasyRunSite/resource/image/category
+nodejs/node_modules
