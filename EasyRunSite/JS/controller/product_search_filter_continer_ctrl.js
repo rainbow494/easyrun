@@ -28,11 +28,6 @@ searchFilterController.controller('product_search_filter_control', ['$scope', 'g
                     $location.hash(id);
                     $anchorScroll();
                 }
-
-             $scope.gotoDecals = function () {
-                    $location.hash('decals');
-                    $anchorScroll();
-                }
         }
     ]
 );
