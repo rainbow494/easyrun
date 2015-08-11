@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "forever": "^0.15.1",
-    "nodemailer": "^1.4.0"
+    "mailgun-js": "^0.7.1"
   }
 }
