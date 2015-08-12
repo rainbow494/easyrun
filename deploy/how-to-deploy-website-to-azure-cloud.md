@@ -26,8 +26,18 @@
 - 安装 lxdm / xrdp, 设置登录密码
 - 通过windows的mstsc命令连接主机
 
+## 如何安装nginx
+> 下列步骤主要来自于：*[How To Install and Configure Nginx on Amazon ec2 RHEL and Ubuntu Instances] [4.10]*
+
+- 在实例面板下方找到对应的安全组，在安全组的入站规则内打开http端口80
+- 按文档内相应Linux主机系统的说明安装nginx安装包
+
+
+
+
 
 
 [2.10]: (https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/putty.html#putty-private-key)
 [2.20]: (https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/putty.html?console_help=true)
 [3.10]: (http://www.tuicool.com/articles/J73m63)
+[4.10]: (http://www.tuicool.com/articles/jQFvma)
