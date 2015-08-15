@@ -65,7 +65,7 @@
 
             <div class="row text-center">
                 <div ng-repeat="wallHanging in wallHangings | filter:query" class="thumbnail-frame col-md-3 col-xs-6">
-						<a ng-href="{{wallHangings.getUrl(wallHanging)}}" class="thumbnail">
+						<a ng-href="{{wallHangings.getUrl(wallHanging)}}" class="thumbnail" ng-if="$index<8">
 							<img ng-src="{{wallHangings.getImageUrl(wallHanging)}}" alt="...">
 							<div class="popular-link-title">
 								<h4 ng-switch="wallHangings.type" class="text-uppercase">
@@ -90,7 +90,7 @@
 
             <div class="row text-center">
                 <div ng-repeat="wallDecal in wallDecals | filter:query" class="thumbnail-frame col-md-3 col-xs-6">
-						<a ng-href="{{wallDecals.getUrl(wallDecal)}}" class="thumbnail">
+						<a ng-href="{{wallDecals.getUrl(wallDecal)}}" class="thumbnail" ng-if="$index<8">
 							<img ng-src="{{wallDecals.getImageUrl(wallDecal)}}" alt="...">
 							<div class="popular-link-title">
 								<h4 ng-switch="wallDecals.type" class="text-uppercase">
@@ -114,7 +114,7 @@
 
             <div class="row text-center">
                 <div ng-repeat="wallPaper in wallPapers | filter:query" class="thumbnail-frame col-md-3 col-xs-6">
-						<a ng-href="{{wallPapers.getUrl(wallPaper)}}" class="thumbnail">
+						<a ng-href="{{wallPapers.getUrl(wallPaper)}}" class="thumbnail" ng-if="$index<8">
 							<img ng-src="{{wallPapers.getImageUrl(wallPaper)}}" alt="...">
 							<div class="popular-link-title">
 								<h4 ng-switch="wallPapers.type" class="text-uppercase">
