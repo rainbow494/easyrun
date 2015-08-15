@@ -13,8 +13,8 @@ searchFilterController.controller('product_search_filter_control', ['$scope', 'g
 );
 */
 
-searchFilterController.controller('product_search_filter_control', ['$scope', 'getWallHangingsProducts','getWallDecalsProducts','getWallPaperProducts','$location','$anchorScroll',
-        function ($scope, getWallHangingsProducts, getWallDecalsProducts, getWallPaperProducts,$location,$anchorScroll) {
+searchFilterController.controller('product_search_filter_control', ['$scope', 'getWallHangingsProducts', 'getWallDecalsProducts', 'getWallPaperProducts', '$location', '$anchorScroll',
+        function ($scope, getWallHangingsProducts, getWallDecalsProducts, getWallPaperProducts, $location, $anchorScroll) {
             $scope.wallHangings = getWallHangingsProducts;
             $scope.wallHangings.type = "product";
 
@@ -25,9 +25,27 @@ searchFilterController.controller('product_search_filter_control', ['$scope', 'g
             $scope.wallPapers.type = "product";
 
             $scope.goto = function (id) {
-                    $location.hash(id);
-                    $anchorScroll();
-                }
+                $location.hash(id);
+                $anchorScroll();
+            }
+
+            $scope.filterByApplication = function (applicationId) {
+                $scope.wallHangings = getWallHangingsProducts.searchByApplication(applicationId);
+                $scope.wallHangings.option = getWallHangingsProducts.option;
+                $scope.wallHangings.getUrl = getWallHangingsProducts.getUrl;
+                $scope.wallHangings.getImageUrl = getWallHangingsProducts.getImageUrl;
+
+
+                $scope.wallDecals = getWallDecalsProducts.searchByApplication(applicationId);
+                $scope.wallDecals.option = getWallDecalsProducts.option;
+                $scope.wallDecals.getUrl = getWallDecalsProducts.getUrl;
+                $scope.wallDecals.getImageUrl = getWallDecalsProducts.getImageUrl;
+
+                $scope.wallPapers = getWallPaperProducts.searchByApplication(applicationId);
+                $scope.wallPapers.option = getWallPaperProducts.option;
+                $scope.wallPapers.getUrl = getWallPaperProducts.getUrl;
+                $scope.wallPapers.getImageUrl = getWallPaperProducts.getImageUrl;
+            }
         }
     ]
-);
+);  

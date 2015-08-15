@@ -15,7 +15,7 @@ ezDataServices.factory("getWallHangingsProducts", [
             }
 
             wallHangingsProducts.defaultOption = {
-                "urlBase" : "#/product"
+                "urlBase": "#/product"
             }
 
             wallHangingsProducts.option = {};
@@ -30,6 +30,19 @@ ezDataServices.factory("getWallHangingsProducts", [
 
             wallHangingsProducts.getUrl = getUrl;
             wallHangingsProducts.getImageUrl = getImageUrl;
+
+            var searchByApplication = function (applicationId) {
+                var products = [];
+                for (var i = 0; i < wallHangingsProducts.length; i++) {
+                    if (wallHangingsProducts[i].applicationIdList.indexOf(applicationId) != -1) {
+                        products.push(wallHangingsProducts[i]);
+                    }
+                }
+                return products;
+            }
+            wallHangingsProducts.searchByApplication = searchByApplication;
+            wallHangingsProducts.searchByApplication.getUrl = getUrl;
+            wallHangingsProducts.searchByApplication.getImageUrl = getImageUrl;
 
             return (function () {
                 return wallHangingsProducts;
@@ -65,6 +78,19 @@ ezDataServices.factory("getWallDecalsProducts", [
             wallDecalsProducts.getUrl = getUrl;
             wallDecalsProducts.getImageUrl = getImageUrl;
 
+            var searchByApplication = function (applicationId) {
+                var products = [];
+                for (var i = 0; i < wallDecalsProducts.length; i++) {
+                    if (wallDecalsProducts[i].applicationIdList.indexOf(applicationId) != -1) {
+                        products.push(wallDecalsProducts[i]);
+                    }
+                }
+                return products;
+            }
+            wallDecalsProducts.searchByApplication = searchByApplication;
+            wallDecalsProducts.searchByApplication.getUrl = getUrl;
+            wallDecalsProducts.searchByApplication.getImageUrl = getImageUrl;
+
             return (function () {
                 return wallDecalsProducts;
             })();
@@ -97,6 +123,19 @@ ezDataServices.factory("getWallPaperProducts", [
 
             wallPaperProducts.getUrl = getUrl;
             wallPaperProducts.getImageUrl = getImageUrl;
+
+            var searchByApplication = function (applicationId) {
+                var products = [];
+                for (var i = 0; i < wallPaperProducts.length; i++) {
+                    if (wallPaperProducts[i].applicationIdList.indexOf(applicationId) != -1) {
+                        products.push(wallPaperProducts[i]);
+                    }
+                }
+                return products;
+            }
+            wallPaperProducts.searchByApplication = searchByApplication;
+            wallPaperProducts.searchByApplication.getUrl = getUrl;
+            wallPaperProducts.searchByApplication.getImageUrl = getImageUrl;
 
             return (function () {
                 return wallPaperProducts;
