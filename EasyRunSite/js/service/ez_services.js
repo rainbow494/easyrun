@@ -7,13 +7,13 @@ ezServices.factory("getProductById", ["$http",
 
             //http://stackoverflow.com/questions/16930473/angularjs-factory-http-get-json-file
             //$http({method: 'GET', url: '/someUrl'}).success(function(data, status, headers, config) {
-            //var _allProducts = ez.data.products;
-            var _allProducts;
-            $http.get("data_source/product_data.json").success(function (data) {
-                _allProducts = data || {};
-            }).error(function (data) {
-                console.log("error from ezControllers http get" + data);
-            });
+            var _allProducts = ez.data.products;
+            // var _allProducts;
+            // $http.get("data_source/product_data.json").success(function (data) {
+            //     _allProducts = data || {};
+            // }).error(function (data) {
+            //     console.log("error from ezControllers http get" + data);
+            // });
 
             var getProductById = function (productId) { // Get product logic need move to services
                 var product = {};
@@ -34,24 +34,24 @@ ezServices.factory("getProductById", ["$http",
         }
     ]);
 
-// ezServices.factory("getAllProducts", [
-//         function () {
-//             return ez.data.products;
-//         }
-//     ]);
+ezServices.factory("getAllProducts", [
+        function () {
+            return ez.data.products;
+        }
+    ]);
 
-ezServices.factory("getAllProducts", ["$http",
- function ($http) {
-     var result;
-     // $http({ method: "GET", url: "dataSource/popular_commodiate.json" }).success(function (data) {
-     $http.get("data_source/product_data.json").success(function (data) {
-         result = data || {};
-     }).error(function (data) {
-         console.log("error from ezControllers http get" + data);
-     });
-
-     return result;
- } ]);
+// ezServices.factory("getAllProducts", ["$http",
+//  function ($http) {
+//      var result;
+//      // $http({ method: "GET", url: "dataSource/popular_commodiate.json" }).success(function (data) {
+//      $http.get("data_source/product_data.json").success(function (data) {
+//          result = data || {};
+//      }).error(function (data) {
+//          console.log("error from ezControllers http get" + data);
+//      });
+//
+//      return result;
+//  } ]);
 
 ezServices.factory("getPopularProducts", [
         function () {
