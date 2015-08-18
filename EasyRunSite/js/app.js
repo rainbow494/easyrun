@@ -6,6 +6,7 @@ var ezApp = angular.module('ezApp', [
   'ezServices',
   'homeControllers',
   'searchFilterController',
+  'searchResultController',
   'productControllers',
   'contactControllers',
   'ezSiteMapPlugin',
@@ -41,6 +42,10 @@ ezApp.config([
     when('/contact', {
         templateUrl: './html/content/contact.html',
         controller: 'contactController'
+    }).
+    when('/result/:categoryId', {
+        templateUrl: './html/content/product_search_result.html',
+        controller: 'product_search_result_control'
     }).
     otherwise({
         redirectTo: '/home'
