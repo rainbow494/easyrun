@@ -25,7 +25,7 @@ ezDataServices.factory("getWallHangingsProducts", [
                 return wallHangingsProducts.option.urlBase + "/" + data.productId;
             }
             var getImageUrl = function (data) {
-                return wallHangingsProducts.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1.jpg";
+                return wallHangingsProducts.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1_thumb.jpg";
             }
 
             wallHangingsProducts.getUrl = getUrl;
@@ -72,7 +72,7 @@ ezDataServices.factory("getWallDecalsProducts", [
                 return wallDecalsProducts.option.urlBase + "/" + data.productId;
             }
             var getImageUrl = function (data) {
-                return wallDecalsProducts.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1.jpg";
+                return wallDecalsProducts.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1_thumb.jpg";
             }
 
             wallDecalsProducts.getUrl = getUrl;
@@ -118,7 +118,7 @@ ezDataServices.factory("getWallPaperProducts", [
                 return wallPaperProducts.option.urlBase + "/" + data.productId;
             }
             var getImageUrl = function (data) {
-                return wallPaperProducts.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1.jpg";
+                return wallPaperProducts.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1_thumb.jpg";
             }
 
             wallPaperProducts.getUrl = getUrl;
