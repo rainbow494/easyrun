@@ -29,6 +29,7 @@
 
 ## 如何安装FTP
 - [Set Up FTP Connection on Amazon EC2 Instance using FileZilla](http://www.tuicool.com/articles/eUFVziV) *（第五步的传输协议要记得选择sftp）*
+- 连接前请先将FTP设置为主动连接模式
 
 ## 如何安装nginx
 > 下列步骤主要来自于：
@@ -42,16 +43,20 @@
 - chmod 777 /var/www/
 - chmod 777 /var/www/easyrun.hk/
 
-- 利用chown和chmod获取 /etc/nginx/sites-available权限
-- 利用ftp打开conf文件夹： /etc/nginx/sites-available
-- 修改nginx的配置文件：/etc/nginx/sites-available/default 修改主机名
-- 重启nginx
+- 利用ftp或命令行修改待操作文件权限(sudo su, chown ubuntu:ubuntu /etc/nginx/sites-available/default,  chmod 777 /etc/nginx/sites-available/default)
+- 修改nginx的配置文件：/etc/nginx/sites-available/default
+- 修改相应站点的权限：/var/www/easyrun.hk/public
+- 绑定域名 ```server_name *.easyrun.hk
+
+- 重启nginx(service nginx restart)
+
+## 域名绑定
+- 将域名A记录与Instance IP或elastic IP绑定
+
+
 ```
 chmod -R /var/www 改为 chmod -r /var/www
-
 ```
-
-
 
 
 

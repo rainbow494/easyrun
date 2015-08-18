@@ -5,3 +5,5 @@ grunt/test.css
 EasyRunSite/style/main.css
 EasyRunSite/resource/image/category
 nodejs/node_modules
+EasyRunSite/node_modules
+EasyRunSite/build
