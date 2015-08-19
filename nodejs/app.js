@@ -29,7 +29,9 @@ var server = http.createServer(function (req,res) {
     res.writeHead(200,{'Content-Type':'application/json'});
 
     switch (pathname) {
-        case '/api/parsetime':
+        case '/api/productinquire':
+
+        // Get name, mail address, title, body
         sendmail();
         res.write(JSON.stringify({
             "hour":  "test1"
