@@ -20,6 +20,8 @@ forever start app.js
 ```
 forever restart app.js
 ```
+    > forever还包括一系列进程监视，测试功能，安装相关插件还可对主机状况进行监视
+
 
 ## 调试
 
@@ -33,9 +35,3 @@ npm install -g node-inspector
 node-debug app.js
 ```
 [参考文档](http://stackoverflow.com/questions/1911015/how-to-debug-node-js-applications)
-
-## 其他可选模块
-
-- Send mail by smtp ---- **"nodemailer": "^1.4.0", **
-
-- Daemon process ---- **"forever": "^0.15.1",**
