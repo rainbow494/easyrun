@@ -53,7 +53,7 @@ ezServices.factory("getAllProducts", [
 //      return result;
 //  } ]);
 
-ezServices.factory("getPopularProducts", [
+ezServices.factory("getHomePageProducts", [
         function () {
             var allProducts = ez.data.products;
             var popularProducts = [];
@@ -75,6 +75,39 @@ ezServices.factory("getPopularProducts", [
             }
             var getImageUrl = function (data) {
                 return popularProducts.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1.jpg";
+            }
+
+            popularProducts.getUrl = getUrl;
+            popularProducts.getImageUrl = getImageUrl;
+
+            return (function () {
+                return popularProducts;
+            })();
+        }
+    ]);
+
+ezServices.factory("getPopularProducts", [
+        function () {
+            var allProducts = ez.data.products;
+            var popularProducts = [];
+            for (var i = 0; i < allProducts.length; i++) {
+                if (allProducts[i].popular) {
+                    popularProducts.push(allProducts[i]);
+                }
+            }
+
+            popularProducts.defaultOption = {
+                "urlBase" : "#/product"
+            }
+
+            popularProducts.option = {};
+            $.extend(true, popularProducts.option, ez.data.defaultOption, popularProducts.defaultOption);
+
+            var getUrl = function (data) {
+                return popularProducts.option.urlBase + "/" + data.productId;
+            }
+            var getImageUrl = function (data) {
+                return popularProducts.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1_thumb.jpg";
             }
 
             popularProducts.getUrl = getUrl;
@@ -108,7 +141,7 @@ ezServices.factory("getPopularCategories", [
                 return popularCategories.option.urlBase + "/" + data.productId;
             }
             var getImageUrl = function (data) {
-                return popularCategories.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1.jpg";
+                return popularCategories.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1_thumb.jpg";
             }
 
             popularCategories.getUrl = getUrl;
