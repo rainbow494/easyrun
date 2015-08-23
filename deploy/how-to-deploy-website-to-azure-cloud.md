@@ -54,11 +54,20 @@
 - 将域名A记录与Instance IP或elastic IP绑定
 
 
+## 如何部署nodejs
+
+- nodejs安装
+http://blog.fantasy.codes/node.js/2014/11/25/aws-nodejs/
 ```
-chmod -R /var/www 改为 chmod -r /var/www
+AWS下运行node程序的命令行是nodejs，如果希望利用node启动nodejs程序则请参考下面的连接
+http://stackoverflow.com/questions/20057790/what-are-the-differences-between-node-js-and-node
 ```
 
-
+- npm安装
+```
+curl -L https://npmjs.org/install.sh | sh
+https://www.npmjs.com/package/npm
+```
 
 [2.10]: (https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/putty.html#putty-private-key)
 [2.20]: (https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/putty.html?console_help=true)

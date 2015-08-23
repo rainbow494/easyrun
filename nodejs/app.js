@@ -1,51 +1,62 @@
 
 var http = require('http');
 var url = require('url');
+var express = require('express');
+var bodyParser = require('body-parser');
+var merge = require('merge');
 
 var apiKey = 'key-ea2e3ab5ee11c200168588fc18acf3a3';
 var domain = 'easyrun.hk';
 //var apiBaseUrl = 'https://api.mailgun.net/v3/easyrun.hk';
 
 var mailgun = require('mailgun-js')({apiKey: apiKey,domain:domain});
-var sendmail = function(){
+var sendmail = function(prodcutInquire){
+    // var data = {
+    //   from: 'paul.huang@easyrun.hk',
+    //   to: 'paul.huang@easyrun.hk',
+    //   subject: 'Hello',
+    //   text: 'Testing some Mailgun awesomness!'
+    // };
     var data = {
-      from: 'paul.huang@easyrun.hk',
+      from: '',
       to: 'paul.huang@easyrun.hk',
-      subject: 'Hello',
-      text: 'Testing some Mailgun awesomness!'
+      subject: '',
+      text: ''
     };
 
+    data = merge(data, prodcutInquire);
+    data.text = String.format('Mail From {0} {1} : {2}', data.firstName, data.lastName, data.text);
+
+    console.log(data);
     mailgun.messages().send(data, function (error, body) {
-      console.log(error);
+      console.error(error);
       console.log(body);
     });
 }
 
-var server = http.createServer(function (req,res) {
+var app = express()
+var jsonParser = bodyParser.json();
+//var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-    //console.log(url.parse(req.url, true));
-    var pathname = url.parse(req.url, true).pathname;
+// parse application/x-www-form-urlencoded
+//app.use(bodyParser.urlencoded({ extended: false }))
 
-    res.writeHead(200,{'Content-Type':'application/json'});
+// parse application/json
+app.use(bodyParser.json())
 
-    switch (pathname) {
-        case '/api/productinquire':
-
-        // Get name, mail address, title, body
-        sendmail();
-        res.write(JSON.stringify({
-            "hour":  "test1"
-        }));
-        break;
-        case '/api/unixtime':
-        res.write(JSON.stringify({
-            "unixtime": "test2"
-        }));
-        break;
-        default:
-    }
-
-    res.end();
+app.post('/api/productinquire', jsonParser , function (req, res) {
+    sendmail(req.body.data);
+    res.send('Send Mail')
 })
 
-server.listen(1025);
+app.listen(12333);
+
+String.format = function() {
+  var s = arguments[0];
+  for (var i = 0; i < arguments.length - 1; i++) {
+    var reg = new RegExp("\\{" + i + "\\}", "gm");
+    s = s.replace(reg, arguments[i + 1]);
+  }
+
+  return s;
+}

@@ -16,43 +16,44 @@ contactControllers.controller('contactController', ['$http', '$scope', '$routePa
                  var productInquire = {
                      'firstName' : $scope.firstName,
                      'lastName' : $scope.lastName,
-                     'email' : $scope.email,
+                     'from' : $scope.email,
                      'subject' : $scope.subject,
-                     'message' : $scope.message,
+                     'text' : $scope.message,
                  }
 
-                 console.log(productInquire);
+             console.log(productInquire);
 
+             $http.post('/api/productinquire', {data:productInquire}).
+             then(function(response) {
+                 // this callback will be called asynchronously
+                 // when the response is available
+                 alert("success");
+                 console.log(response);
+             }, function(response) {
+                 // called asynchronously if an error occurs
+                 // or server returns response with an error status.
+                 //alert("error");
+                 console.log(response);
+             });
 
-                 $http.post('/api/productinquire', {data:productInquire}).
-                   then(function(response) {
-                     // this callback will be called asynchronously
-                     // when the response is available
-                     alert("success");
-                   }, function(response) {
-                     // called asynchronously if an error occurs
-                     // or server returns response with an error status.
-                     alert("error");
-                   });
-
-                     //$http.post(url:"http://127.0.0.1:1025/api/productinquire", productInquire).success(function (data, status, headers, config) {
-                        //    $http(
-                        //       {
-                        //           MDTHOD: 'POST',
-                        //           URL: '/API/PRODUCTINQUIRE',
-                        //           DATA: PRODUCTINQUIRE,
-                        //           HEADERS: {'CONTENT-TYPE': 'APPLICATION/JSON'}
-                        //       }
-                        //   ).success(
-                     //          function (data, status, headers, config) {
-                     //              alert("success");
-                     //          }
-                     //      ).error(
-                     //          function (data, status, headers, config) {
-                     //              alert("error");
-                     //          }
-                     //      )
-                     //  })
+             //$http.post(url:"http://127.0.0.1:1025/api/productinquire", productInquire).success(function (data, status, headers, config) {
+                //    $http(
+                //       {
+                //           MDTHOD: 'POST',
+                //           URL: '/API/PRODUCTINQUIRE',
+                //           DATA: PRODUCTINQUIRE,
+                //           HEADERS: {'CONTENT-TYPE': 'APPLICATION/JSON'}
+                //       }
+                //   ).success(
+             //          function (data, status, headers, config) {
+             //              alert("success");
+             //          }
+             //      ).error(
+             //          function (data, status, headers, config) {
+             //              alert("error");
+             //          }
+             //      )
+             //  })
             }
         }
     ]);

@@ -46,7 +46,11 @@
 $ npm install [grunt插件名] --save-dev
 例如：
 $ npm install grunt-less --save-dev
-    ``` 
+
+npm i --production   //那么会安装dependencies
+npm install --dev   //那么会安装devDependencies
+http://blog.blackbing.net/post/2015/01/19/secrets-on-npm-packagejson
+    ```
 
 30. 配置Grunt插件
 - 在当前目录添加```Gruntfile.js```
@@ -56,17 +60,17 @@ $ npm install grunt-less --save-dev
         grunt.initConfig({
             //读取package.json的内容，形成个json数据
             pkg: grunt.file.readJSON('package.json'),
-    
+
             //Grunt 任务配置
         });
-    
+
         //加载Grunt插件
         grunt.loadNpmTasks('Grunt插件名');
-    
+
         //默认的Grunt任务
         grunt.registerTask('default',['Grunt任务'])；
     };
-    
+
     例如：
     module.exports = function(grunt) {
 
@@ -83,16 +87,16 @@ $ npm install grunt-less --save-dev
           }
         }
       });
-    
+
       // 加载包含 "uglify" 任务的插件。
       grunt.loadNpmTasks('grunt-contrib-uglify');
-    
+
       // 默认被执行的任务列表。
       grunt.registerTask('default', ['uglify']);
-    
+
     };
     ```
-    
+
 40. 在控制台中执行grunt，生成相应文件
 
 
