@@ -38,8 +38,8 @@ module.exports = function (grunt) {
                         dest : 'build',
                     }, {
                         expand : true,
-                        //src : ['resource/font/**', 'resource/image/*.png', 'resource/image/*.zip'],
-                        src : 'resource/**',
+                        src : ['resource/font/**', 'resource/image/*.png'],
+                        //src : 'resource/**',
                         dest : 'build',
                     }, {
                         expand : true,

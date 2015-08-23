@@ -69,6 +69,11 @@ curl -L https://npmjs.org/install.sh | sh
 https://www.npmjs.com/package/npm
 ```
 
+- 利用forever启动进程，监听相应端口
+
+- 打开相应端口
+http://zhidao.baidu.com/link?url=ax0S-wI_n9D_H1qUXWHh4VKZCXHeWCD9YG7PE16g--UMOpONDzIAKJWqGVPbEXXCNMx8h9OQlLNqHWtlOOvvrsZeVl_W1UO3-c_w6L9Wbv7
+
 [2.10]: (https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/putty.html#putty-private-key)
 [2.20]: (https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/putty.html?console_help=true)
 [3.10]: (http://www.tuicool.com/articles/J73m63)

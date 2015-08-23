@@ -12,7 +12,8 @@
                 <div>&nbsp;</div>
 
                 <div class="row">
-                    <span class="col-xs-12">Size (L / W) : <a ng-bind="product.length+' '+unit" ng-href="{{categoryPageBaseUrl}}"></a> /  <a ng-bind="product.width+' '+unit" ng-href="{{categoryPageBaseUrl}}"></a></span>
+                    <!-- <span class="col-xs-12">Size (L / W) : <a ng-bind="product[length] + ' '+unit" ng-href="{{categoryPageBaseUrl}}"></a> /  <a ng-bind="product.width+' '+unit" ng-href="{{categoryPageBaseUrl}}"></a></span> -->
+                    <span class="col-xs-12">Size (L / W) : <a ng-bind="' '+unit" ng-href="{{categoryPageBaseUrl}}"></a> /  <a ng-bind="product.width+' '+unit" ng-href="{{categoryPageBaseUrl}}"></a></span>
                 </div>
                 <div class="row">
                     <span ng-show="product.effectName" class="col-xs-12">Effect : <a ng-bind="product.effectName" ng-href="{{categoryPageBaseUrl}}"></a>
@@ -25,7 +26,7 @@
                 <div>&nbsp;</div>
 
                 <div class="row">
-                    <span class="col-xs-12">Recommand : 
+                    <span class="col-xs-12">Recommand :
 						<span ng-repeat="application in product.applicationList">
                             <span ng-hide="$index==0"> | </span>
                             <a ng-href="{{categoryPageBaseUrl}}" ng-bind="application"></a>

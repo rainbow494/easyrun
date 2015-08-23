@@ -1,4 +1,3 @@
-
 var http = require('http');
 var url = require('url');
 var express = require('express');
@@ -43,6 +42,11 @@ var jsonParser = bodyParser.json();
 
 // parse application/json
 app.use(bodyParser.json())
+
+app.get('/api/test', jsonParser , function (req, res) {
+    console.log('test');
+    res.send('test success')
+})
 
 app.post('/api/productinquire', jsonParser , function (req, res) {
     sendmail(req.body.data);

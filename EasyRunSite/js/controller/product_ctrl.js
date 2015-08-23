@@ -27,7 +27,8 @@ productControllers.controller('productCurrentProductController', ['$scope', '$ro
         function ($scope, $routeParams, getProductById) {
             $scope.product = getProductById($routeParams.productId);
 			$scope.categoryPageBaseUrl = "#/category";
-			$scope.unit = $scope.product.length == 'customize' ? '' : 'mm';
+			//$scope.unit = $scope.product.length == 'customize' ? '' : 'mm';
+            $scope.unit = 'mm';
         }
     ]
 );

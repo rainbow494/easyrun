@@ -25,7 +25,7 @@ forever restart app.js
 
 - 记录日志
 ```
-forever -o out.log -e err.log app.js
+forever start -o out.log -e err.log app.js
 ```
 
 - 列出所有进程及日志文件目录

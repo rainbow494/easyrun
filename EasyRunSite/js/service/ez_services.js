@@ -1,13 +1,15 @@
 "use strict";
 
-var ezServices = angular.module("ezServices", []);
+var ezServices = angular.module("ezServices",[]);
 
 ezServices.factory("getProductById", ["$http",
-        function (productId, $http) {
+        function ($http) {
 
             //http://stackoverflow.com/questions/16930473/angularjs-factory-http-get-json-file
             //$http({method: 'GET', url: '/someUrl'}).success(function(data, status, headers, config) {
-            var _allProducts = ez.data.products;
+
+            //var _allProducts = ez.data.products;
+
             // var _allProducts;
             // $http.get("data_source/product_data.json").success(function (data) {
             //     _allProducts = data || {};
@@ -15,19 +17,37 @@ ezServices.factory("getProductById", ["$http",
             //     console.log("error from ezControllers http get" + data);
             // });
 
-            var getProductById = function (productId) { // Get product logic need move to services
-                var product = {};
-                if (!productId) {
-                    return currentProduct;
-                }
+            // $http.get("js/service/product_data.json").success(function (data) {
+            //     var test = data || {};
+            // }).error(function (data) {
+            //     console.log("error from ezControllers http get" + data);
+            // });
 
-                for (i = 0; i < _allProducts.length; i++) {
-                    if (_allProducts[i].productId === productId) {
-                        product = _allProducts[i];
-                        break;
+
+            var getProductById = function (productId) { // Get product logic need move to services
+                //var _allProducts = ez.data.products;
+
+                var product = {};
+                return $http.get("data_source/product_data.json").success(function (data) {
+                    var _allProducts = data || {};
+
+
+                    if (!productId) {
+                        return currentProduct;
                     }
-                }
-                return product;
+
+                    for (i = 0; i < _allProducts.length; i++) {
+                        if (_allProducts[i].productId === productId) {
+                            product = _allProducts[i];
+                            break;
+                        }
+                    }
+                    return product;
+
+                }).error(function (data) {
+                    console.log("error from ezControllers http get" + data);
+                    return product;
+                });
             }
 
             return getProductById;
