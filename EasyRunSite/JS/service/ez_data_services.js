@@ -142,3 +142,23 @@ ezDataServices.factory("getWallPaperProducts", [
             })();
         }
     ]);
+
+ezDataServices.factory("getCategoryList", [
+        function () {
+            var categoryList = ez.data.categoryList;
+           
+            return (function () {
+                return categoryList;
+            })();
+        }
+    ]);
+
+ezDataServices.factory("getApplicationList", [
+        function () {
+            var applicationList = ez.data.applicationList;
+           
+            return (function () {
+                return applicationList;
+            })();
+        }
+    ]);

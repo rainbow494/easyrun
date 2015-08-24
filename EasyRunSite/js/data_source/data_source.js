@@ -53,6 +53,10 @@
 
 ez.data.products = productData;
 
-    
+    categoryList = ["Wall Hangings", "Wall Decals", "Wall Papers"];
+    ez.data.categoryList = categoryList;
+
+    applicationList = ["Bedroom", "Living room", "Study room", "Dining room", "Nursery room", "Commerical area"];
+    ez.data.applicationList = applicationList;
 })()
 /* Test Data End */
