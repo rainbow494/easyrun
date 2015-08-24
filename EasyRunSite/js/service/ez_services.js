@@ -2,205 +2,165 @@
 
 var ezServices = angular.module("ezServices",[]);
 
-ezServices.factory("getProductById", ["$http",
-        function ($http) {
+ezServices.factory("dbAdaptor", ["$http","$q",
+function ($http, $q) {
+    var dbAdaptor = {};
 
-            //http://stackoverflow.com/questions/16930473/angularjs-factory-http-get-json-file
-            //$http({method: 'GET', url: '/someUrl'}).success(function(data, status, headers, config) {
+    dbAdaptor.getAllProducts = function () {
+        var defer = $q.defer();
 
-            //var _allProducts = ez.data.products;
+        $http.get("data_source/product_data.json")
+        .success(function (data) {
+            var allProducts = data || {};
+            defer.resolve(allProducts);
+        })
+        .error(function (error) {
+            console.error("error from getProductById" + error);
+            defer.resolve(error);
+        });
+    }
 
-            // var _allProducts;
-            // $http.get("data_source/product_data.json").success(function (data) {
-            //     _allProducts = data || {};
-            // }).error(function (data) {
-            //     console.log("error from ezControllers http get" + data);
-            // });
+    dbAdaptor.getProductById = function (productId) {
+        if (!productId) {
+            console.error("getProductById: there is no productId.");
+            return;
+        }
 
-            // $http.get("js/service/product_data.json").success(function (data) {
-            //     var test = data || {};
-            // }).error(function (data) {
-            //     console.log("error from ezControllers http get" + data);
-            // });
+        var defer = $q.defer();
+        $http.get("data_source/product_data.json")
+        .success(function (data) {
+            var allProducts = data || {};
+            var product = {};
 
+            for (i = 0; i < allProducts.length; i++) {
+                if (allProducts[i].productId === productId) {
+                    product = allProducts[i];
+                    break;
+                }
+            }
+            defer.resolve(product);
 
-            var getProductById = function (productId) { // Get product logic need move to services
-                //var _allProducts = ez.data.products;
+        })
+        .error(function (data) {
+            console.log("error from getProductById" + data);
+            defer.resolve(data);
+        });
+        return defer.promise
+    }
 
-                var product = {};
-                return $http.get("data_source/product_data.json").success(function (data) {
-                    var _allProducts = data || {};
+    dbAdaptor.getHomePageProducts = function () {
+        var defer = $q.defer();
 
+        $http.get("data_source/homepage_product_data.json")
+        .success(function (data) {
+            var homePageProductKeyData = data || {};
 
-                    if (!productId) {
-                        return currentProduct;
-                    }
+            $http.get("data_source/product_data.json")
+            .success(function (data) {
+                var popularProducts = [];
 
-                    for (i = 0; i < _allProducts.length; i++) {
-                        if (_allProducts[i].productId === productId) {
-                            product = _allProducts[i];
+                var allProducts = data || {};
+                for (var i = 0; i < homePageProductKeyData.length; i++) {
+                    for (var j = 0; j < allProducts.length; j++) {
+                        if (homePageProductKeyData[i].produtId === allProducts[j].produtId) {
+                            popularProducts.push(allProducts[j]);
                             break;
                         }
                     }
-                    return product;
-
-                }).error(function (data) {
-                    console.log("error from ezControllers http get" + data);
-                    return product;
-                });
-            }
-
-            return getProductById;
-        }
-    ]);
-
-ezServices.factory("getAllProducts", [
-        function () {
-            return ez.data.products;
-        }
-    ]);
-
-// ezServices.factory("getAllProducts", ["$http",
-//  function ($http) {
-//      var result;
-//      // $http({ method: "GET", url: "dataSource/popular_commodiate.json" }).success(function (data) {
-//      $http.get("data_source/product_data.json").success(function (data) {
-//          result = data || {};
-//      }).error(function (data) {
-//          console.log("error from ezControllers http get" + data);
-//      });
-//
-//      return result;
-//  } ]);
-
-ezServices.factory("getHomePageProducts", [
-        function () {
-            var allProducts = ez.data.products;
-            var popularProducts = [];
-            for (var i = 0; i < allProducts.length; i++) {
-                if (allProducts[i].popular) {
-                    popularProducts.push(allProducts[i]);
                 }
-            }
 
-            popularProducts.defaultOption = {
-                "urlBase" : "#/product"
-            }
-
-            popularProducts.option = {};
-            $.extend(true, popularProducts.option, ez.data.defaultOption, popularProducts.defaultOption);
-
-            var getUrl = function (data) {
-                return popularProducts.option.urlBase + "/" + data.productId;
-            }
-            var getImageUrl = function (data) {
-                return popularProducts.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1.jpg";
-            }
-
-            popularProducts.getUrl = getUrl;
-            popularProducts.getImageUrl = getImageUrl;
-
-            return (function () {
-                return popularProducts;
-            })();
-        }
-    ]);
-
-ezServices.factory("getPopularProducts", [
-        function () {
-            var allProducts = ez.data.products;
-            var popularProducts = [];
-            for (var i = 0; i < allProducts.length; i++) {
-                if (allProducts[i].popular) {
-                    popularProducts.push(allProducts[i]);
+                // -----------------------------
+                popularProducts.defaultOption = {
+                    "urlBase" : "#/product"
                 }
-            }
 
-            popularProducts.defaultOption = {
-                "urlBase" : "#/product"
-            }
+                popularProducts.option = {};
+                $.extend(true, popularProducts.option, ez.data.defaultOption, popularProducts.defaultOption);
 
-            popularProducts.option = {};
-            $.extend(true, popularProducts.option, ez.data.defaultOption, popularProducts.defaultOption);
-
-            var getUrl = function (data) {
-                return popularProducts.option.urlBase + "/" + data.productId;
-            }
-            var getImageUrl = function (data) {
-                return popularProducts.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1_thumb.jpg";
-            }
-
-            popularProducts.getUrl = getUrl;
-            popularProducts.getImageUrl = getImageUrl;
-
-            return (function () {
-                return popularProducts;
-            })();
-        }
-    ]);
-
-ezServices.factory("getPopularCategories", [
-        function () {
-
-			var allProducts = ez.data.products;
-            var popularCategories = [];
-            for (var i = 0; i < allProducts.length; i++) {
-                if (allProducts[i].popular) {
-                    popularCategories.push(allProducts[i]);
+                var getUrl = function (data) {
+                    return popularProducts.option.urlBase + "/" + data.productId;
                 }
+                var getImageUrl = function (data) {
+                    return popularProducts.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1.jpg";
+                }
+
+                popularProducts.getUrl = getUrl;
+                popularProducts.getImageUrl = getImageUrl;
+                //------------------------------
+
+                defer.resolve(popularProducts);
+            })
+            .error(function (error) {
+                console.error("error from getHomePageProducts" + error);
+                defer.resolve(error);
+            });
+        })
+        .error(function (error) {
+            console.error("error from getHomePageProducts" + error);
+            defer.resolve(error);
+        });
+
+        return defer.promise;
+    }
+
+    dbAdaptor.getPopularProducts = function (categoryId) {
+        var allProducts = ez.data.products;
+        var popularProducts = [];
+        for (var i = 0; i < allProducts.length; i++) {
+            if (allProducts[i].popular) {
+                popularProducts.push(allProducts[i]);
             }
-
-            popularCategories.defaultOption = {
-                "urlBase" : "#/category"
-            }
-
-            popularCategories.option = {};
-            $.extend(true, popularCategories.option, ez.data.defaultOption, popularCategories.defaultOption);
-
-            var getUrl = function (data) {
-                return popularCategories.option.urlBase + "/" + data.productId;
-            }
-            var getImageUrl = function (data) {
-                return popularCategories.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1_thumb.jpg";
-            }
-
-            popularCategories.getUrl = getUrl;
-            popularCategories.getImageUrl = getImageUrl;
-
-            return (function () {
-                return popularCategories;
-            })();
-
-
-            // /* popularCategories */
-            // var popularCategoriesData = [productData[0], productData[1], productData[2]]
-            // ez.data.popularCategories = popularCategoriesData;
-
-            // ez.data.popularCategories.defaultOption = {
-                // "urlBase" : "#/category"
-            // }
-            // ez.data.popularCategories.option = {};
-            // $.extend(true, ez.data.popularCategories.option, ez.data.defaultOption, ez.data.popularCategories.defaultOption);
-
-            // ez.data.popularCategories.getUrl = function (data) {
-                // //return ez.data.popularCategories.option.urlBase + "/" + data.categoryId;
-                // return ez.data.popularCategories.option.urlBase;
-            // }
-            // ez.data.popularCategories.getImageUrl = function (data) {
-                // return ez.data.popularCategories.option.imageUrlBase + "/" + data.imageUrl + "/" + "1.jpg";
-            // }
         }
-    ]);
 
-/* Test Data Start */
+        popularProducts.defaultOption = {
+            "urlBase" : "#/product"
+        }
 
-/*example for getData from web api*/
-// ezControllers.controller("homeControl", ["$scope", "$http",
-//  function ($scope, $http) {
-//      // $http({ method: "GET", url: "dataSource/popular_commodiate.json" }).success(function (data) {
-//      $http.get("dataSource/popular_commodiate.json").success(function (data) {
-//          $scope.carousels = data;
-//      }).error(function (data) {
-//          console.log("error from ezControllers http get" + data);
-//      });
-//  } ]);
+        popularProducts.option = {};
+        $.extend(true, popularProducts.option, ez.data.defaultOption, popularProducts.defaultOption);
+
+        var getUrl = function (data) {
+            return popularProducts.option.urlBase + "/" + data.productId;
+        }
+        var getImageUrl = function (data) {
+            return popularProducts.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1_thumb.jpg";
+        }
+
+        popularProducts.getUrl = getUrl;
+        popularProducts.getImageUrl = getImageUrl;
+
+        return popularProducts;
+    }
+
+    dbAdaptor.getPopularCategories = function () {
+        var allProducts = ez.data.products;
+        var popularCategories = [];
+        for (var i = 0; i < allProducts.length; i++) {
+            if (allProducts[i].popular) {
+                popularCategories.push(allProducts[i]);
+            }
+        }
+
+        popularCategories.defaultOption = {
+            "urlBase" : "#/category"
+        }
+
+        popularCategories.option = {};
+        $.extend(true, popularCategories.option, ez.data.defaultOption, popularCategories.defaultOption);
+
+        var getUrl = function (data) {
+            return popularCategories.option.urlBase + "/" + data.productId;
+        }
+        var getImageUrl = function (data) {
+            return popularCategories.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1_thumb.jpg";
+        }
+
+        popularCategories.getUrl = getUrl;
+        popularCategories.getImageUrl = getImageUrl;
+
+        return popularCategories;
+    }
+
+    return dbAdaptor;
+}
+]);

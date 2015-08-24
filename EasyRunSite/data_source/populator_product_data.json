@@ -1,5 +1,6 @@
 [
-    {	"skuId" : "erjop01"	},
-    {	"skuId" : "erwd01"	},
-    {	"skuId" : "erwjcd801"	}
+    {	"productId" : "erjop01",	"categoryId" : "erjop01"	},
+    {	"productId" : "erjop02",	"categoryId" : "erjop02"	},
+    {	"productId" : "erwd01",	  "categoryId" : "erwd01"	},
+    {	"productId" : "erwjcd801",	"categoryId" : "erwjcd801"	}
 ]

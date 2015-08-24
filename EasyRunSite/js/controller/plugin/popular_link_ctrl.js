@@ -2,17 +2,17 @@
 
 var popularLinkPluginControllers = angular.module('popularLinkPluginControllers', []);
 
-popularLinkPluginControllers.controller('popularProductsController', ['$scope', 'getPopularProducts',
-        function ($scope, getPopularProducts) {
-            $scope.popularLink = getPopularProducts;
+popularLinkPluginControllers.controller('popularProductsController', ['$scope', 'dbAdaptor',
+        function ($scope, dbAdaptor) {
+            $scope.popularLink = dbAdaptor.getPopularProducts();
             $scope.popularLink.type = "product";
         }
     ]
 );
 
-popularLinkPluginControllers.controller('popularCategoriesController', ['$scope', 'getPopularCategories',
-        function ($scope, getPopularCategories) {
-            $scope.popularLink = getPopularCategories;
+popularLinkPluginControllers.controller('popularCategoriesController', ['$scope', 'dbAdaptor',
+        function ($scope, dbAdaptor) {
+            $scope.popularLink = dbAdaptor.getPopularCategories();
             $scope.popularLink.type = "category";
         }
     ]
