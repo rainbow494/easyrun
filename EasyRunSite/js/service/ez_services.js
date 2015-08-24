@@ -62,7 +62,7 @@ function ($http, $q) {
                 var allProducts = data || {};
                 for (var i = 0; i < homePageProductKeyData.length; i++) {
                     for (var j = 0; j < allProducts.length; j++) {
-                        if (homePageProductKeyData[i].produtId === allProducts[j].produtId) {
+                        if (homePageProductKeyData[i].productId === allProducts[j].productId) {
                             popularProducts.push(allProducts[j]);
                             break;
                         }
