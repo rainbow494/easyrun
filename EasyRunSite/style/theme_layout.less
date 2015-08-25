@@ -1,5 +1,6 @@
 @import "plugin/carousel.less";
 @import "header.less";
+@import "footer.less";
 
 @fixed-nav-bar-height: 70px;
 @footer-padding-top: 30px;
@@ -24,8 +25,7 @@ body {
 }
 
 .footer {
-    padding-top: @footer-padding-top;
-    border-top: @sperator;
+	.footer-template(@footer-padding-top, @sperator)
 }
 
 /* plugin-setting */

@@ -2,9 +2,9 @@
 
 var popularLinkPluginControllers = angular.module('popularLinkPluginControllers', []);
 
-popularLinkPluginControllers.controller('popularProductsController', ['$scope', 'dbAdaptor',
-        function ($scope, dbAdaptor) {
-            $scope.popularLink = dbAdaptor.getPopularProducts();
+popularLinkPluginControllers.controller('popularProductsController', ['$scope', '$routeParams', 'dbAdaptor',
+        function ($scope, $routeParams, dbAdaptor) {
+            $scope.popularLink = dbAdaptor.getPopularProducts($routeParams.productId);
             $scope.popularLink.type = "product";
         }
     ]
