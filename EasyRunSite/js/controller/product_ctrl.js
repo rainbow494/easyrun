@@ -2,9 +2,17 @@
 
 var productControllers = angular.module('productControllers', []);
 
-productControllers.controller('productSiteMapController', ['$scope', '$routeParams', 'ezSiteMapPluginFactory',
-function ($scope, $routeParams, ezSiteMapPluginFactory) {
-        $scope.siteMapData = ezSiteMapPluginFactory.getSiteMap($routeParams.productId);
+productControllers.controller('productSiteMapController', ['$scope', '$routeParams', 'dbAdaptor',
+function ($scope, $routeParams, dbAdaptor) {
+
+        var promise = dbAdaptor.getProductById($routeParams.productId);
+        promise.then(
+            function(result) {
+                $scope.siteMapData = result;
+            },
+            function(error) {
+                console.log('getProductById error: ' + error);
+            });
     }
 ]);
 
@@ -24,6 +32,7 @@ function ($scope, $routeParams, dbAdaptor) {
     promise.then(
         function(result) {
             $scope.product = result;
+            $scope.unit = $scope.product.length == 'customize' ? '' : 'mm';
         },
         function(error) {
             console.log('getProductById error: ' + error);

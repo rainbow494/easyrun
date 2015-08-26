@@ -9,7 +9,21 @@ homeControllers.controller('homePopularProductsController', ['$scope', 'dbAdapto
             var promise = dbAdaptor.getHomePageProducts();
             promise.then(
                 function (data) {
-                    $scope.popularProducts = data;
+                    var popularProducts = data;
+
+                    // -----------------------------
+                    popularProducts.defaultOption = {
+                        "urlBase" : "#/product"
+                    }
+
+                    popularProducts.option = {};
+                    $.extend(true, popularProducts.option, ez.data.defaultOption, popularProducts.defaultOption);
+
+                    popularProducts.getUrl = ez.helper.getUrl(popularProducts.option.urlBase);
+                    popularProducts.getImageUrl = ez.helper.getImageUrl(popularProducts.option.imageUrlBase);
+                    //------------------------------
+
+                    $scope.popularProducts = popularProducts;
                 }
             )
         }
