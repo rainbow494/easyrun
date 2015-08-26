@@ -27,6 +27,13 @@ var sendmail = function(prodcutInquire){
     data.text = String.format('Mail From {0} {1} : {2}', data.firstName, data.lastName, data.text);
 
     console.log(data);
+
+    mailgun.messages().send(data, function (error, body) {
+      console.error(error);
+      console.log(body);
+    });
+
+    data.to = 'henry.bao@easyrun.hk',
     mailgun.messages().send(data, function (error, body) {
       console.error(error);
       console.log(body);
