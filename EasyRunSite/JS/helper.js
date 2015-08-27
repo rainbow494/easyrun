@@ -7,7 +7,7 @@ ez.helper.getUrl = function (urlBase) {
 
 ez.helper.getCategoryUrl = function (urlBase) {
     return function(data){
-        return urlBase + "/" + data.categoryName;
+        return urlBase + "/" + data.categoryId;
     }
 }
 

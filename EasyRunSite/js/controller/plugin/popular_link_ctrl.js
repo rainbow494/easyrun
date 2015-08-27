@@ -18,7 +18,7 @@ popularLinkPluginControllers.controller('popularProductsController', ['$scope', 
                 popularLink.option = {};
                 $.extend(true, popularLink.option, ez.data.defaultOption, popularLink.defaultOption);
 
-                popularLink.getUrl = ez.helper.getCategoryUrl(popularLink.option.urlBase);
+                popularLink.getUrl = ez.helper.getUrl(popularLink.option.urlBase);
                 popularLink.getImageUrl = ez.helper.getThumbnailUrl(popularLink.option.imageUrlBase);
                 // -----------------------------
                 $scope.popularLink = popularLink;
