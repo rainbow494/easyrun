@@ -10,30 +10,37 @@ var domain = 'easyrun.hk';
 
 var mailgun = require('mailgun-js')({apiKey: apiKey,domain:domain});
 var sendmail = function(prodcutInquire){
-    // var data = {
-    //   from: 'paul.huang@easyrun.hk',
-    //   to: 'paul.huang@easyrun.hk',
-    //   subject: 'Hello',
-    //   text: 'Testing some Mailgun awesomness!'
-    // };
+    
     var data = {
       from: '',
-      to: 'paul.huang@easyrun.hk',
+      to: 'henry.bao@easyrun.hk',
       subject: '',
       text: ''
     };
 
     data = merge(data, prodcutInquire);
     data.text = String.format('Mail From {0} {1} : {2}', data.firstName, data.lastName, data.text);
-
     console.log(data);
-
+    
     mailgun.messages().send(data, function (error, body) {
       console.error(error);
       console.log(body);
     });
-
-    data.to = 'henry.bao@easyrun.hk',
+    
+    
+    var customerName = String.format('Dear {0} {1}, ', data.firstName, data.lastName);
+    var replyMessage = customerName + 
+    "Thank you for your interests on our products. " + 
+    "Your inquiry is well received. We will send you our feedback in 24 hours. In case of urgency & importance, pls call our manger MR. Henry BAO :+0086 18621322288." + 
+    "Thank you for your patience." +
+    "Your trustworthy," +
+    "Easyrun Sales Team"
+     
+    var from = data.from;
+    var to = data.to;
+    data.to = from,
+    data.from = to,
+    data.text = replyMessage;
     mailgun.messages().send(data, function (error, body) {
       console.error(error);
       console.log(body);

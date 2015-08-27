@@ -37,7 +37,7 @@ popularLinkPluginControllers.controller('popularCategoriesController', ['$scope'
 
                 // -----------------------------
                 popularCategories.defaultOption = {
-                    "urlBase" : "#/category"
+                    "urlBase" : "#/result"
                 }
 
                 popularCategories.option = {};
