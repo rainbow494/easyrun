@@ -18,6 +18,8 @@ ezServices.factory("dbAdaptor", ["$http", "$q",
                     console.error("error from getProductById" + error);
                     defer.resolve(error);
                 });
+                
+                return defer.promise  
             }
 
             dbAdaptor.getProductById = function (productId) {
@@ -38,50 +40,6 @@ ezServices.factory("dbAdaptor", ["$http", "$q",
                             break;
                         }
                     }
-<<<<<<< HEAD
-                }
-
-                // -----------------------------
-                popularProducts.defaultOption = {
-                    "urlBase" : "#/product"
-                }
-
-                popularProducts.option = {};
-                $.extend(true, popularProducts.option, ez.data.defaultOption, popularProducts.defaultOption);
-
-                var getUrl = function (data) {
-                    return popularProducts.option.urlBase + "/" + data.productId;
-                }
-                var getImageUrl = function (data) {
-                    return popularProducts.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1.jpg";
-                }
-
-                popularProducts.getUrl = getUrl;
-                popularProducts.getImageUrl = getImageUrl;
-                //------------------------------
-
-                defer.resolve(popularProducts);
-            })
-            .error(function (error) {
-                console.error("error from getHomePageProducts" + error);
-                defer.resolve(error);
-            });
-        })
-        .error(function (error) {
-            console.error("error from getHomePageProducts" + error);
-            defer.resolve(error);
-        });
-
-        return defer.promise;
-    }
-
-    dbAdaptor.getPopularProducts = function (categoryId) {
-        var allProducts = ez.data.products;
-        var popularProducts = [];
-        for (var i = 0; i < allProducts.length; i++) {
-            if (allProducts[i].popular) {
-                popularProducts.push(allProducts[i]);
-=======
                     defer.resolve(product);
 
                 })
@@ -89,8 +47,7 @@ ezServices.factory("dbAdaptor", ["$http", "$q",
                     console.log("error from getProductById" + data);
                     defer.resolve(data);
                 });
-                return defer.promise
->>>>>>> 701bd78... 添加linkedin图标，修改数据源，修改热门推荐功能
+                return defer.promise;
             }
 
             dbAdaptor.getHomePageProducts = function () {
@@ -128,67 +85,52 @@ ezServices.factory("dbAdaptor", ["$http", "$q",
                 return defer.promise;
             }
 
-            dbAdaptor.getPopularProducts = function (categoryId) {
-                var allProducts = ez.data.products;
-                var popularProducts = [];
-                for (var i = 0; i < allProducts.length; i++) {
-                    if (allProducts[i].popular) {
-                        popularProducts.push(allProducts[i]);
-                    }
-                }
+            dbAdaptor.getPopularProducts = function (productId) {
+                var defer = $q.defer();
+                
+                var promise = dbAdaptor.getProductById(productId);
 
-                popularProducts.defaultOption = {
-                    "urlBase" : "#/product"
-                }
+                promise.then(function(product){
+                    $http.get("data_source/populator_product_data.json")
+                    .success(function (data) {
+                        var populatorProductKeyData = data || {};
+                        
+                        var filteredProductKeyData = [];
+                        for  (var k = 0; k < populatorProductKeyData.length; k++)
+                        {
+                            if(populatorProductKeyData[k].categoryId === product.categoryId)  
+                            {
+                                filteredProductKeyData.push(populatorProductKeyData[k]);
+                            }
+                        }
 
-                popularProducts.option = {};
-                $.extend(true, popularProducts.option, ez.data.defaultOption, popularProducts.defaultOption);
+                        $http.get("data_source/product_data.json")
+                        .success(function (data) {
+                            var populatorProducts = [];
 
-<<<<<<< HEAD
-    dbAdaptor.getPopularCategories = function () {
-        var allProducts = ez.data.products;
-        var popularCategories = [];
-        for (var i = 0; i < allProducts.length; i++) {
-            if (allProducts[i].popular) {
-                popularCategories.push(allProducts[i]);
-            }
-        }
-
-        popularCategories.defaultOption = {
-            "urlBase" : "#/category"
-        }
-
-        popularCategories.option = {};
-        $.extend(true, popularCategories.option, ez.data.defaultOption, popularCategories.defaultOption);
-
-        var getUrl = function (data) {
-            return popularCategories.option.urlBase + "/" + data.productId;
-        }
-        var getImageUrl = function (data) {
-            return popularCategories.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1_thumb.jpg";
-        }
-
-        popularCategories.getUrl = getUrl;
-        popularCategories.getImageUrl = getImageUrl;
-
-        return popularCategories;
-    }
-
-    return dbAdaptor;
-}
-]);
-=======
-                var getUrl = function (data) {
-                    return popularProducts.option.urlBase + "/" + data.productId;
-                }
-                var getImageUrl = function (data) {
-                    return popularProducts.option.imageUrlBase + "/" + data.categoryName + "/" + data.productId + "/" + "1_thumb.jpg";
-                }
-
-                popularProducts.getUrl = getUrl;
-                popularProducts.getImageUrl = getImageUrl;
-
-                return popularProducts;
+                            var allProducts = data || {};
+                            for (var i = 0; i < filteredProductKeyData.length; i++) {
+                                for (var j = 0; j < allProducts.length; j++) {
+                                    if (filteredProductKeyData[i].productId === allProducts[j].productId) {
+                                        populatorProducts.push(allProducts[j]);
+                                        break;
+                                    }
+                                }
+                            }
+                            defer.resolve(populatorProducts);
+                        })
+                        .error(function (error) {
+                            console.error("error from getPopularCategories" + error);
+                            defer.resolve(error);
+                        });
+                    })
+                    .error(function (error) {
+                        console.error("error from getPopularCategories" + error);
+                        defer.resolve(error);
+                    });
+                })
+                
+                return defer.promise;
             }
 
             dbAdaptor.getPopularCategories = function () {
@@ -229,4 +171,3 @@ ezServices.factory("dbAdaptor", ["$http", "$q",
             return dbAdaptor;
         }
     ]);
->>>>>>> 701bd78... 添加linkedin图标，修改数据源，修改热门推荐功能
