@@ -27,20 +27,23 @@ var sendmail = function(prodcutInquire){
       console.log(body);
     });
     
-    
-    var customerName = String.format('Dear {0} {1}, ', data.firstName, data.lastName);
-    var replyMessage = customerName + 
-    "Thank you for your interests on our products. " + 
-    "Your inquiry is well received. We will send you our feedback in 24 hours. In case of urgency & importance, pls call our manger MR. Henry BAO :+0086 18621322288." + 
-    "Thank you for your patience." +
-    "Your trustworthy," +
-    "Easyrun Sales Team"
+    var replyMessage = [];
+    var customerName = String.format('Dear {0} {1},', data.firstName, data.lastName);
+    replyMessage.push(customerName);
+    replyMessage.push(" ");
+    replyMessage.push("Thank you for your interests on our products.");
+    replyMessage.push("Your inquiry is well received. We will send you our feedback in 24 hours. In case of urgency & importance, pls call our manger MR. Henry BAO :+0086 18621322288.");
+    replyMessage.push(" ");
+    replyMessage.push("Thank you for your patience.");
+    replyMessage.push(" ");
+    replyMessage.push("Your trustworthy,");
+    replyMessage.push("Easyrun Sales Team");
      
     var from = data.from;
     var to = data.to;
     data.to = from,
     data.from = to,
-    data.text = replyMessage;
+    data.text = ;
     mailgun.messages().send(data, function (error, body) {
       console.error(error);
       console.log(body);
