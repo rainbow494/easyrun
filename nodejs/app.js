@@ -32,7 +32,8 @@ var sendmail = function(prodcutInquire){
     replyMessage.push(customerName);
     replyMessage.push(" ");
     replyMessage.push("Thank you for your interests on our products.");
-    replyMessage.push("Your inquiry is well received. We will send you our feedback in 24 hours. In case of urgency & importance, pls call our manger MR. Henry BAO :+0086 18621322288.");
+    replyMessage.push("Your inquiry is well received. We will send you our feedback in 24 hours.");
+    replyMessage.push("In case of urgency & importance, pls call our manger MR. Henry BAO :+0086 18621322288.");
     replyMessage.push(" ");
     replyMessage.push("Thank you for your patience.");
     replyMessage.push(" ");
