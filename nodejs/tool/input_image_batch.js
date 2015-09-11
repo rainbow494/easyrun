@@ -1,8 +1,15 @@
 (function () {
-    var inputRoot = 'input/category/wall hangings';
-    var outputRoot = 'data/category/wall hangings';
+    var inputRoot = 'step1/category';
+    var outputRoot = 'step2/category';
 
     var fs = require('fs');
+    
+    fs.lstat(inputRoot, function (err, stats) {
+        if (err) {
+            console.log(inputRoot + ' not exist!');
+            return;
+        }
+    });
 
     fs.lstat(outputRoot, function (err, stats) {
         if (err) {
@@ -11,29 +18,37 @@
         }
     });
 
-    fs.lstat(inputRoot, function (err, stats) {
-        if (err) {
-            console.log(inputRoot + ' not exist!');
-            return;
-        }
-    });
-
-    fs.readdir(inputRoot, function (err, folders) {
-        for (var i = 0; i < folders.length; i++) {
-            var folderName = folders[i];
-
-            (function (folderName) {
-                fs.readdir(inputRoot + '/' + folderName, function (err, imgs) {
-                    for (var j = 0; j < imgs.length; j++) {
-                        var inputFullPath = inputRoot + '/' + folderName + '/' + imgs[j];
-                        var outPutFullPath = outputRoot + '/' + folderName + '_' + imgs[j];
-                        fs.link(inputFullPath, outPutFullPath, function () {});
-                    }
+    function walk(path, floor, handleFile) {
+        //handleFile(path, floor);
+        floor++;
+        fs.readdir(path, function (err, files) {
+            if (err) {
+                console.log('read dir error');
+            } else {
+                files.forEach(function (item) {
+                    var tmpPath = path + '/' + item;
+                    fs.stat(tmpPath, function (err1, stats) {
+                        if (err1) {
+                            console.log('stat error');
+                        } else {
+                            if (stats.isDirectory()) {
+                                walk(tmpPath, floor, handleFile);
+                            } else {
+                                handleFile(tmpPath, floor);
+                            }
+                        }
+                    })
                 });
-            })(folderName)
-        }
-    });
-
-    console.log('prepare data successful!')
-
+            }
+        });
+    }
+    
+    function handleFile(imgPath, floor){
+        var outPutImgPath = outputRoot + '/' + imgPath.slice(inputRoot.length + 1).split('/').join('-');
+        //console.info(outPutImgPath);
+        fs.link(imgPath, outPutImgPath, function () {});
+    }
+    
+    walk(inputRoot, 0, handleFile)
+    
 })();
