@@ -17,10 +17,10 @@
         }
         preInitDirectory = preInitDirectoryList.join('/');
         
-        fs.lstatSync(preInitDirectory, function(err, stats){
+        fs.lstat(preInitDirectory, function(err, stats){
             if (err)
             {
-                fs.mkdirSync(preInitDirectory)
+                fs.mkdir(preInitDirectory, function(){})
             }
             
             floor++;
