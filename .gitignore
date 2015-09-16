@@ -10,3 +10,4 @@ EasyRunSite/build
 /EasyRunSite/resource/image/category.zip
 /nodejs/build
 /nodejs/*.log
+/nodejs/tool/step*
