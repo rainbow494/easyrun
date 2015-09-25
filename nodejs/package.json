@@ -9,10 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mailgun-js": "^0.7.1",
-    "merge": "^1.2.0",
+    "bluebird": "^2.10.0",
     "body-parser": "^1.13.3",
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "mailgun-js": "^0.7.1",
+    "merge": "^1.2.0"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
