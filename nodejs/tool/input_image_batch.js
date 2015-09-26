@@ -1,15 +1,16 @@
+//http://stackoverflow.com/questions/32546765/iterate-directories-recursively-with-bluebird
 (function () {
     var Promise = require("../node_modules/bluebird");
     var fs = Promise.promisifyAll(require('fs'));
     
-    var inputRoot = 'step1/category';
+    var _inputRoot = 'step1/category';
     var outputRoot = 'step2/category1';
     
     var getFiles = function(){
-        return fs.readdirAsync(inputRoot);
+        return fs.readdirAsync(_inputRoot);
     }
     var getlstatAsync = function(filename){
-        return fs.lstatAsync(filename);
+        return fs.lstatAsync(filename).then(stat => !stat.isDirectory());
     }
     var linkFiles = function(filename){
         var outPutImgPath = outputRoot + '/' + imgPath.slice(inputRoot.length + 1).split('/').join('-');
@@ -17,7 +18,8 @@
     }
     
     getFiles()
-    .map(function(filename){
+    .map(function(item){
+        filename = _inputRoot + '/' + item;
         return getlstatAsync(filename);
     })
      .then(function(filestat){
