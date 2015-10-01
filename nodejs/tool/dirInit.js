@@ -1,32 +1,34 @@
-(function(){
-    var fs = require('fs');
+(function () {
 
-    function initDirectory(path, floor, _directoryList) {
+    var Promise = require("../node_modules/bluebird");
+    var fs = Promise.promisifyAll(require('fs'));
+    var path = require('path');
+
+    function initDir(dirName, index){
+        var index = index || 0;
         
-        var directoryList = _directoryList || path.split('/');
-        if (floor == directoryList.length)
+        var items = dirName.split(path.sep);
+        if (index > items.length)
         {
-            return false;
+            return true;
         }
-        
-        var preInitDirectoryList = [];
-        var loopCnt = 0;
-        while(loopCnt <= floor){
-             preInitDirectoryList.push(directoryList[loopCnt]);
-             loopCnt++;
-        }
-        preInitDirectory = preInitDirectoryList.join('/');
-        
-        fs.lstat(preInitDirectory, function(err, stats){
-            if (err)
-            {
-                fs.mkdir(preInitDirectory, function(){})
-            }
-            
-            floor++;
-            initDirectory(path, floor, directoryList);
-        });
+
+        var dir = items.slice(0, index + 1).join(path.sep);
+
+        return fs.lstatAsync(dir)
+            .then(function(){
+                index++;
+                return initDir(dirName, index);
+            })
+            .catch(function(err) {
+                console.log('mkdir : ' + dir);
+                return fs.mkdirAsync(dir)
+                    .then(function(){
+                        index++;
+                        return initDir(dirName, index);
+                    });
+            });
     }
-    
-    exports.initDirectory = initDirectory; 
+
+    exports.initDir = initDir;
 })()

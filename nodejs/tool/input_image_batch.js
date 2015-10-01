@@ -4,8 +4,15 @@
     var fs = Promise.promisifyAll(require('fs'));
     var path = require('path');
 
-    var _inputRoot = 'step1/category';
-    var _outputRoot = 'step2/category1';
+    var dirInit = require('./dirInit.js');
+
+    var _inputRoot = path.normalize('step1/category');
+    var _outputRoot = path.normalize('step2/category1');
+
+    dirInit.initDir(_outputRoot)
+    .then(function () {
+        console.log('end');
+    });
 
     // var linkFiles = function (filename) {
     // var outPutImgPath = _outputRoot + '/' + filename.slice(_inputRoot.length + 1).split(path.sep).join('-');
@@ -33,18 +40,19 @@
                 var c = b.join('-');
                 var outPutImgPath = _outputRoot + '/' + c;
                 //console.log(outPutImgPath);
-                
+
                 //fs.linkAsync(filename, outPutImgPath);
             }
             return filename;
         })
         // .reduce(function (initialValue, filename) {
-            // //return initialValue.concat(filename);
+        // //return initialValue.concat(filename);
         // }, []);
     }
 
-    readDir(_inputRoot)
+    //readDir(_inputRoot);
+
     //.then(function (v) {
-        //console.log("The following file has been copyed " + v.join("\n"));
+    //console.log("The following file has been copyed " + v.join("\n"));
     //});
 })();
