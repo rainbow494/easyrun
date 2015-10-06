@@ -1,37 +1,36 @@
+;
 (function () {
-    var inputRoot = 'step3/category';
-    var outputRoot = 'step4/category';
-
-    var fs = require('fs');
-    var dirInit = require('./dirInit.js');
-    var dirWalker = require('./dirWalker.js');
-
-    dirInit.initDirectory(outputRoot, 0);
-
-    fs.readdir(inputRoot, function (err, files) {
-        if (err) {
-            console.log('read dir error');
-            return false;
-        }
-
-        files.forEach(function (item) {
-            var inputFilePath = inputRoot + '/' + item;
-            
-            var fileSperatorIdx = item.lastIndexOf('-');
-            var fileName = item.substring(fileSperatorIdx + 1);
-            var directory = outputRoot + '/'  + item.substring(0, fileSperatorIdx).split('-').join('/');
-        
-            console.log(directory);   
-            dirInit.initDirectory(directory, 0);
-
-            var outputFilePath = directory + '/' + fileName;
-            linkFile(inputFilePath, outputFilePath);
-        });
-    });
     
-    function linkFile(inputFilePath, outputFilePath) {
-        console.log(inputFilePath);
-        console.log(outputFilePath);
-        fs.link(inputFilePath, outputFilePath, function () {});
+    var Promise = require("../node_modules/bluebird");
+    var fs = Promise.promisifyAll(require('fs'));
+    var Path = require('path');
+    
+    var _inputRoot = Path.normalize('step3/category');
+    var _outputRoot = Path.normalize('step4/category');
+
+    var dirInit = require('./dirInit.js');
+    
+    var dirRead = require('./dirRead.js');
+    
+    var convertI2OFun = function (inputFilename) {
+        
+        var _inputFilename = inputFilename.slice(_inputRoot.length + 1)
+        var _fileSperatorIdx = _inputFilename.lastIndexOf('-');
+        var fileName = _inputFilename.substring(_fileSperatorIdx + 1);
+        var outPutDir = Path.join(_outputRoot, _inputFilename.substring(0, _fileSperatorIdx).split('-').join(Path.sep));
+        
+        return Path.join(outPutDir, fileName);
     }
-})()
+    var fileCopy = require('./fileCopy.js').fileCopyModelInit(_inputRoot, _outputRoot, convertI2OFun);
+    
+    dirInit.initDir(_outputRoot)
+    .then(function () {
+        console.log('output dir inited.');
+    })
+    .then(function () {
+        return dirRead.readDir(_inputRoot);
+    })
+    .map(fileCopy.initOutputDir)
+    .map(fileCopy.copyFile)
+    .then(fileCopy.logCopyResults);
+})();

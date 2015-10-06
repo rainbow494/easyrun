@@ -1,3 +1,4 @@
+;
 (function () {
 
     var Promise = require("../node_modules/bluebird");
@@ -31,4 +32,4 @@
     }
 
     exports.initDir = initDir;
-})()
+})();
