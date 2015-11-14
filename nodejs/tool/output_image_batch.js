@@ -19,6 +19,8 @@
         var fileName = _inputFilename.substring(_fileSperatorIdx + 1);
         var outPutDir = Path.join(_outputRoot, _inputFilename.substring(0, _fileSperatorIdx).split('-').join(Path.sep));
         
+        fileName = fileName.substring(0,fileName.length-4) + '_thumb.jpg'
+        
         return Path.join(outPutDir, fileName);
     }
     var fileCopy = require('./fileCopy.js').fileCopyModelInit(_inputRoot, _outputRoot, convertI2OFun);
