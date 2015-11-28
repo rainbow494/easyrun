@@ -44,7 +44,7 @@ var sendmail = function(prodcutInquire){
     var to = data.to;
     data.to = from,
     data.from = to,
-    data.text = ;
+    data.text = replyMessage.join("\n\r");
     mailgun.messages().send(data, function (error, body) {
       console.error(error);
       console.log(body);
